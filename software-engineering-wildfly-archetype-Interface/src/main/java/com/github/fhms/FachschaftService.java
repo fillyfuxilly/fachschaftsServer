@@ -5,4 +5,5 @@ package com.github.fhms;
  * */
 public interface FachschaftService {
 
+	public String getName(String name);
 }
