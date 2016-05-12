@@ -1,9 +1,10 @@
 package com.github.fhms;
 
+
+
 import javax.ejb.Local;
-import javax.ejb.LocalBean;
-import javax.ejb.Stateful;
 import javax.ejb.Stateless;
+
 
 
 /**
@@ -12,13 +13,18 @@ import javax.ejb.Stateless;
  */
 @Stateless
 @Local(FachschaftService.class)
-public class FachschaftServiceBean {
+public class FachschaftServiceBean implements FachschaftService{
 
-    /**
-     * Default constructor. 
-     */
-    public FachschaftServiceBean() {
-        // TODO Auto-generated constructor stub
-    }
+	@Override
+	
+	
+		
+		
+	
+	public String getName(String name) {
+		// TODO Auto-generated method stub
+		return "My Name ist"+ name+".";
+	}
 
+  
 }
