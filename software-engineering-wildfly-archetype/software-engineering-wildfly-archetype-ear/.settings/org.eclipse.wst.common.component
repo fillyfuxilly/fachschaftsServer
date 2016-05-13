@@ -8,8 +8,5 @@
         <dependent-module archiveName="software-engineering-wildfly-archetype-ejb-1.0.0.jar" deploy-path="/" handle="module:/resource/software-engineering-wildfly-archetype-ejb/software-engineering-wildfly-archetype-ejb">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="software-engineering-wildfly-archetype-Interface-1.0.0.jar" deploy-path="/" handle="module:/resource/software-engineering-wildfly-archetype-Interface/software-engineering-wildfly-archetype-Interface">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
     </wb-module>
 </project-modules>
