@@ -4,6 +4,7 @@ package com.github.fhms;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 
 import com.github.fhm.interfaces.FachschaftService;
 
@@ -14,6 +15,7 @@ import com.github.fhm.interfaces.FachschaftService;
  * Session Bean implementation class FachschaftServiceBean
  */
 @Stateless
+@WebService
 @Local(FachschaftService.class)
 public class FachschaftServiceBean implements FachschaftService {
 
