@@ -17,6 +17,8 @@ import com.github.fhm.interfaces.FachschaftService;
 @Local(FachschaftService.class)
 public class FachschaftServiceBean implements FachschaftService {
 
+	
+	//Implementierung von Methoden der FachschaftService, Aufruf und implementierung der Methoden
 	@Override
 	public String getName(String name) {
 		// TODO Auto-generated method stub
