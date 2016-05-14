@@ -2,11 +2,14 @@ package com.github.fhms;
 
 
 
-import javax.ejb.Local;
+
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
 
+
 import com.github.fhm.interfaces.FachschaftService;
+
 
 
 
@@ -14,9 +17,10 @@ import com.github.fhm.interfaces.FachschaftService;
  * @author Amayda Dominguez
  * Session Bean implementation class FachschaftServiceBean
  */
-@Stateless
-@WebService
-@Local(FachschaftService.class)
+@Stateless 
+@WebService //Session Beans als Web Service veröffentlich(Annotation @WebService)
+
+
 public class FachschaftServiceBean implements FachschaftService {
 
 	
@@ -27,5 +31,8 @@ public class FachschaftServiceBean implements FachschaftService {
 		return "My Name ist"+ name+".";
 	}
 
+	
+	@EJB
+	private DtoAssembler dtoAssembler;
   
 }

@@ -1,4 +1,4 @@
-package com.github.fhm.dto;
+package com.github.fhm.util;
 
 import javax.ejb.Stateless;
 
