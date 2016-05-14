@@ -9,6 +9,7 @@ import javax.jws.WebService;
 
 
 import com.github.fhm.interfaces.FachschaftService;
+import com.github.fhm.util.DtoAssembler;
 
 
 
