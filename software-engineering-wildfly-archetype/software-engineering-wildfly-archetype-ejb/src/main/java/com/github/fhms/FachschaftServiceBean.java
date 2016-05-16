@@ -16,10 +16,14 @@ import com.github.fhm.util.DtoAssembler;
 
 /**
  * @author Amayda Dominguez
- * Session Bean implementation class FachschaftServiceBean
+ * 
+ * 
+ * Session Beans als Web Service veröffentlicht(Annotation @WebService)
  */
 @Stateless 
-@WebService //Session Beans als Web Service veröffentlich(Annotation @WebService)
+
+
+@WebService
 
 
 public class FachschaftServiceBean implements FachschaftService {
@@ -32,7 +36,9 @@ public class FachschaftServiceBean implements FachschaftService {
 		return "My Name ist"+ name+".";
 	}
 
-	
+	/**
+	 * 
+	 */
 	@EJB
 	private DtoAssembler dtoAssembler;
   
