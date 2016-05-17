@@ -7,7 +7,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
 
-
+import com.github.fhm.dao.FachschaftDAOLocal;
 import com.github.fhm.interfaces.FachschaftService;
 import com.github.fhm.util.DtoAssembler;
 
@@ -33,7 +33,13 @@ public class FachschaftServiceBean implements FachschaftService {
 	}
 
 	/**
-	 * 
+	 * EJB für den Datenzugriff
+	 */
+	
+	@EJB
+	private FachschaftDAOLocal dao;
+	/**
+	 * EJB zur Erzeugung von DataTranferObjects
 	 */
 	@EJB
 	private DtoAssembler dtoAssembler;
