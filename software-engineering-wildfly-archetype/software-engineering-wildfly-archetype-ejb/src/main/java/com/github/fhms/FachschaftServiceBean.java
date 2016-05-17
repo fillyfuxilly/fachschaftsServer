@@ -16,20 +16,16 @@ import com.github.fhm.util.DtoAssembler;
 
 /**
  * @author Amayda Dominguez
- * 
- * 
+ *  
  * Session Beans als Web Service veröffentlicht(Annotation @WebService)
  */
 @Stateless 
-
 
 @WebService
 
 
 public class FachschaftServiceBean implements FachschaftService {
 
-	
-	//Implementierung von Methoden der FachschaftService, Aufruf und implementierung der Methoden
 	@Override
 	public String getName(String name) {
 		// TODO Auto-generated method stub
