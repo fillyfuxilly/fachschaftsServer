@@ -24,19 +24,16 @@ import com.github.fhm.util.DtoAssembler;
 @WebService
 
 
-public class FachschaftServiceBean implements FachschaftService {
+public class FachschaftOnlineIntegration  {
 
-	@Override
-	public String getName(String name) {
-		// TODO Auto-generated method stub
-		return "My Name ist"+ name+".";
-	}
+
+	
 
 	/**
 	 * EJB für den Datenzugriff
 	 */
 	
-	@EJB
+	/*@EJB
 	private FachschaftDAOLocal dao;
 	/**
 	 * EJB zur Erzeugung von DataTranferObjects
