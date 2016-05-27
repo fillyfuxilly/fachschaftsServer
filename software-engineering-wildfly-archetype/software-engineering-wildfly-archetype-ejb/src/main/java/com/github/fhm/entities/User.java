@@ -19,6 +19,10 @@ public class User implements Serializable {
 	
 	private String password;
 	
+	private String name;
+	
+	private int gruppenNr;
+	
 	
 	public User(String userName, String password){
 		
