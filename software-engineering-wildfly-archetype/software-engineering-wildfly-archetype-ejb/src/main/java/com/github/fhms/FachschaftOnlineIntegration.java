@@ -14,6 +14,8 @@ import com.github.fhm.util.DtoAssembler;
 
 
 
+
+
 /**
  * @author Amayda Dominguez
  *  
@@ -40,5 +42,7 @@ public class FachschaftOnlineIntegration  {
 	 */
 	@EJB
 	private DtoAssembler dtoAssembler;
-  
+	
+	@EJB
+	private OutPutRequesterBean outputRequester;
 }
