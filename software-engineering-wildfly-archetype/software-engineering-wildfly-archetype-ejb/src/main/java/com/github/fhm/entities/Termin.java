@@ -1,5 +1,5 @@
 package com.github.fhm.entities;
 
-public class Ersti {
+public class Termin {
 
 }
