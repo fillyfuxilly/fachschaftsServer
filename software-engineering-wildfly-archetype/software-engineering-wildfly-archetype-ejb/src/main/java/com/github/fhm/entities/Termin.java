@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Termin implements Serializable {
@@ -15,8 +16,16 @@ public class Termin implements Serializable {
 	private Date timestamp;
 	private int anzahl;
 	
+	@ManyToOne
+	private User besitzer;
 	
 	public Termin(){}
+	
+	public Termin(User besitzer){
+		this.besitzer=besitzer;
+		
+		
+	}
 	
 	
 	public int getId() {
