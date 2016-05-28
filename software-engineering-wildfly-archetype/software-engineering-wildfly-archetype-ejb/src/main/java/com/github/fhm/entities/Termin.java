@@ -14,7 +14,7 @@ public class Termin implements Serializable {
 	@Id @GeneratedValue
 	private int id;
 	private Date timestamp;
-	private int anzahl;
+
 	
 	@ManyToOne
 	private User besitzer;
