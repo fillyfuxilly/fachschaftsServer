@@ -55,7 +55,11 @@
             <artifactId>arquillian-protocol-servlet</artifactId>
             <scope>test</scope>
         </dependency>
-
+         <dependency>
+                    <groupId>org.jboss.spec.javax.jms</groupId>
+                    <artifactId>jboss-jms-api_2.0_spec</artifactId>
+                    <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -103,11 +107,6 @@
             <!-- Run with: mvn clean test -Parq-wildfly-managed -->
             <id>arq-wildfly-managed</id>
             <dependencies>
-                 <dependency>
-                    <groupId>org.jboss.spec.javax.jms</groupId>
-                    <artifactId>jboss-jms-api_2.0_spec</artifactId>
-                    <scope>provided</scope>
-                 </dependency>
                 <dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-arquillian-container-managed</artifactId>
