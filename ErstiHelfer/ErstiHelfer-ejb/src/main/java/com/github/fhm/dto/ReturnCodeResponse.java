@@ -1,4 +1,6 @@
-/**
+package com.github.fhm.dto;
+
+/*
  * 
  * @author Amayda Dominguez
  *
