@@ -30,7 +30,7 @@ public class User implements Serializable {
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="besitzer")
 	@MapKey
-	private Map<Integer,Termin> termine;
+	private Map<Integer,Appointment> termine;
 	
 	public User(String userName, String password){
 		

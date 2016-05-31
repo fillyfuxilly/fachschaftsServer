@@ -1,5 +1,5 @@
 package com.github.fhm.entities;
 
-public class Nachricht {
+public class Message {
 
 }
