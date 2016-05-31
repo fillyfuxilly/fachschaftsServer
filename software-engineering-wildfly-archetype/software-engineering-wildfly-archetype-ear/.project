@@ -3,6 +3,8 @@
 	<name>ErstiHelfer-ear</name>
 	<comment></comment>
 	<projects>
+		<project>ErstiHelfer-ejb</project>
+		<project>Erstihelfer-web</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
