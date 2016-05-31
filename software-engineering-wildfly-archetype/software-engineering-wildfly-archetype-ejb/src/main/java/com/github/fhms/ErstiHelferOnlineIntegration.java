@@ -8,7 +8,7 @@ import javax.ejb.Stateless;
 import javax.jws.WebService;
 
 import com.github.fhm.dao.ErstiHelferDAOLocal;
-import com.github.fhm.interfaces.FachschaftService;
+import com.github.fhm.interfaces.ErstiHelferService;
 import com.github.fhm.util.DtoAssembler;
 
 
