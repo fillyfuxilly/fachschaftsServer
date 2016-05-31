@@ -7,7 +7,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
 
-import com.github.fhm.dao.FachschaftDAOLocal;
+import com.github.fhm.dao.ErstiHelferDAOLocal;
 import com.github.fhm.interfaces.FachschaftService;
 import com.github.fhm.util.DtoAssembler;
 
@@ -26,7 +26,7 @@ import com.github.fhm.util.DtoAssembler;
 @WebService
 
 
-public class FachschaftOnlineIntegration  {
+public class ErstiHelferOnlineIntegration  {
 
 
 	
@@ -36,7 +36,7 @@ public class FachschaftOnlineIntegration  {
 	 */
 	
 	@EJB
-	private FachschaftDAOLocal dao;
+	private ErstiHelferDAOLocal dao;
 	
 	/**
 	 * EJB zur Erzeugung von DataTranferObjects

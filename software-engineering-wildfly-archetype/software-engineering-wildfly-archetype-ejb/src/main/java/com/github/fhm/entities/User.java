@@ -20,27 +20,27 @@ public class User implements Serializable {
 	private int id;
 	
 	@Column(unique=true, nullable=false)
-	private String userName;
+	private String username;
 	
 	private String password;
 	
 	private String name;
 	
-	private int gruppenNr;
+	private int groupNr;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="besitzer")
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="owner")
 	@MapKey
-	private Map<Integer,Termin> termine;
+	private Map<Integer,Appointment> appointment;
 	
-	public User(String userName, String password){
+	public User(String username, String password){
 		
 		this.id = ++lastID;
-		this.userName = userName;
+		this.username = username;
 		this.password = password;		
 		
 	}
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 
 	public String getPassword() {

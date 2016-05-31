@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Termin implements Serializable {
+public class Appointment implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id @GeneratedValue
 	private int id;
