@@ -35,8 +35,9 @@ public class FachschaftOnlineIntegration  {
 	 * EJB für den Datenzugriff
 	 */
 	
-	/*@EJB
+	@EJB
 	private FachschaftDAOLocal dao;
+	
 	/**
 	 * EJB zur Erzeugung von DataTranferObjects
 	 */
