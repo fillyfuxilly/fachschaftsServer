@@ -28,13 +28,8 @@ public class User implements Serializable {
 	
 	private int groupNr;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="owner")
 	@MapKey
-<<<<<<< HEAD
-	private Map<Integer,Appointment> termine;
-=======
 	private Map<Integer,Appointment> appointment;
->>>>>>> 56e5ec164fd87d69b521f5d008d7cfd92b1cf1a1
 	
 	public User(String username, String password){
 		

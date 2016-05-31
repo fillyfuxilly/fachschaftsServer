@@ -69,14 +69,6 @@ public class Appointment implements Serializable {
 		this.description = beschreibung;
 	}
 
-	public User getBesitzer() {
-		return besitzer;
-	}
-
-	public void setBesitzer(User besitzer) {
-		this.besitzer = besitzer;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

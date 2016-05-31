@@ -5,6 +5,7 @@
 	<projects>
 		<project>ErstiHelfer-ejb</project>
 		<project>Erstihelfer-web</project>
+		<project>ErstiHelfer-web</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
