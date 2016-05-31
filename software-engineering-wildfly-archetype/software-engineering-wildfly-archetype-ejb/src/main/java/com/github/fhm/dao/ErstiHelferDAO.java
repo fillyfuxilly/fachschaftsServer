@@ -11,7 +11,7 @@ import javax.persistence.EntityManager;
  * 
  * **/
 @Stateless
-public class FachschaftDAO {
+public class ErstiHelferDAO {
 	
 /**
  * EntityManager-Aufrufe
