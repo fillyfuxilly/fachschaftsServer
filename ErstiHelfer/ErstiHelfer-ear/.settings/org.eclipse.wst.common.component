@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="ErstiHelfer-ear">
+    <wb-module deploy-name="software-engineering-wildfly-archetype-ear">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
+<<<<<<< HEAD:ErstiHelfer/ErstiHelfer-ear/.settings/org.eclipse.wst.common.component
         <dependent-module archiveName="ErstiHelfer-web-1.0.0.war" deploy-path="/" handle="module:/resource/ErstiHelfer-web/ErstiHelfer-web">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ErstiHelfer-ejb-1.0.0.jar" deploy-path="/" handle="module:/resource/ErstiHelfer-ejb/ErstiHelfer-ejb">
+=======
+        <dependent-module archiveName="software-engineering-wildfly-archetype-web-1.0.0.war" deploy-path="/" handle="module:/resource/software-engineering-wildfly-archetype-web/software-engineering-wildfly-archetype-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="software-engineering-wildfly-archetype-ejb-1.0.0.jar" deploy-path="/" handle="module:/resource/software-engineering-wildfly-archetype-ejb/software-engineering-wildfly-archetype-ejb">
+>>>>>>> 315e0c6d0c007b9c20024efe38c0103a5654f435:software-engineering-wildfly-archetype/software-engineering-wildfly-archetype-ear/.settings/org.eclipse.wst.common.component
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
