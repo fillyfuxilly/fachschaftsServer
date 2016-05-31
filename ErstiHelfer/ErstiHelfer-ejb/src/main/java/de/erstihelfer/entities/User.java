@@ -31,11 +31,12 @@ public class User implements Serializable {
 	@MapKey
 	private Map<Integer,Appointment> appointment;
 	
-	public User(String username, String password){
+	public User(String username, String password, int groupNr){
 		
 		this.id = ++lastID;
 		this.username = username;
-		this.password = password;		
+		this.password = password;
+		this.groupNr = groupNr;
 		
 	}
 	public String getUserName() {
@@ -50,7 +51,7 @@ public class User implements Serializable {
 		return id;
 	}
 
-	public void setId(int customerId) {
-		this.id = customerId;
+	public void setId(int userId) {
+		this.id = userId;
 	}
 }
