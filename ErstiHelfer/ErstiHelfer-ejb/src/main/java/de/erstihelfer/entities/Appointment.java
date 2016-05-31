@@ -1,4 +1,4 @@
-package com.github.fhm.entities;
+package de.erstihelfer.entities;
 
 import java.io.Serializable;
 import java.util.Date;

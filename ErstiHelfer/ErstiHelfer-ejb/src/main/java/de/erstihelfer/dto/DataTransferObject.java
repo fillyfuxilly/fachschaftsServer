@@ -1,4 +1,4 @@
-package com.github.fhm.dto;
+package de.erstihelfer.dto;
 
 import java.io.Serializable;
 

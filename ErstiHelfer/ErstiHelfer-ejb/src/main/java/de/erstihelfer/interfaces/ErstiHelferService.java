@@ -1,4 +1,4 @@
-package com.github.fhm.interfaces;
+package de.erstihelfer.interfaces;
 /**
  * @author Amayda Dominguez
  * 

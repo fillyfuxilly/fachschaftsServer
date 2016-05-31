@@ -1,4 +1,4 @@
-package com.github.fhm.util;
+package de.erstihelfer.util;
 
 import javax.ejb.Stateless;
 /**

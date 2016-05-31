@@ -1,4 +1,4 @@
-package com.github.fhm.entities;
+package de.erstihelfer.entities;
 
 /**
  * @author Amayda Dominguez
