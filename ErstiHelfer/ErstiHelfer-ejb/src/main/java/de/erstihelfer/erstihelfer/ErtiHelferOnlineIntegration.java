@@ -2,10 +2,17 @@ package de.erstihelfer.erstihelfer;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.jws.WebService;
 
+import org.jboss.logging.Logger;
+
 import de.erstihelfer.dao.ErstiHelferDAOLocal;
+import de.erstihelfer.entities.ErstiHelferSession;
 import de.erstihelfer.util.DtoAssembler;
+
+
 
 /**
  * @author Amayda Dominguez
@@ -16,9 +23,9 @@ import de.erstihelfer.util.DtoAssembler;
 @Stateless 
 
 @WebService
-
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class ErtiHelferOnlineIntegration {
-
+	private static final Logger logger = Logger.getLogger(ErtiHelferOnlineIntegration.class);
 	/**
 	 * EJB für den Datenzugriff
 	 */
@@ -34,4 +41,18 @@ public class ErtiHelferOnlineIntegration {
 	
 	@EJB
 	private OutputRequesterBean outputRequester;
+	
+	/**
+	 * Holt anhand der Session-ID das zugehörige Session-Objekt.
+	 * @param sessionId
+	 * @return
+	 * @throws NoSessionException
+	 */
+	private ErstiHelferSession getSession(int sessionId) {
+		ErstiHelferSession session = dao.findSessionById(sessionId);
+		/*if (session==null)
+			throw new NoSessionException("Bitte zunächst ein Login durchführen.");
+		else*/
+			return session;
+	}
 }

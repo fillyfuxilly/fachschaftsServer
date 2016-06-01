@@ -5,7 +5,9 @@ import java.util.Date;
 import javax.ejb.Local;
 
 import de.erstihelfer.entities.Appointment;
+import de.erstihelfer.entities.ErstiHelferSession;
 import de.erstihelfer.entities.User;
+import de.xbank.entities.XbankSession;
 
 /**
  * 
@@ -20,6 +22,7 @@ public interface ErstiHelferDAOLocal {
 
 	public Appointment findAppointmentByStarttime(Date starttime);
 	public User createUser(String username, int group);
+	public ErstiHelferSession findSessionById(int id);
 	public User findUserByName(String username);
 	public int createSession(User user);
 	public void closeSession(int id);

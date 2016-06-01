@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import de.erstihelfer.entities.Appointment;
 import de.erstihelfer.entities.ErstiHelferSession;
 import de.erstihelfer.entities.User;
+import de.xbank.entities.XbankSession;
 import de.erstihelfer.dao.ErstiHelferDAOLocal;
 
 /**
@@ -33,6 +34,9 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 *
 	 * @see ErstihelferDAOLocal#findSessionById(int)
 	 */
+	  public ErstiHelferSession findSessionById(int id) {
+	    	return em.find(ErstiHelferSession.class, id);
+	    }
 
 	public Appointment findAppointmentByStarttime(Date starttime) {
 		List results = em.createQuery("SELECT * FROM appointment a WHERE a.starttime >= GETDATE()  LIKE :apoint")
