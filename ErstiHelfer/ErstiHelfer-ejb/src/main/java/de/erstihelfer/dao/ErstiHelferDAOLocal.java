@@ -12,7 +12,7 @@ import de.erstihelfer.entities.User;
 public interface ErstiHelferDAOLocal {
 
 	public Appointment findApointment(Date starttime);
-	public User createUser(String username, String password, int group);
+	public User createUser(String username, int group);
 	public User findUserByName(String username);
 	public int createSession(User user);
 	public void closeSession(int id);
