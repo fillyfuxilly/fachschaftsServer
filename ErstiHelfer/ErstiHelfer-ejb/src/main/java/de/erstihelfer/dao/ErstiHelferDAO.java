@@ -56,9 +56,9 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	        em.persist(newSession);
 	        return newSession.getId();
 	    }
-	  public User createUser(String username, String password, int groupNr){
+	  public User createUser(String username,  int groupNr){
 		  if(findUserByName(username) == null) {
-				User user = new User(username, password, groupNr);
+				User user = new User(username, groupNr);
 				em.persist(user);	
 				return user;
 			}
