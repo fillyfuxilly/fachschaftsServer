@@ -21,8 +21,7 @@ public class User implements Serializable {
 	
 	@Column(unique=true, nullable=false)
 	private String username;
-	
-	private String password;
+
 	
 	private String name;
 	
@@ -31,20 +30,19 @@ public class User implements Serializable {
 	@MapKey
 	private Map<Integer,Appointment> appointment;
 	
-	public User(String username, String password, int groupNr){
+	public User(String username, int groupNr){
 		
 		this.id = ++lastID;
 		this.username = username;
-		this.password = password;
-		this.groupNr = groupNr;
+	    this.groupNr = groupNr;
 		
 	}
 	public String getUserName() {
 		return username;
 	}
 
-	public String getPassword() {
-		return password;
+	public int getGroupNr() {
+		return groupNr;
 	}
 
 	public int getId() {
