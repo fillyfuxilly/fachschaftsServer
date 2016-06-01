@@ -18,7 +18,7 @@ import de.erstihelfer.entities.User;
 @Local
 public interface ErstiHelferDAOLocal {
 
-	public Appointment findApointment(Date starttime);
+	public Appointment findAppointmentByStarttime(Date starttime);
 	public User createUser(String username, int group);
 	public User findUserByName(String username);
 	public int createSession(User user);
