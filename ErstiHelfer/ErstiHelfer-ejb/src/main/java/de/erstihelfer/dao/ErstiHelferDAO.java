@@ -18,6 +18,7 @@ import de.erstihelfer.entities.User;
  * 
  * @author Amayda Dominguez
  * DAO-Session Bean für das Persistenzmanagement
+ * Session Bean Implementation
  * 
  * **/
 @Stateless
@@ -29,10 +30,23 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	@PersistenceContext
 	private EntityManager em;
 	
-	public Appointment findApointment(Date starttime){
-		return em.find(Appointment.class, starttime);
-		
-	}
+	/**
+	 * Die Methode findet gibt die Termine zurück nach dem Namen
+	 */
+	
+	public Appointment findAppointment(Date starttime) {
+    	List results = em.createQuery("SELECT * FROM appointment a WHERE a.starttime >= GETDATE()  LIKE :apoint")
+    	                 .setParameter("apoint", starttime)
+    	                 .getResultList();
+    	if (results.size()==1) {
+    	    return (Appointment) results.get(0);
+    	}
+    	else {
+    		return null;
+    	}
+    }
+	
+
 	
 	public User findUserByName(String username) {
     	List results = em.createQuery("SELECT c FROM User u WHERE u.username LIKE :usName")
