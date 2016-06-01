@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import de.erstihelfer.entities.Appointment;
 import de.erstihelfer.entities.ErstiHelferSession;
 import de.erstihelfer.entities.User;
-import de.xbank.entities.XbankSession;
 import de.erstihelfer.dao.ErstiHelferDAOLocal;
 
 /**
