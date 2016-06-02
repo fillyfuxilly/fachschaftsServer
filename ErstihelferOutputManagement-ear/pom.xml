@@ -5,7 +5,7 @@
     <parent>
         <groupId>de.fh.fachschaft</groupId>
         <artifactId>ErstihelferOutputManagement</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>ErstihelferOutputManagement-ear</artifactId>
@@ -16,13 +16,13 @@
         <dependency>
             <groupId>de.fh.fachschaft</groupId>
             <artifactId>ErstihelferOutputManagement-web</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.0-SNAPSHOT</version>
             <type>war</type>
         </dependency>
         <dependency>
             <groupId>de.fh.fachschaft</groupId>
             <artifactId>ErstihelferOutputManagement-ejb</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
     </dependencies>
