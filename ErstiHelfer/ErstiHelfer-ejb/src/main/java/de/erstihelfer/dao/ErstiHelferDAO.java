@@ -37,11 +37,12 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	    	return em.find(ErstiHelferSession.class, id);
 	    }
 
-	public Appointment findAppointmentByStarttime(Date starttime) {
-		List results = em.createQuery("SELECT * FROM appointment a WHERE a.starttime >= GETDATE()  LIKE :apoint")
-				.setParameter("apoint", starttime).getResultList();
+	  public List<Appointment> getAppointment(Date timestamp, int count, int groupNr) {
+		  //TODO: SELECT-Query
+		List results = em.createQuery("SELECT * FROM appointment a WHERE a.starttime >= GETDATE()  LIKE :appoint")
+				.setParameter("appoint", timestamp).getResultList();
 		if (results.size() == 1) {
-			return (Appointment) results.get(0);
+			return (List<Appointment>) results;
 		} else {
 			return null;
 		}

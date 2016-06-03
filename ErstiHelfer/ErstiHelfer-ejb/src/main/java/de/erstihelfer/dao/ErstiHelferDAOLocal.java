@@ -1,6 +1,7 @@
 package de.erstihelfer.dao;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Local;
 
@@ -20,7 +21,7 @@ import de.erstihelfer.entities.User;
 @Local
 public interface ErstiHelferDAOLocal {
 
-	public Appointment findAppointmentByStarttime(Date starttime);
+	public List<Appointment> getAppointment(Date timestamp, int count, int groupNr);
 	public User createUser(String username, int group);
 	public ErstiHelferSession findSessionById(int id);
 	public User findUserByName(String username);
