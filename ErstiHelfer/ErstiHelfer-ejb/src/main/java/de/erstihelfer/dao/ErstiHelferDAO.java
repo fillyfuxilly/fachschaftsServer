@@ -104,4 +104,10 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		}
 	}
 
+	@Override
+	public String getServerStatus() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
