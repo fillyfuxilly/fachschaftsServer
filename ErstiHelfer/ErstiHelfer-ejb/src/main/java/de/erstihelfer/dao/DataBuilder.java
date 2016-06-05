@@ -27,8 +27,8 @@ public class DataBuilder {
 	@PersistenceContext
 	EntityManager em;
 	
-	@EJB
-	ErstiHelferDAOLocal dao;
+	/*@EJB
+	ErstiHelferDAOLocal dao;*/
 	
 	@Resource
 	private String username1;
@@ -38,7 +38,7 @@ public class DataBuilder {
      
     }
     
-    @PostConstruct
+   /* @PostConstruct
     private void createTestData(){
     	User user1=dao.findUserByName(username1);
     	if(user1==null){
@@ -47,6 +47,6 @@ public class DataBuilder {
     		logger.info("Neu angelegt:" + user1);
     	}
     	
-    }
+    }*/
 
 }
