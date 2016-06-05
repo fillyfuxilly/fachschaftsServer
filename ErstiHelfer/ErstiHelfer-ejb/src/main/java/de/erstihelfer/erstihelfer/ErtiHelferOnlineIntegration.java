@@ -11,6 +11,7 @@ import org.jboss.logging.Logger;
 import de.erstihelfer.dao.ErstiHelferDAOLocal;
 import de.erstihelfer.entities.ErstiHelferSession;
 import de.erstihelfer.util.DtoAssembler;
+import de.xbank.onlinebanking.NoSessionException;
 
 
 
@@ -48,11 +49,11 @@ public class ErtiHelferOnlineIntegration {
 	 * @return
 	 * @throws NoSessionException
 	 */
-	private ErstiHelferSession getSession(int sessionId) {
+	private ErstiHelferSession getSession(int sessionId) throws NoSessionException{
 		ErstiHelferSession session = dao.findSessionById(sessionId);
-		/*if (session==null)
+		if (session==null)
 			throw new NoSessionException("Bitte zunächst ein Login durchführen.");
-		else*/
+		else
 			return session;
 	}
 }
