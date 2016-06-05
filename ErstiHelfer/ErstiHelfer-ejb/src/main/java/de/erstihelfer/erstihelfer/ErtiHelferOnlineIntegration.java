@@ -7,6 +7,7 @@ import javax.ejb.TransactionManagementType;
 import javax.jws.WebService;
 
 import org.jboss.logging.Logger;
+import org.jboss.ws.api.annotation.WebContext;
 
 import de.erstihelfer.dao.ErstiHelferDAOLocal;
 import de.erstihelfer.entities.ErstiHelferSession;
@@ -24,6 +25,7 @@ import de.erstihelfer.util.DtoAssembler;
 @Stateless 
 
 @WebService
+@WebContext(contextRoot="/erstihelfer")
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class ErtiHelferOnlineIntegration {
 	private static final Logger logger = Logger.getLogger(ErtiHelferOnlineIntegration.class);
