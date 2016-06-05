@@ -28,7 +28,7 @@ public class DataBuilder {
 	EntityManager em;
 	
 	@EJB
-	ErstiHelferDAO dao;
+	ErstiHelferDAOLocal dao;
 	
 	@Resource
 	private String username1;
