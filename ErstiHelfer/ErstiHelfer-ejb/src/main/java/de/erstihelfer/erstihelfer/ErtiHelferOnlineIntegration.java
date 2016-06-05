@@ -2,8 +2,6 @@ package de.erstihelfer.erstihelfer;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.ejb.TransactionManagement;
-import javax.ejb.TransactionManagementType;
 import javax.jws.WebService;
 
 import org.jboss.logging.Logger;
@@ -23,11 +21,12 @@ import de.erstihelfer.util.DtoAssembler;
  */
 
 @Stateless 
-
 @WebService
 @WebContext(contextRoot="/erstihelfer")
-@TransactionManagement(TransactionManagementType.CONTAINER)
+
+
 public class ErtiHelferOnlineIntegration {
+	
 	private static final Logger logger = Logger.getLogger(ErtiHelferOnlineIntegration.class);
 	/**
 	 * EJB für den Datenzugriff
