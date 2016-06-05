@@ -11,7 +11,7 @@ import org.jboss.logging.Logger;
 import de.erstihelfer.dao.ErstiHelferDAOLocal;
 import de.erstihelfer.entities.ErstiHelferSession;
 import de.erstihelfer.util.DtoAssembler;
-import de.xbank.onlinebanking.NoSessionException;
+
 
 
 
