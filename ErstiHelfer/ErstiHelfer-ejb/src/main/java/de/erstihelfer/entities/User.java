@@ -14,7 +14,7 @@ import javax.persistence.ManyToMany;
  * @author Amayda Dominguez
  *
  */
-@Entity
+//@Entity
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private static int lastID = 0;

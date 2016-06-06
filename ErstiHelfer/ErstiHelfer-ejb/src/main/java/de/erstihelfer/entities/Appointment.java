@@ -35,8 +35,8 @@ public class Appointment implements Serializable {
 	// timestamp für Erstellung des Termins
 	private Date createdAt;
 
-    @ManyToMany
-    Set<User> users=new HashSet<User>();
+   /* @ManyToMany
+    Set<User> users=new HashSet<User>();*/
     
 	public Appointment() {
 	}

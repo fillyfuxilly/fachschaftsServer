@@ -45,11 +45,11 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 * @see ErstihelferDAOLocal#createSession(int)
 	 */
 
-	public int createSession(User user) {
+	/*public int createSession(User user) {
 		ErstiHelferSession newSession = new ErstiHelferSession(user);
 		em.persist(newSession);
 		return newSession.getId();
-	}
+	}*/
 
 	/**
 	 * Die Methode findet gibt die Termine zurück nach dem Namen
@@ -69,7 +69,7 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 * @see ErstihelferDAOLocal#findUserByName(int)
 	 */
 
-	public User findUserByName(String username) {
+	/*public User findUserByName(String username) {
 		List results = em.createQuery("SELECT u FROM User u WHERE u.username LIKE :usName")
 				.setParameter("usName", username).getResultList();
 		if (results.size() == 1) {
@@ -77,9 +77,9 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		} else {
 			return null;
 		}
-	}
+	}*/
 
-	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+	/*@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public User createUser(String username, int groupNr) {
 		if (findUserByName(username) == null) {
 			User user = new User(username, groupNr);
@@ -102,7 +102,7 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		}
 	}
 
-
+*/
 
 	/**
 	 * Die Methode findet gibt die Termine zurück nach dem Namen
