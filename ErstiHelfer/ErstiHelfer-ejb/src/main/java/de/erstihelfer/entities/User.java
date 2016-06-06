@@ -42,7 +42,11 @@ public class User implements Serializable {
 	    this.groupNr = groupNr;
 		
 	}
-	public String getUserName() {
+	
+	public void setUsername (String username) {
+		this.username = username;
+	}
+	public String getUsername() {
 		return username;
 	}
 

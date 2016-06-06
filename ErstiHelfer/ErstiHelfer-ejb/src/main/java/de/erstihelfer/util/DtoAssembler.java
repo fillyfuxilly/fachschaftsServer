@@ -1,6 +1,9 @@
 package de.erstihelfer.util;
 
 import javax.ejb.Stateless;
+
+import de.erstihelfer.dto.UserTO;
+import de.erstihelfer.entities.User;
 /**
  * 
  * @author Amayda Dominguez
@@ -9,5 +12,11 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class DtoAssembler {
+
+	public UserTO makeDTO(User user){
+		UserTO dto= new UserTO();
+		dto.setUsername(user.getUsername());
+		return dto;
+	}
 
 }
