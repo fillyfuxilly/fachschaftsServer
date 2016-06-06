@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -14,9 +16,8 @@ import de.erstihelfer.dao.ErstiHelferDAOLocal;
 
 /**
  * 
- * @author Amayda Dominguez 
- * DAO-Session Bean für das Persistenzmanagement
- *   Session Bean Implementation
+ * @author Amayda Dominguez DAO-Session Bean für das Persistenzmanagement
+ *         Session Bean Implementation
  * 
  **/
 @Stateless
@@ -33,21 +34,35 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 *
 	 * @see ErstihelferDAOLocal#findSessionById(int)
 	 */
-	  public ErstiHelferSession findSessionById(int id) {
-	    	return em.find(ErstiHelferSession.class, id);
-	    }
+	public ErstiHelferSession findSessionById(int id) {
+		return em.find(ErstiHelferSession.class, id);
+	}
+	
 
-	  public List<Appointment> getAppointment(Date timestamp, int count, int groupNr) {
-		  //TODO: SELECT-Query
-		List results = em.createQuery("SELECT * FROM appointment a WHERE a.starttime >= GETDATE()  LIKE :appoint")
-				.setParameter("appoint", timestamp).getResultList();
-		if (results.size() == 1) {
-			return (List<Appointment>) results;
-		} else {
-			return null;
-		}
+	/**
+	 * Die Methode findet gibt die Termine zurück nach dem Namen
+	 *
+	 * @see ErstihelferDAOLocal#createSession(int)
+	 */
+
+	public int createSession(User user) {
+		ErstiHelferSession newSession = new ErstiHelferSession(user);
+		em.persist(newSession);
+		return newSession.getId();
 	}
 
+	/**
+	 * Die Methode findet gibt die Termine zurück nach dem Namen
+	 *
+	 * @see ErstihelferDAOLocal#closeSession(int)
+	 */
+
+	public void closeSession(int id) {
+		ErstiHelferSession session = em.find(ErstiHelferSession.class, id);
+		if (session != null) {
+			em.remove(session);
+		}
+	}
 	/**
 	 * Die Methode findet gibt die Termine zurück nach dem Namen
 	 *
@@ -64,35 +79,7 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		}
 	}
 
-	/**
-	 * Die Methode findet gibt die Termine zurück nach dem Namen
-	 *
-	 * @see ErstihelferDAOLocal#closeSession(int)
-	 */
-
-	public void closeSession(int id) {
-		ErstiHelferSession session = em.find(ErstiHelferSession.class, id);
-		if (session != null) {
-			em.remove(session);
-		}
-	}
-
-	/**
-	 * Die Methode findet gibt die Termine zurück nach dem Namen
-	 *
-	 * @see ErstihelferDAOLocal#createSession(int)
-	 */
-	public int createSession(User user) {
-		ErstiHelferSession newSession = new ErstiHelferSession(user);
-		em.persist(newSession);
-		return newSession.getId();
-	}
-
-	/**
-	 * Die Methode findet gibt die Termine zurück nach dem Namen
-	 *
-	 * @see ErstihelferDAOLocal#createUse(int)
-	 */
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public User createUser(String username, int groupNr) {
 		if (findUserByName(username) == null) {
 			User user = new User(username, groupNr);
@@ -103,6 +90,25 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 			return null;
 		}
 	}
+
+	public List<Appointment> getAppointment(Date timestamp, int count, int groupNr) {
+		// TODO: SELECT-Query
+		List results = em.createQuery("SELECT * FROM appointment a WHERE a.starttime >= GETDATE()  LIKE :appoint")
+				.setParameter("appoint", timestamp).getResultList();
+		if (results.size() == 1) {
+			return (List<Appointment>) results;
+		} else {
+			return null;
+		}
+	}
+
+
+
+	/**
+	 * Die Methode findet gibt die Termine zurück nach dem Namen
+	 *
+	 * @see ErstihelferDAOLocal#createUse(int)
+	 */
 
 	@Override
 	public String getServerStatus() {
