@@ -49,7 +49,10 @@ public class User implements Serializable {
 	public String getUsername() {
 		return username;
 	}
-
+	
+	public void setGroupNr (int groupNr) {
+		this.groupNr = groupNr;}
+		
 	public int getGroupNr() {
 		return groupNr;
 	}
