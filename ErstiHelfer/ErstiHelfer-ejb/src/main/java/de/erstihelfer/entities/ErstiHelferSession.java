@@ -9,22 +9,23 @@ import javax.persistence.ManyToOne;
 
 import de.erstihelfer.entities.User;
 
-
 @Entity
 public class ErstiHelferSession {
 
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue
 	private int id;
-	//@ManyToOne
-	//private User user;
+	// @ManyToOne
+	// private User user;
 	private Date creationTime;
 
-	public ErstiHelferSession() {	}
-	
-	/*public ErstiHelferSession(User user) {
-		this.user = user;
-		this.creationTime = new Date();
-	}*/
+	public ErstiHelferSession() {
+	}
+
+	/*
+	 * public ErstiHelferSession(User user) { this.user = user;
+	 * this.creationTime = new Date(); }
+	 */
 
 	public int getId() {
 		return id;
@@ -34,18 +35,14 @@ public class ErstiHelferSession {
 		this.id = id;
 	}
 
-	/*public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}*/
+	/*
+	 * public User getUser() { return user; }
+	 * 
+	 * public void setUser(User user) { this.user = user; }
+	 */
 
 	public Date getCreationTime() {
 		return creationTime;
 	}
 
 }
-
-
