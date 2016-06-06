@@ -14,8 +14,8 @@
         <env-entry-value>joe</env-entry-value>
       </env-entry>
       <env-entry>
-        <env-entry-name>de.erstihelfer.dao.DataBuilder/groupNr</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-name>de.erstihelfer.dao.DataBuilder/groupNr1</env-entry-name>
+        <env-entry-type>java.lang.Integer</env-entry-type>
         <env-entry-value>1</env-entry-value>
       </env-entry>
       </session>

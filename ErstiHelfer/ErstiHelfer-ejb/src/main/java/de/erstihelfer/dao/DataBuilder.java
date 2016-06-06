@@ -29,19 +29,15 @@ public class DataBuilder {
 
 	@Resource
 	private String username1;
-	private int groupNr;
+	private int groupNr1;
 
-	public DataBuilder() {
-
-	}
-
-	//@PostConstruct
+		//@PostConstruct
 	private void createTestData() {
 		 User user1=dao.findUserByName(username1);
 		//User user1=null;
 		if(user1==null)
 		{
-			 user1 = new User(username1, groupNr);
+			 user1 = new User(username1, groupNr1);
 			em.persist(user1);
 			logger.info("Neu angelegt:" + user1);
 		}

@@ -28,8 +28,7 @@ public class User implements Serializable {
 	
 	@ManyToMany(mappedBy="users")
 	private Collection<Appointment> appointments;
-	/*@MapKey
-	private Map<Integer,Appointment> appointment;*/
+	
 	
 	public User(){}
 	public User(String username, int groupNr){

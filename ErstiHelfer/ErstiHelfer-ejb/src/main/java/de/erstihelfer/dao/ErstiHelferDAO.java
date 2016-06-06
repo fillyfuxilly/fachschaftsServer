@@ -44,13 +44,6 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 * @see ErstihelferDAOLocal#createSession(int)
 	 */
 
-	
-	 public int createSession(User user) { 
-		 ErstiHelferSession newSession = new
-	 ErstiHelferSession(user); em.persist(newSession); return
-	  newSession.getId(); }
-	 
-
 	/**
 	 * Die Methode findet gibt die Termine zurück nach dem Namen
 	 *
@@ -80,17 +73,25 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		}
 	}
 
-	
-	 // @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW) 
-	 public User createUser(String username, int groupNr) { //if (findUserByName(username)  == null)
-     //{
-    	 User user = new User(username, groupNr); 
-        em.persist(user);
-    //}
-	 return user; } //else { // Return null, if username already exists. 
-		// return	 null; } }
-	 
-	 /*
+	public int createSession(User user) {
+		ErstiHelferSession newSession = new ErstiHelferSession(user);
+		em.persist(newSession);
+		return newSession.getId();
+	}
+
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+	public User createUser(String username, int groupNr) {
+		if (findUserByName(username) == null)
+		 {
+		User user = new User(username, groupNr);
+		em.persist(user);
+		
+		return user; }
+	  else { 
+		// Return null, if username already exists.
+		return null; } }
+
+	/*
 	 * public List<Appointment> getAppointment(Date timestamp, int count, int
 	 * groupNr) { // TODO: SELECT-Query List results = em.createQuery(
 	 * "SELECT * FROM appointment a WHERE a.starttime >= GETDATE()  LIKE :appoint"
