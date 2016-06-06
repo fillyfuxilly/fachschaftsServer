@@ -30,6 +30,7 @@ public class User implements Serializable {
 	@MapKey
 	private Map<Integer,Appointment> appointment;
 	
+	public User(){}
 	public User(String username, int groupNr){
 		
 		this.id = ++lastID;
