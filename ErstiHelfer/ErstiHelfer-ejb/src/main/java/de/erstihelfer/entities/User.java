@@ -1,6 +1,7 @@
 package de.erstihelfer.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Map;
 
 import javax.persistence.CascadeType;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.MapKey;
 import javax.persistence.OneToMany;
 /**
@@ -31,8 +33,10 @@ public class User implements Serializable {
 	
 	private int groupNr;
 	
-	@MapKey
-	private Map<Integer,Appointment> appointment;
+	@ManyToMany(mappedBy="users")
+	private Collection<Appointment> appointments;
+	/*@MapKey
+	private Map<Integer,Appointment> appointment;*/
 	
 	public User(){}
 	public User(String username, int groupNr){

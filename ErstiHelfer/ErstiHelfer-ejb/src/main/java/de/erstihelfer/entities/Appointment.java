@@ -2,10 +2,13 @@ package de.erstihelfer.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
@@ -32,7 +35,9 @@ public class Appointment implements Serializable {
 	// timestamp für Erstellung des Termins
 	private Date createdAt;
 
-
+    @ManyToMany
+    Set<User> users=new HashSet<User>();
+    
 	public Appointment() {
 	}
 
