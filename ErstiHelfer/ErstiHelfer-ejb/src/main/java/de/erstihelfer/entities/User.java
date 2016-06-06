@@ -11,7 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MapKey;
 import javax.persistence.OneToMany;
-
+/**
+ * 
+ * @author Amayda Dominguez
+ *
+ */
 @Entity
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
