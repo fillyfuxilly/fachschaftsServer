@@ -43,16 +43,11 @@ public class User implements Serializable {
 		
 	}
 	
-	public void setUsername (String username) {
-		this.username = username;
-	}
 	public String getUsername() {
 		return username;
 	}
 	
-	public void setGroupNr (int groupNr) {
-		this.groupNr = groupNr;}
-		
+	
 	public int getGroupNr() {
 		return groupNr;
 	}
