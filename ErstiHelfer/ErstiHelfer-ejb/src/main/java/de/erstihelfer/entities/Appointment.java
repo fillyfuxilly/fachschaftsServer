@@ -22,8 +22,8 @@ import javax.persistence.ManyToMany;
 public class Appointment implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue
+	private static int lastID = 0;
+	@Id @GeneratedValue
 	private int id;
 	private String title;
 	// Wo findet der Termin statt?
@@ -35,13 +35,14 @@ public class Appointment implements Serializable {
 	// timestamp für Erstellung des Termins
 	private Date createdAt;
 
-   /* @ManyToMany
-    Set<User> users=new HashSet<User>();*/
+    @ManyToMany
+    Set<User> users=new HashSet<User>();
     
 	public Appointment() {
 	}
 
 	public Appointment(String title, String location, Date startTime, String description) {
+		this.id = ++lastID;
 		this.title = title;
 		this.location = location;
 		this.startTime = startTime;

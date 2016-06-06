@@ -14,7 +14,7 @@ import javax.persistence.ManyToMany;
  * @author Amayda Dominguez
  *
  */
-//@Entity
+@Entity
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private static int lastID = 0;
@@ -24,9 +24,6 @@ public class User implements Serializable {
 	@Column(unique=true, nullable=false)
 	private String username;
 
-	
-	private String name;
-	
 	private int groupNr;
 	
 	@ManyToMany(mappedBy="users")
