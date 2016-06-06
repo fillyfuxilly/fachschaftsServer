@@ -22,10 +22,10 @@ public class ErstiHelferSession {
 	public ErstiHelferSession() {
 	}
 
-	/*
-	 * public ErstiHelferSession(User user) { this.user = user;
-	 * this.creationTime = new Date(); }
-	 */
+	
+	 public ErstiHelferSession(User user) { this.user = user;
+	 this.creationTime = new Date(); }
+	 
 
 	public int getId() {
 		return id;
@@ -35,11 +35,11 @@ public class ErstiHelferSession {
 		this.id = id;
 	}
 
-	/*
-	 * public User getUser() { return user; }
-	 * 
-	 * public void setUser(User user) { this.user = user; }
-	 */
+	
+	 public User getUser() { return user; }
+	 
+	 public void setUser(User user) { this.user = user; }
+	 
 
 	public Date getCreationTime() {
 		return creationTime;
