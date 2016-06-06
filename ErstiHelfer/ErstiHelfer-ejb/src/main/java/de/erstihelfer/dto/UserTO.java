@@ -4,6 +4,7 @@ public class UserTO {
 
 	private String username;
 	private int groupNr;
+	private int id;
 
 	public UserTO() {
 	}
@@ -11,6 +12,14 @@ public class UserTO {
 	public UserTO(String username) {
 
 		this.username = username;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void setUsername(String username) {
