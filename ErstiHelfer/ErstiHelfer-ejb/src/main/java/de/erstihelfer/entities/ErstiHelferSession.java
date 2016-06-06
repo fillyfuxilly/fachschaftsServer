@@ -15,8 +15,8 @@ public class ErstiHelferSession {
 	@Id
 	@GeneratedValue
 	private int id;
-	// @ManyToOne
-	// private User user;
+	@ManyToOne
+	private User user;
 	private Date creationTime;
 
 	public ErstiHelferSession() {
