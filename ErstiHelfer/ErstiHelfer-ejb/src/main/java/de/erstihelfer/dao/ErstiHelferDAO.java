@@ -79,7 +79,7 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		return newSession.getId();
 	}
 
-	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+	//@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public User createUser(String username, int groupNr) {
 		if (findUserByName(username) == null)
 		 {
