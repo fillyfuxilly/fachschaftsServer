@@ -53,6 +53,13 @@ public class ErstiHelferOnlineIntegration {
 	 * @return
 	 * @throws NoSessionException
 	 */
+	
+	/**
+	 * 
+	 * Der user wird eine Exception bekommen, wenn er icht nicht eingeloggt hat(session gleich null)
+	 * 
+	 * 
+	 */
 	private ErstiHelferSession getSession(int sessionId) throws NoSessionException {
 		ErstiHelferSession session = dao.findSessionById(sessionId);
 		if (session == null)
@@ -75,8 +82,7 @@ public class ErstiHelferOnlineIntegration {
 				throw new InvalidLoginException("Login fehlgeschlagen, da User unbekannt. username=" + username);
 			}
 		} catch (erstiHelferException e) {
-			// Eine Exception wird dem Webservice-Client über einen Errorcode
-			// mitgeteilt:
+			
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		}
