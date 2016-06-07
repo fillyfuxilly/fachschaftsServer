@@ -35,7 +35,7 @@ public class DataBuilder {
 	/**
 	 * //erzeugt ein paar Beispieldaten zu User, falls sie noch nicht in der DB vorhanden sind.
 	 */
-	// @PostConstruct
+	 @PostConstruct
 	private void createTestData() {
 		User user1 = dao.findUserByName(username1);
 		// User user1=null;
