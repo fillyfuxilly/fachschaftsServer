@@ -2,6 +2,8 @@ package de.erstihelfer.erstihelfer;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.jws.WebService;
 
 import org.jboss.logging.Logger;
@@ -84,5 +86,34 @@ public class ErstiHelferOnlineIntegration {
 		return response;
 	}
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public UserLoginResponse registerNewUser(String userName, int groupNr) {
+		UserLoginResponse response = new UserLoginResponse();
+		try {
+			User user = dao.createUser(userName, groupNr);		
+			if (user != null) {
+				//create new session for the just created customer:
+				int sessionId = dao.createSession(user);
+				logger.info("Registrierung von \"" + userName + "\" erfolgreich. "
+						  + "Erzeugte Session=" + sessionId);
+				response.setSessionId(sessionId);
+				
+				//create new Appointment for the new User
+				//dao.createAppointment(user);
+			}
+			else {
+				logger.info("Registrieren fehlgeschlagen, da der Username bereits existiert."
+						  + " username=" + userName);
+				throw new erstiHelferException(30, "Registrieren fehlgeschlagen, da der Username "
+						  + "bereits existiert. username=" + userName);
+			}
+		}
+		
+		catch (erstiHelferException e) {
+			response.setReturnCode(e.getErrorCode());
+			response.setMessage(e.getMessage());
+		}		
+		return response;		
+	}
 	
 }
