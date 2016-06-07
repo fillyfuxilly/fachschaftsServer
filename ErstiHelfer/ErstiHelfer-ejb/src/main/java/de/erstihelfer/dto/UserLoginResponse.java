@@ -20,7 +20,7 @@ public class UserLoginResponse {
 		return this.user;
 	}
 
-	public void setCustomer(UserTO user) {
+	public void setUser(UserTO user) {
 		this.user = user;
 	}
 
