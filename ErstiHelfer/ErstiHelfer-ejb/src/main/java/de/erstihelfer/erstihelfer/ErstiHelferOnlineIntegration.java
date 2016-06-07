@@ -10,6 +10,9 @@ import org.jboss.ws.api.annotation.WebContext;
 import de.erstihelfer.dao.ErstiHelferDAOLocal;
 import de.erstihelfer.entities.ErstiHelferSession;
 import de.erstihelfer.util.DtoAssembler;
+import de.erstihelfer.dto.UserLoginResponse;
+import de.erstihelfer.entities.User;
+import de.erstihelfer.erstihelfer.erstiHelferException;
 
 
 
@@ -58,7 +61,28 @@ public class ErstiHelferOnlineIntegration {
 			return session;
 	}
 	
-	
+	public UserLoginResponse login(String username, String password) {
+		UserLoginResponse response = new UserLoginResponse();
+		try {
+			User user = this.dao.findUserByName(username);		
+			if (user != null ) {
+				int sessionId = dao.createSession(user);
+				response.setSessionId(sessionId);
+				response.setUser(this.dtoAssembler.makeDTO(user));
+				logger.info("Login erfolgreich.");				
+			}
+			else {
+				logger.info("Login fehlgeschlagen, da Username unbekannt. username=" + username);
+				throw new InvalidLoginException("Login fehlgeschlagen, da User unbekannt. username="+username);
+			}
+		}
+		catch (erstiHelferException e) {
+			//Eine Exception wird dem Webservice-Client über einen Errorcode mitgeteilt:
+			response.setReturnCode(e.getErrorCode());
+			response.setMessage(e.getMessage());
+		}
+		return response;
+	}
 	
 	
 }
