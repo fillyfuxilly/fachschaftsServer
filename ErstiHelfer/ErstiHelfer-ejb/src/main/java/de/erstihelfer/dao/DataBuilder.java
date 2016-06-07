@@ -31,13 +31,16 @@ public class DataBuilder {
 	private String username1;
 	private int groupNr1;
 
-		//@PostConstruct
+	
+	/**
+	 * //erzeugt ein paar Beispieldaten zu User, falls sie noch nicht in der DB vorhanden sind.
+	 */
+	// @PostConstruct
 	private void createTestData() {
-		 User user1=dao.findUserByName(username1);
-		//User user1=null;
-		if(user1==null)
-		{
-			 user1 = new User(username1, groupNr1);
+		User user1 = dao.findUserByName(username1);
+		// User user1=null;
+		if (user1 == null) {
+			user1 = new User(username1, groupNr1);
 			em.persist(user1);
 			logger.info("Neu angelegt:" + user1);
 		}
