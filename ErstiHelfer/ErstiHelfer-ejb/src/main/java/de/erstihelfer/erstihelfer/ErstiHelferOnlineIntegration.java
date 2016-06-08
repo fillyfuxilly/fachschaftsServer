@@ -19,6 +19,7 @@ import de.erstihelfer.erstihelfer.erstiHelferException;
 
 /**
  * @author Amayda Dominguez
+ * @author Malte Evers
  * 
  *         Session Beans als Web Service veröffentlicht(Annotation @WebService)
  */
@@ -56,7 +57,7 @@ public class ErstiHelferOnlineIntegration {
 	
 	/**
 	 * 
-	 * Der user wird eine Exception bekommen, wenn er icht nicht eingeloggt hat(session gleich null)
+	 * Der user wird eine Exception bekommen, wenn er nicht nicht eingeloggt hat(session gleich null)
 	 * 
 	 * 
 	 */
@@ -68,7 +69,7 @@ public class ErstiHelferOnlineIntegration {
 			return session;
 	}
 
-	public UserLoginResponse login(String username, String password) {
+	public UserLoginResponse login(String username) {
 		UserLoginResponse response = new UserLoginResponse();
 		try {
 			User user = this.dao.findUserByName(username);
