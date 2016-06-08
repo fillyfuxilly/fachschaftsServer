@@ -30,6 +30,7 @@ public class ErstiHelferClient {
 			System.out.println(e);
 			e.printStackTrace();
 		}
+		test_LoginRegister();
 
 	}
 
@@ -48,10 +49,13 @@ public class ErstiHelferClient {
 			System.out.println("Registrierung von " + username + " in der Gruppe " + groupNr + " erfolgreich.");
 			
 			remoteSystem.logout(sessionId);
-			System.out.println("Emma hat sich abgemeldet.");
 		} else {
 			System.out.println(registerResponse.getMessage());
 		}
+	}
+	
+	private static void test_CreateAndGetAppointments(){
+
 	}
 
 }

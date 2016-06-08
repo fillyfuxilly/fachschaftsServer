@@ -10,6 +10,7 @@ import org.jboss.logging.Logger;
 import org.jboss.ws.api.annotation.WebContext;
 
 import de.erstihelfer.dao.ErstiHelferDAOLocal;
+import de.erstihelfer.entities.Appointment;
 import de.erstihelfer.entities.ErstiHelferSession;
 import de.erstihelfer.util.DtoAssembler;
 import de.erstihelfer.dto.ReturnCodeResponse;
@@ -53,13 +54,8 @@ public class ErstiHelferOnlineIntegration {
 	 * @param sessionId
 	 * @return
 	 * @throws NoSessionException
-	 */
-	
-	/**
-	 * 
-	 * Der user wird eine Exception bekommen, wenn er nicht nicht eingeloggt hat(session gleich null)
-	 * 
-	 * 
+	 *             Der user wird eine Exception bekommen, wenn er nicht nicht
+	 *             eingeloggt hat(session gleich null)
 	 */
 	private ErstiHelferSession getSession(int sessionId) throws NoSessionException {
 		ErstiHelferSession session = dao.findSessionById(sessionId);
@@ -69,6 +65,12 @@ public class ErstiHelferOnlineIntegration {
 			return session;
 	}
 
+	/**
+	 * Führt den Login eines Benutzers durch und legt eine neue Session für diesen Nutzer an.
+	 * @param username
+	 * @param password
+	 * @return das DataTransferObject UserLoginResponse
+	 */
 	public UserLoginResponse login(String username) {
 		UserLoginResponse response = new UserLoginResponse();
 		try {
@@ -83,13 +85,13 @@ public class ErstiHelferOnlineIntegration {
 				throw new InvalidLoginException("Login fehlgeschlagen, da User unbekannt. username=" + username);
 			}
 		} catch (erstiHelferException e) {
-			
+
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		}
 		return response;
 	}
-	
+
 	public ReturnCodeResponse logout(int sessionId) {
 		dao.closeSession(sessionId);
 		ReturnCodeResponse response = new ReturnCodeResponse();
@@ -117,12 +119,19 @@ public class ErstiHelferOnlineIntegration {
 						"Registrieren fehlgeschlagen, da der Username " + "bereits existiert. username=" + userName);
 			}
 		}
-
 		catch (erstiHelferException e) {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		}
 		return response;
 	}
-
+	
+	//TODO: return Response?
+	public void createAppointment(Appointment appointment) {
+		dao.createAppointment(appointment);
+	}
+	
+	public void getAppointment(Appointment appointment) {
+		dao.createAppointment(appointment);
+	}
 }

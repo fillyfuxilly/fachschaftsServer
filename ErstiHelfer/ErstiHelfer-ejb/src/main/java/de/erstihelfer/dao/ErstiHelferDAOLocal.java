@@ -23,12 +23,13 @@ public interface ErstiHelferDAOLocal {
 
 	public String getServerStatus();
 
-	// public List<Appointment> getAppointment(Date timestamp, int count, int
-	// groupNr);
 	public User createUser(String username, int group);
 	public ErstiHelferSession findSessionById(int id);
 
     public User findUserByName(String username);
+    public void createAppointment(Appointment appointment);
+    //Laut Systementwurf getAppointment(Date timestamp, int count, int GroupNr). wurde aber geändert
+    public List<Appointment> getAppointment(Date timestamp, int count, User user);
 	public int createSession(User user);
 	public void closeSession(int id);
 

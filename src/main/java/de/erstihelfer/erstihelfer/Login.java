@@ -17,7 +17,6 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -28,13 +27,11 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "login", propOrder = {
-    "arg0",
-    "arg1"
+    "arg0"
 })
 public class Login {
 
     protected String arg0;
-    protected String arg1;
 
     /**
      * Ruft den Wert der arg0-Eigenschaft ab.
@@ -58,30 +55,6 @@ public class Login {
      */
     public void setArg0(String value) {
         this.arg0 = value;
-    }
-
-    /**
-     * Ruft den Wert der arg1-Eigenschaft ab.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getArg1() {
-        return arg1;
-    }
-
-    /**
-     * Legt den Wert der arg1-Eigenschaft fest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setArg1(String value) {
-        this.arg1 = value;
     }
 
 }
