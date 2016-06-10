@@ -89,7 +89,7 @@ public class ErstiHelferOnlineIntegration {
 		return response;
 	}
 	
-	public UserLoginResponse login(String username, int GroupNr) {
+	/*public UserLoginResponse login1(String username, int GroupNr) {
 		UserLoginResponse response = new UserLoginResponse();
 		try {
 			User user = this.dao.findUserByName(username);
@@ -109,7 +109,7 @@ public class ErstiHelferOnlineIntegration {
 		}
 		return response;
 	}
-	
+	*/
 	
 	
 	
