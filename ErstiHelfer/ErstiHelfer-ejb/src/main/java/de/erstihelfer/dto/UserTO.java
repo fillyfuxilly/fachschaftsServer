@@ -18,9 +18,11 @@ public class UserTO extends DataTransferObject {
 	public UserTO() {
 	}
 
-	public UserTO(String username) {
-
+	public UserTO(String username, int groupNr, int id) {
+		super();
+		this.id = id;
 		this.username = username;
+		this.groupNr = groupNr;
 	}
 
 	public int getId() {

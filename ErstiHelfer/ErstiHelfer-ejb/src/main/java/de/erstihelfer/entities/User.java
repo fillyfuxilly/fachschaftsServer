@@ -12,7 +12,7 @@ import javax.persistence.ManyToMany;
 /**
  * 
  * @author Amayda Dominguez
- *
+ * Der User kann ein Fachschaftsmitglieder oder ein Erstsemester sein
  */
 @Entity
 public class User implements Serializable {
@@ -21,10 +21,13 @@ public class User implements Serializable {
 	@Id @GeneratedValue
 	private int id;
 	
+	/**
+	 * Die Erstsemetern werden sich mit der Gruppennummer und username anmelden.
+	 */
 	@Column(unique=true, nullable=false)
 	private String username;
     
-
+    //Gruppennummer der Benutzer
 	private int groupNr;
 	
 	@ManyToMany(mappedBy="users")

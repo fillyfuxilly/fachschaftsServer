@@ -23,6 +23,18 @@ public class AppointmentTO extends DataTransferObject{
 	// timestamp für Erstellung des Termins
 	private Date createdAt;
 	
+	
+	public AppointmentTO() {
+	}
+
+    //TODO: Appoinment Konstruktor
+	
+	/*public AppointmentTO() {
+		super();
+		this.id = id;
+		
+	}*/
+	
 	public String getTitel() {
 		return title;
 	}
