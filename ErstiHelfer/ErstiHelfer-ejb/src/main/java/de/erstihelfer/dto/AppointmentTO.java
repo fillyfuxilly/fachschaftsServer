@@ -58,7 +58,10 @@ public class AppointmentTO extends DataTransferObject{
 	public Date getErstelltAm() {
 		return createdAt;
 	}
-
+    
+	public void setErstelltAm(Date createdAt) {
+		this.createdAt=createdAt;
+	}
 	public void setId(int id) {
 		this.id = id;
 	}

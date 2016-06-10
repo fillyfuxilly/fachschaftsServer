@@ -2,7 +2,9 @@ package de.erstihelfer.util;
 
 import javax.ejb.Stateless;
 
+import de.erstihelfer.dto.AppointmentTO;
 import de.erstihelfer.dto.UserTO;
+import de.erstihelfer.entities.Appointment;
 import de.erstihelfer.entities.User;
 /**
  * 
@@ -23,5 +25,14 @@ public class DtoAssembler {
 		dto.setGroupNr(user.getGroupNr());
 		return dto;
 	}
-
+    
+	public AppointmentTO makeDTO(Appointment appointment){
+	     AppointmentTO dto = new AppointmentTO();
+	     dto.setTitel(appointment.getTitel());
+	     dto.setOrt(appointment.getOrt());
+	     dto.setZeitpunkt(appointment.getZeitpunkt());
+	     dto.setBeschreibung(appointment.getBeschreibung());
+	     dto.setErstelltAm(appointment.getErstelltAm());
+	     return dto;
+	}
 }
