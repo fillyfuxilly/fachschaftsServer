@@ -89,6 +89,34 @@ public class ErstiHelferOnlineIntegration {
 		return response;
 	}
 	
+	public UserLoginResponse login(String username, int GroupNr) {
+		UserLoginResponse response = new UserLoginResponse();
+		try {
+			User user = this.dao.findUserByName(username);
+			if (user != null) {
+				int sessionId = dao.createSession(user);
+				response.setSessionId(sessionId);
+				response.setUser(this.dtoAssembler.makeDTO(user));
+				logger.info("Login erfolgreich.");
+			} else {
+				logger.info("Login fehlgeschlagen, da Username unbekannt. username=" + username);
+				throw new InvalidLoginException("Login fehlgeschlagen, da User unbekannt. username=" + username);
+			}
+		} catch (erstiHelferException e) {
+			
+			response.setReturnCode(e.getErrorCode());
+			response.setMessage(e.getMessage());
+		}
+		return response;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	public ReturnCodeResponse logout(int sessionId) {
 		dao.closeSession(sessionId);
 		ReturnCodeResponse response = new ReturnCodeResponse();

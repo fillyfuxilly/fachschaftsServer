@@ -17,7 +17,7 @@ import javax.persistence.ManyToMany;
 @Entity
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	//private static int lastID = 0;
+	
 	@Id @GeneratedValue
 	private int id;
 	
@@ -33,7 +33,7 @@ public class User implements Serializable {
 	public User(){}
 	public User(String username, int groupNr){
 		
-		//this.id = ++lastID;
+	
 		this.username = username;
 	    this.groupNr = groupNr;
 		
