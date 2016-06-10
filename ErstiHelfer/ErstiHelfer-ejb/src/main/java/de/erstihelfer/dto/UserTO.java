@@ -1,6 +1,15 @@
 package de.erstihelfer.dto;
 
-public class UserTO {
+/**
+ * 
+ * @author Amayda Dominguez
+ * UserTo ermöglichte es uns, den Client unabhängig vom POJO-Modell zu halten. Zwar könnten  wir  auch  die  Modellklassen direkt an den Client weitergeben, da sie
+ *  normale Java-Klassen sind.
+ */
+
+
+public class UserTO extends DataTransferObject {
+	private static final long serialVersionUID = -1044563636105941958L;
 
 	private String username;
 	private int groupNr;

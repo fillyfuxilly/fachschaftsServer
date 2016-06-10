@@ -23,6 +23,7 @@ public class User implements Serializable {
 	
 	@Column(unique=true, nullable=false)
 	private String username;
+    
 
 	private int groupNr;
 	

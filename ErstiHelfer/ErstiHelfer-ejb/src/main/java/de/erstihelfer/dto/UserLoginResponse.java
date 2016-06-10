@@ -2,6 +2,10 @@ package de.erstihelfer.dto;
 
 import de.erstihelfer.dto.UserTO;
 
+/**
+ * author Amayda Dominguez
+ */
+
 public class UserLoginResponse extends ReturnCodeResponse{
 	private static final long serialVersionUID = -3173158310918408228L;
 

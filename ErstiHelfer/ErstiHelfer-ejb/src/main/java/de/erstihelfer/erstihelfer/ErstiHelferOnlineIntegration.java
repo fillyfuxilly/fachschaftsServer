@@ -20,7 +20,9 @@ import de.erstihelfer.erstihelfer.erstiHelferException;
 /**
  * @author Amayda Dominguez
  * 
- *         Session Beans als Web Service veröffentlicht(Annotation @WebService)
+ * Diese Stateless Session Bean stellt die ErstiHelfer-Operationen als Webservice bereit.
+ *  
+ * Session Beans als Web Service veröffentlicht(Annotation @WebService)
  */
 
 @Stateless
@@ -89,7 +91,7 @@ public class ErstiHelferOnlineIntegration {
 		return response;
 	}
 	
-	/*public UserLoginResponse login1(String username, int GroupNr) {
+	public UserLoginResponse login1(String username, int GroupNr) {
 		UserLoginResponse response = new UserLoginResponse();
 		try {
 			User user = this.dao.findUserByName(username);
@@ -109,7 +111,7 @@ public class ErstiHelferOnlineIntegration {
 		}
 		return response;
 	}
-	*/
+	
 	
 	
 	
