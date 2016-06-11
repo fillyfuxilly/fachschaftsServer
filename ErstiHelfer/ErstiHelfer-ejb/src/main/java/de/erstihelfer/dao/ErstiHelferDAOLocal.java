@@ -31,5 +31,6 @@ public interface ErstiHelferDAOLocal {
     public User findUserByName(String username);
 	public int createSession(User user);
 	public void closeSession(int id);
+	//public void changeGroup(int groupNr);
 
 }

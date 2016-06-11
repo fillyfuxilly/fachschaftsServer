@@ -47,7 +47,7 @@ public class User implements Serializable {
 		return username;
 	}
 	
-	
+
 	public int getGroupNr() {
 		return groupNr;
 	}
@@ -59,4 +59,8 @@ public class User implements Serializable {
 	public void setId(int userId) {
 		this.id = userId;
 	}
+	public void setGroup(int groupNr) {
+		this.groupNr = groupNr;
+	}
+	
 }

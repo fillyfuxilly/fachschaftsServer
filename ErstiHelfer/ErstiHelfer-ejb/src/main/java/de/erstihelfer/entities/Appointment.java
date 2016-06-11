@@ -90,9 +90,9 @@ public class Appointment implements Serializable {
 		return createdAt;
 	}
 
-	public void setId(int id) {
+	/*public void setId(int id) {
 		this.id = id;
-	}
+	}*/
 
 	public int getId() {
 		return id;

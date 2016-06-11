@@ -126,7 +126,7 @@ public class ErstiHelferOnlineIntegration {
 		return response;
 	}
 
-	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	//@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public UserLoginResponse registerNewUser(String userName, int groupNr) {
 		UserLoginResponse response = new UserLoginResponse();
 		try {

@@ -101,10 +101,21 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 */
 
 	/**
-	 * Die Methode findet gibt die Termine zurück nach dem Namen
+	 * Mit dieser Methode können die Erstis die Gruppennummer ändern
 	 *
-	 * @see ErstihelferDAOLocal#createUse(int)
+	 * @see ErstihelferDAOLocal#changeGroup(int)
 	 */
+	
+	/*public void changeGroup(int groupNr){
+	
+		
+	User user = em.find(User.class, user.getId());
+     user.setGroup(groupNr);
+     em.getTransaction().commit();
+     em.close();
+     emfactory.close();
+	       
+	}*/
 
 	@Override
 	public String getServerStatus() {
