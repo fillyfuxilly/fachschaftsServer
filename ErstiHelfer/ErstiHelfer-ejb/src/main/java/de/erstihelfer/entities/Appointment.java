@@ -35,8 +35,8 @@ public class Appointment implements Serializable {
 	// timestamp für Erstellung des Termins
 	private Date createdAt;
 
-  /* @ManyToMany(mappedBy="appointments")
-    Set<ErstiGroup> users=new HashSet<ErstiGroup>();*/
+     @ManyToMany
+    Set<ErstiGroup> users=new HashSet<ErstiGroup>();
     
 	public Appointment() {
 	}
@@ -90,9 +90,9 @@ public class Appointment implements Serializable {
 		return createdAt;
 	}
 
-	/*public void setId(int id) {
+	public void setId(int id) {
 		this.id = id;
-	}*/
+	}
 
 	public int getId() {
 		return id;

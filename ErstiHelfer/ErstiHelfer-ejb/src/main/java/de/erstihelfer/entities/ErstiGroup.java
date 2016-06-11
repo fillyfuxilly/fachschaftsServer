@@ -23,12 +23,12 @@ import javax.persistence.Table;
 public class ErstiGroup implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private static int lastID = 0;
-	@Id
+	//private static int lastID = 0;
+	@Id @GeneratedValue
 	private int groupNr;
 
-	@OneToMany
-	Set<User> users = new HashSet<User>();
+	/*@OneToMany
+	Set<User> users = new HashSet<User>();*/
 
 	@ManyToMany
 	private Collection<Appointment> appointments;

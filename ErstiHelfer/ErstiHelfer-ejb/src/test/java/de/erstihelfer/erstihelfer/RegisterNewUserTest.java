@@ -26,16 +26,16 @@ public class RegisterNewUserTest {
                .addAsWebInfResource("META-INF/ejb-jar.xml", "ejb-jar.xml");
 	}
 	
-	@Test
+	//@Test
 	/**
 	 * Prueft, ob ein neuer Kunde erfolgreich registriert werden kann.
 	 */
-	public void testRegistration() throws Exception {
+	/*public void testRegistration() throws Exception {
 	    UserLoginResponse loginResponse = bean.registerNewUser("amayda", 1);
 	    assertEquals(loginResponse.getReturnCode(), 0);
 	 	
 	    int sessionId = loginResponse.getSessionId();
 		bean.logout(sessionId);
 	}
-
+*/
 }
