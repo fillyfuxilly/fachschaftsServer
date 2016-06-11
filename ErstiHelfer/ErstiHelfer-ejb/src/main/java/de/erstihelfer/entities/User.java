@@ -7,49 +7,40 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-
+import javax.persistence.ManyToOne;
 
 /**
  * 
- * @author Amayda Dominguez
- * Der User kann ein Fachschaftsmitglieder oder ein Erstsemester sein
+ * @author Amayda Dominguez Der User kann ein Fachschaftsmitglieder oder ein
+ *         Erstsemester sein
  */
 @Entity
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	@Id @GeneratedValue
+
+	@Id
+	@GeneratedValue
 	private int id;
-	
+
 	/**
 	 * Die Erstsemetern werden sich mit der Gruppennummer und username anmelden.
 	 */
-	@Column(unique=true, nullable=false)
+	@Column(unique = true, nullable = false)
 	private String username;
-    
-    //Gruppennummer der Benutzer
-	private int groupNr;
-	
-	@ManyToMany(mappedBy="users")
-	private Collection<Appointment> appointments;
-	
-	
-	public User(){}
-	public User(String username, int groupNr){
-		
-	
-		this.username = username;
-	    this.groupNr = groupNr;
-		
+
+	@ManyToOne
+	private ErstiGroup group;
+
+	public User() {
 	}
-	
+
+	public User(String username, int groupNr) {
+		this.username = username;
+		this.group = new ErstiGroup(groupNr);
+	}
+
 	public String getUsername() {
 		return username;
-	}
-	
-	
-	public int getGroupNr() {
-		return groupNr;
 	}
 
 	public int getId() {
@@ -58,5 +49,13 @@ public class User implements Serializable {
 
 	public void setId(int userId) {
 		this.id = userId;
+	}
+
+	public ErstiGroup getGroup() {
+		return group;
+	}
+
+	public void setGroup(ErstiGroup group) {
+		this.group = group;
 	}
 }
