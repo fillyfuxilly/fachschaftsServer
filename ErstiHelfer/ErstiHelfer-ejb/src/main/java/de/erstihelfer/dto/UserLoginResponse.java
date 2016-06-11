@@ -11,6 +11,19 @@ public class UserLoginResponse extends ReturnCodeResponse{
 
 	private int sessionId;
 	private UserTO user;
+	private String text;
+	
+	
+	public void setText(String text)
+	{
+		this.text=text;
+		
+	}
+	
+	public String  getText() {
+		return text;
+	}
+
 	
 	public int getSessionId() {
 		return sessionId;
