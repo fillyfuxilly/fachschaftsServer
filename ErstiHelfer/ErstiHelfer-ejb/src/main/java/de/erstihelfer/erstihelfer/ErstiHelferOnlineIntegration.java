@@ -132,7 +132,7 @@ public class ErstiHelferOnlineIntegration {
 		try {
 			User user = dao.createUser(userName, groupNr);
 			if (user != null) {
-				// create new session for the just created customer:
+				// Erzeugt eine neue Session für den gerade erzeugten User
 				int sessionId = dao.createSession(user);
 				logger.info("Registrierung von \"" + userName + "\" erfolgreich. " + "Erzeugte Session=" + sessionId);
 				response.setSessionId(sessionId);
