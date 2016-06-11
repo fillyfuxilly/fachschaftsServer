@@ -22,7 +22,7 @@ public class DtoAssembler {
 	public UserTO makeDTO(User user){
 		UserTO dto= new UserTO();
 		dto.setUsername(user.getUsername());
-		dto.setGroupNr(user.getGroupNr());
+		//dto.setGroupNr(user.getGroupNr());
 		return dto;
 	}
     

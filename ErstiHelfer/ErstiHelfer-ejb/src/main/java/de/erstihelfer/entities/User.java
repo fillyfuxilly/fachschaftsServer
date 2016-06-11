@@ -51,9 +51,9 @@ public class User implements Serializable {
 		this.id = userId;
 	}
 
-	public ErstiGroup getGroup() {
+	/*public ErstiGroup getGroup() {
 		return group;
-	}
+	}*/
 
 	public void setGroup(ErstiGroup group) {
 		this.group = group;
