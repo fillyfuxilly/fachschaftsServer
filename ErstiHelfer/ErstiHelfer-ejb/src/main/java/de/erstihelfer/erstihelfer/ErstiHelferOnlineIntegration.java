@@ -136,6 +136,7 @@ public class ErstiHelferOnlineIntegration {
 				int sessionId = dao.createSession(user);
 				logger.info("Registrierung von \"" + userName + "\" erfolgreich. " + "Erzeugte Session=" + sessionId);
 				response.setSessionId(sessionId);
+				response.setText("Erfolgrecih registriert");
 
 				// create new Appointment for the new User
 				// dao.createAppointment(user);
@@ -148,6 +149,7 @@ public class ErstiHelferOnlineIntegration {
 		}
 
 		catch (erstiHelferException e) {
+			response.setText("User bereits vergeben");
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		}
