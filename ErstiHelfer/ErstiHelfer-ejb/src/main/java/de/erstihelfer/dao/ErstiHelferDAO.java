@@ -105,7 +105,24 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 *
 	 * @see ErstihelferDAOLocal#createUse(int)
 	 */
+	
 
+	/**
+	-	 * Mit dieser Methode können die Erstis die Gruppennummer ändern
+		 *  	 
+	-	 * @see ErstihelferDAOLocal#changeGroup(int)
+		 * 
+	 	 **/
+		
+	public User update(User user){
+		
+		   return  em.merge(user);
+     	
+	       
+    }
+	
+
+	
 	@Override
 	public String getServerStatus() {
 		// TODO Auto-generated method stub

@@ -60,4 +60,8 @@ public class User implements Serializable {
 	public void setId(int userId) {
 		this.id = userId;
 	}
+	
+	public void setGroup(int groupNr) {
+		this.groupNr = groupNr;
+	}
 }

@@ -27,9 +27,10 @@ public interface ErstiHelferDAOLocal {
 	// groupNr);
 	public User createUser(String username, int group);
 	public ErstiHelferSession findSessionById(int id);
-
+     
     public User findUserByName(String username);
 	public int createSession(User user);
 	public void closeSession(int id);
+	public User update(User user);
 
 }

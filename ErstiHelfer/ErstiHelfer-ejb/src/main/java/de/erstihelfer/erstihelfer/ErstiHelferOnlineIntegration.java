@@ -114,7 +114,33 @@ public class ErstiHelferOnlineIntegration {
 	
 	
 	
-	
+	/**
+	-	 * Mit dieser Methode können die Erstis die Gruppennummer ändern
+		 *  	 
+	-	 * @see ErstihelferDAOLocal#changeGroup(int)
+		 * 
+	 	 **/
+		
+		public void changeGroup(String username, int groupNr){
+		  
+			try {
+				User user = this.dao.findUserByName(username);
+				
+				if (user != null) {
+					user.setGroup(groupNr);
+				    user=dao.update(user);
+				
+				} else {
+					logger.info("Username "+  username +" nicht gefunden" );
+					throw new InvalidLoginException("Änderung der Gruppennummer fehlgeschlagen, da User" + username+ "unbekannt ist" );
+				}
+		
+			
+			} catch (erstiHelferException e) {
+				//  /////			
+			}
+	      }
+		
 	
 	
 	
