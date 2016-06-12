@@ -1,5 +1,9 @@
 package de.erstihelfer.erstihelfer;
-
+/**
+ * 
+ * @author Amayda Dominguez
+ *
+ */
 public class erstiHelferException extends Exception{
 	private static final long serialVersionUID = -1658425297634781761L;
 

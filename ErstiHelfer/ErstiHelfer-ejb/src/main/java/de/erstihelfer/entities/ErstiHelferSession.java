@@ -8,7 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import de.erstihelfer.entities.User;
-
+/**
+ * 
+ * @author Amayda Dominguez
+ *
+ */
 @Entity
 public class ErstiHelferSession {
 
