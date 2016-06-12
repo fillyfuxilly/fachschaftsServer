@@ -1,11 +1,15 @@
 package de.erstihelfer.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 
@@ -26,10 +30,11 @@ public class User implements Serializable {
 
 	private int groupNr;
 	
-	@ManyToMany(mappedBy="users")
-	private Collection<Appointment> appointments;
-	
-	
+	@ManyToMany
+	@JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {@JoinColumn(name = "GROUPNR")},
+    inverseJoinColumns = {@JoinColumn(name = "APPOINTMENT_ID")})
+	List<Appointment> appointments= new ArrayList<Appointment>();
+
 	public User(){}
 	public User(String username, int groupNr){
 		
