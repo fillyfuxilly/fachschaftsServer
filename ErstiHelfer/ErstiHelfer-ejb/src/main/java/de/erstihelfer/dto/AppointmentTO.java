@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * 
  * @author Amayda Dominguez
- * AppointmentTo ermöglichte es uns, den Client unabhängig vom POJO-Modell zu halten. Zwar könnten  wir  auch  die  Modellklassen direkt an den Client weitergeben, da sie
+ * AppointmentTo ermöglicht es uns, den Client unabhängig vom POJO-Modell zu halten. Zwar könnten  wir  auch  die  Modellklassen direkt an den Client weitergeben, da sie
  *  normale Java-Klassen sind.
  */
 
@@ -29,11 +29,11 @@ public class AppointmentTO extends DataTransferObject{
 
     //TODO: Appoinment Konstruktor
 	
-	/*public AppointmentTO() {
+	public AppointmentTO(int id, String title, String location, Date startTime, String description) {
 		super();
 		this.id = id;
 		
-	}*/
+	}
 	
 	public String getTitel() {
 		return title;
@@ -43,35 +43,35 @@ public class AppointmentTO extends DataTransferObject{
 		this.title = titel;
 	}
 
-	public String getOrt() {
+	public String getLocation() {
 		return location;
 	}
 
-	public void setOrt(String ort) {
+	public void setLocation(String ort) {
 		this.location = ort;
 	}
 
-	public Date getZeitpunkt() {
+	public Date getStarttime() {
 		return startTime;
 	}
 
-	public void setZeitpunkt(Date zeitpunkt) {
-		this.startTime = zeitpunkt;
+	public void setStarttime(Date startTime) {
+		this.startTime = startTime;
 	}
 
-	public String getBeschreibung() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setBeschreibung(String beschreibung) {
-		this.description = beschreibung;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public Date getErstelltAm() {
+	public Date getCreateAt() {
 		return createdAt;
 	}
     
-	public void setErstelltAm(Date createdAt) {
+	public void setCreateAt(Date createdAt) {
 		this.createdAt=createdAt;
 	}
 	public void setId(int id) {
