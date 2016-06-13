@@ -23,7 +23,7 @@ public class RegisterNewUserTest {
     	return ShrinkWrap.create(WebArchive.class, "test.war")
                .addPackages(true,"de/erstihelfer")
                .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")               
-               .addAsWebInfResource("META-INF/ejb-jar.xml", "META-INF/ejb-jar.xml");
+               .addAsWebInfResource("META-INF/ejb-jar.xml", "ejb-jar.xml");
 	}
 	
 	@Test
