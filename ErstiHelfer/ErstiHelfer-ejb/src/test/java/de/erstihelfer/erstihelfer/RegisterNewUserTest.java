@@ -22,8 +22,8 @@ public class RegisterNewUserTest {
     public static WebArchive createDeployment() {
     	return ShrinkWrap.create(WebArchive.class, "test.war")
                .addPackages(true,"de/erstihelfer")
-               .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")               
-               .addAsWebInfResource("META-INF/ejb-jar.xml", "ejb-jar.xml");
+               .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")               
+               .addAsWebInfResource("META-INF/ejb-jar.xml", "META-INF/ejb-jar.xml");
 	}
 	
 	@Test
@@ -31,7 +31,7 @@ public class RegisterNewUserTest {
 	 * Prueft, ob ein neuer Kunde erfolgreich registriert werden kann.
 	 */
 	public void testRegistration() throws Exception {
-	    UserLoginResponse loginResponse = bean.registerNewUser("amayda", 1);
+	    UserLoginResponse loginResponse = bean.registerNewUser("Wendy", 2);
 	    assertEquals(loginResponse.getReturnCode(), 0);
 	 	int sessionId = loginResponse.getSessionId();
 		bean.logout(sessionId);
