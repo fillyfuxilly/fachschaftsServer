@@ -1,5 +1,7 @@
 package de.erstihelfer.erstihelfer;
 
+import java.util.Date;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -10,6 +12,7 @@ import org.jboss.logging.Logger;
 import org.jboss.ws.api.annotation.WebContext;
 
 import de.erstihelfer.dao.ErstiHelferDAOLocal;
+import de.erstihelfer.entities.Appointment;
 import de.erstihelfer.entities.ErstiHelferSession;
 import de.erstihelfer.util.DtoAssembler;
 import de.erstihelfer.dto.ReturnCodeResponse;
@@ -20,9 +23,10 @@ import de.erstihelfer.erstihelfer.erstiHelferException;
 /**
  * @author Amayda Dominguez
  * 
- * Diese Stateless Session Bean stellt die ErstiHelfer-Operationen als Webservice bereit.
- *  
- * Session Beans als Web Service veröffentlicht(Annotation @WebService)
+ *         Diese Stateless Session Bean stellt die ErstiHelfer-Operationen als
+ *         Webservice bereit.
+ * 
+ *         Session Beans als Web Service veröffentlicht(Annotation @WebService)
  */
 
 @Stateless
@@ -55,10 +59,11 @@ public class ErstiHelferOnlineIntegration {
 	 * @return
 	 * @throws NoSessionException
 	 */
-	
+
 	/**
 	 * 
-	 * Der user wird eine Exception bekommen, wenn er icht nicht eingeloggt hat(session gleich null)
+	 * Der user wird eine Exception bekommen, wenn er icht nicht eingeloggt
+	 * hat(session gleich null)
 	 * 
 	 * 
 	 */
@@ -84,13 +89,13 @@ public class ErstiHelferOnlineIntegration {
 				throw new InvalidLoginException("Login fehlgeschlagen, da User unbekannt. username=" + username);
 			}
 		} catch (erstiHelferException e) {
-			
+
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		}
 		return response;
 	}
-	
+
 	public UserLoginResponse login1(String username, int GroupNr) {
 		UserLoginResponse response = new UserLoginResponse();
 		try {
@@ -105,46 +110,40 @@ public class ErstiHelferOnlineIntegration {
 				throw new InvalidLoginException("Login fehlgeschlagen, da User unbekannt. username=" + username);
 			}
 		} catch (erstiHelferException e) {
-			
+
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		}
 		return response;
 	}
-	
-	
-	
+
 	/**
-	-	 * Mit dieser Methode können die Erstis die Gruppennummer ändern
-		 *  	 
-	-	 * @see ErstihelferDAOLocal#changeGroup(int)
-		 * 
-	 	 **/
-		
-		public void changeGroup(String username, int groupNr){
-		  
-			try {
-				User user = this.dao.findUserByName(username);
-				
-				if (user != null) {
-					user.setGroup(groupNr);
-				    user=dao.update(user);
-				
-				} else {
-					logger.info("Username "+  username +" nicht gefunden" );
-					throw new InvalidLoginException("Änderung der Gruppennummer fehlgeschlagen, da User" + username+ "unbekannt ist" );
-				}
-		
-			
-			} catch (erstiHelferException e) {
-				//  /////			
+	 * - * Mit dieser Methode können die Erstis die Gruppennummer ändern
+	 * 
+	 * - * @see ErstihelferDAOLocal#changeGroup(int)
+	 * 
+	 **/
+
+	public void changeGroup(String username, int groupNr) {
+
+		try {
+			User user = this.dao.findUserByName(username);
+
+			if (user != null) {
+				user.setGroup(groupNr);
+				user = dao.update(user);
+
+			} else {
+				logger.info("Username " + username + " nicht gefunden");
+				throw new InvalidLoginException(
+						"Änderung der Gruppennummer fehlgeschlagen, da User" + username + "unbekannt ist");
 			}
-	      }
-		
-	
-	
-	
-	
+
+		} catch (erstiHelferException e) {
+			logger.error(e);
+		}
+	}
+
 	public ReturnCodeResponse logout(int sessionId) {
 		dao.closeSession(sessionId);
 		ReturnCodeResponse response = new ReturnCodeResponse();
@@ -152,7 +151,7 @@ public class ErstiHelferOnlineIntegration {
 		return response;
 	}
 
-	//@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	// @TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public UserLoginResponse registerNewUser(String userName, int groupNr) {
 		UserLoginResponse response = new UserLoginResponse();
 		try {
@@ -182,4 +181,10 @@ public class ErstiHelferOnlineIntegration {
 		return response;
 	}
 
+	public void createAppointment(String title, String location, Date startTime, String description) {
+		Appointment app = new Appointment(title, location, startTime, description);
+		dao.createAppointment(app);
+		logger.info("Termin " + app.getTitel() + " wurde erstellt.");
+	}
+	
 }
