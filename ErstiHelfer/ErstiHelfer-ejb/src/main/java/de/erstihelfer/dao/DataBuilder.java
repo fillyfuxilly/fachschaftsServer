@@ -44,7 +44,6 @@ public class DataBuilder {
 			em.persist(user1);
 			logger.info("Neu angelegt:" + user1);
 		}
-
 	}
 
 }

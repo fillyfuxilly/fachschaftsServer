@@ -8,6 +8,7 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import de.erstihelfer.entities.Appointment;
 import de.erstihelfer.entities.ErstiHelferSession;
@@ -79,17 +80,33 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		return newSession.getId();
 	}
 
-	//@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+	// @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public User createUser(String username, int groupNr) {
-		if (findUserByName(username) == null)
-		 {
-		User user = new User(username, groupNr);
-		em.persist(user);
-		
-		return user; }
-	  else { 
-		// Return null, if username already exists.
-		return null; } }
+		if (findUserByName(username) == null) {
+			User user = new User(username, groupNr);
+			em.persist(user);
+
+			return user;
+		} else {
+			// Return null, if username already exists.
+			return null;
+		}
+	}
+
+	public void createAppointment(Appointment app) {
+		em.persist(app);
+	}
+
+	public List<Appointment> getAppointment(Date timestamp, int count, int groupNr) {
+		List<Appointment> results;
+		String query = "SELECT * FROM appointment a INNER JOIN a.users WHERE";
+		String cond1 = " a.starttime >= GETDATE() ";
+		String cond2 = " AND a.";
+		Query q = em.createQuery(query);
+		results = q.getResultList();
+		//TODO:
+		return null;
+	}
 
 	/*
 	 * public List<Appointment> getAppointment(Date timestamp, int count, int
@@ -100,29 +117,12 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 * 
 	 */
 
-	/**
-	 * Die Methode findet gibt die Termine zurück nach dem Namen
-	 *
-	 * @see ErstihelferDAOLocal#createUse(int)
-	 */
-	
+	public User update(User user) {
 
-	/**
-	-	 * Mit dieser Methode können die Erstis die Gruppennummer ändern
-		 *  	 
-	-	 * @see ErstihelferDAOLocal#changeGroup(int)
-		 * 
-	 	 **/
-		
-	public User update(User user){
-		
-		   return  em.merge(user);
-     	
-	       
-    }
-	
+		return em.merge(user);
 
-	
+	}
+
 	@Override
 	public String getServerStatus() {
 		// TODO Auto-generated method stub

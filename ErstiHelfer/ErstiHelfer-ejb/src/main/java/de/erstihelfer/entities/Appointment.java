@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
@@ -22,8 +23,7 @@ import javax.persistence.ManyToMany;
 public class Appointment implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private static int lastID = 0;
-	@Id @GeneratedValue
+	@Id @GeneratedValue//(strategy=GenerationType.IDENTITY)Auto_increment
 	private int id;
 	private String title;
 	// Wo findet der Termin statt?
@@ -42,7 +42,6 @@ public class Appointment implements Serializable {
 	}
 
 	public Appointment(String title, String location, Date startTime, String description) {
-		this.id = ++lastID;
 		this.title = title;
 		this.location = location;
 		this.startTime = startTime;
