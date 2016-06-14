@@ -29,7 +29,8 @@ public class DataBuilder {
 
 	@Resource
 	private String username1;
-	private int groupNr1;
+	@Resource
+	private Integer groupNr1;
 
 	
 	/**

@@ -22,17 +22,17 @@ public class DtoAssembler {
 	public UserTO makeDTO(User user){
 		UserTO dto= new UserTO();
 		dto.setUsername(user.getUsername());
-		//dto.setGroupNr(user.getGroupNr());
+		dto.setGroupNr(user.getGroupNr());
 		return dto;
 	}
     
 	public AppointmentTO makeDTO(Appointment appointment){
 	     AppointmentTO dto = new AppointmentTO();
 	     dto.setTitel(appointment.getTitel());
-	     dto.setOrt(appointment.getOrt());
-	     dto.setZeitpunkt(appointment.getZeitpunkt());
-	     dto.setBeschreibung(appointment.getBeschreibung());
-	     dto.setErstelltAm(appointment.getErstelltAm());
+	     dto.setLocation(appointment.getLocation());
+	     dto.setStarttime(appointment.getStarttime());
+	     dto.setDescription(appointment.getDescription());
+	     dto.setCreateAt(appointment.getCreateAt());
 	     return dto;
 	}
 }

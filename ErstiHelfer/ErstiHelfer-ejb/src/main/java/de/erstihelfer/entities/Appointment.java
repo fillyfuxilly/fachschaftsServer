@@ -57,35 +57,40 @@ public class Appointment implements Serializable {
 		this.title = titel;
 	}
 
-	public String getOrt() {
+	public String getLocation() {
 		return location;
 	}
 
-	public void setOrt(String ort) {
-		this.location = ort;
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
-	public Date getZeitpunkt() {
+	public Date getStarttime() {
 		return startTime;
 	}
 
-	public void setZeitpunkt(Date zeitpunkt) {
-		this.startTime = zeitpunkt;
+	public void setStarttime(Date startTime) {
+		this.startTime = startTime;
 	}
 
-	public String getBeschreibung() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setBeschreibung(String beschreibung) {
-		this.description = beschreibung;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	public Date getErstelltAm() {
+	
+	public void setCreateAt(Date createdAt) {
+		this.createdAt=createdAt;
+	}
+	
+	public Date getCreateAt() {
 		return createdAt;
 	}
 

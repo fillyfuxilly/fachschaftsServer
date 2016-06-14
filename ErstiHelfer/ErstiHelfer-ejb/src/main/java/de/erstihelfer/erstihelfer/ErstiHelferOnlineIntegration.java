@@ -8,6 +8,8 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.jws.WebService;
 
 import org.jboss.logging.Logger;
@@ -35,6 +37,8 @@ import de.erstihelfer.erstihelfer.erstiHelferException;
 @WebService
 @WebContext(contextRoot = "/erstihelfer")
 
+
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class ErstiHelferOnlineIntegration {
 
 	private static final Logger logger = Logger.getLogger(ErstiHelferOnlineIntegration.class);

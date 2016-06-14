@@ -4,8 +4,10 @@ package de.erstihelfer.dto;
  * @author Amayda Dominguez
  *
  */
-public class UserTO {
-
+public class UserTO extends DataTransferObject{
+	
+	private static final long serialVersionUID = -1044563636105941958L;
+	
 	private String username;
 	private int groupNr;
 	private int id;
@@ -13,9 +15,11 @@ public class UserTO {
 	public UserTO() {
 	}
 
-	public UserTO(String username) {
-
+	public UserTO(int id, String username, int groupNr) {
+        super();
+        this.id=id;
 		this.username = username;
+		this.groupNr=groupNr;
 	}
 
 	public int getId() {
