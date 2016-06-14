@@ -97,15 +97,38 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		em.persist(app);
 	}
 
+	
+	/**
+	 * Diese Methode setzt Beziehungen zwischen Appointments und Usern(bzw. deren Gruppen)
+	 * 
+	 * @param groupNr
+	 * @param appointmentID
+	 */
+	public void addGroupToAppointment(int groupNr, int appointmentID) {
+		// Hole Users
+		String userQuery = "SELECT * FROM User u WHERE u.groupNr = " + groupNr;
+		@SuppressWarnings("unchecked")
+		List<User> users = em.createQuery(userQuery).getResultList();
+		// Hole Appointment
+		Appointment app = em.find(Appointment.class, appointmentID);
+
+		em.getTransaction().begin();
+		for (User user : users) {
+			user.addAppointment(app);
+		}
+		em.getTransaction().commit();
+	}
+
 	@SuppressWarnings("unchecked")
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
-//		List<Appointment> results;
-//		String query = "SELECT * FROM appointment a INNER JOIN a.users WHERE";
-//		String cond1 = " a.starttime >= GETDATE() ";
-//		String cond2 = " AND a.";
-//		Query q = em.createQuery(query);
-//		results = q.getResultList();
-		//TODO:
+		List<Appointment> results;
+		String query = "SELECT * FROM "
+				+ "Appointment a INNER JOIN GROUP_APPOINTMENT g ON a.id = g.APPOINTMENT_ID WHERE";
+		String cond1 = " a.startTime >= GETDATE() ";
+		String cond2 = " AND a.";
+		Query q = em.createQuery(query);
+		results = q.getResultList();
+		// TODO:
 		return null;
 	}
 

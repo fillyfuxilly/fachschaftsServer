@@ -12,43 +12,58 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-
 /**
  * 
  * @author Amayda Dominguez
+ * @author Malte Evers
  *
  */
 @Entity
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	@Id @GeneratedValue
+
+	@Id
+	@GeneratedValue
 	private int id;
-	
-	@Column(unique=true, nullable=false)
+
+	@Column(unique = true, nullable = false)
 	private String username;
 
 	private int groupNr;
-	
-	@ManyToMany
-	@JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {@JoinColumn(name = "GROUPNR", referencedColumnName= "GROUPNR")},
-    inverseJoinColumns = {@JoinColumn(name = "APPOINTMENT_ID", referencedColumnName= "ID")})
-	List<Appointment> appointments= new ArrayList<Appointment>();
 
-	public User(){}
-	public User(String username, int groupNr){
-		
-	
-		this.username = username;
-	    this.groupNr = groupNr;
-		
+	@ManyToMany
+	@JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {
+			@JoinColumn(name = "GROUPNR", referencedColumnName = "GROUPNR") }, inverseJoinColumns = {
+					@JoinColumn(name = "APPOINTMENT_ID", referencedColumnName = "ID") })
+	List<Appointment> appointments = new ArrayList<Appointment>();
+
+	public User() {
 	}
-	
+
+	public User(String username, int groupNr) {
+
+		this.username = username;
+		this.groupNr = groupNr;
+
+	}
+
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+
+	public void addAppointment(Appointment a) {
+		if (!getAppointments().contains(a)) {
+			getAppointments().add(a);
+		}
+		if (!a.getUsers().contains(this)) {
+			a.getUsers().add(this);
+		}
+	}
+
 	public String getUsername() {
 		return username;
 	}
-	
-	
+
 	public int getGroupNr() {
 		return groupNr;
 	}
@@ -60,7 +75,7 @@ public class User implements Serializable {
 	public void setId(int userId) {
 		this.id = userId;
 	}
-	
+
 	public void setGroup(int groupNr) {
 		this.groupNr = groupNr;
 	}

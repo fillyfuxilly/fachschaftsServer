@@ -26,6 +26,7 @@ import de.erstihelfer.erstihelfer.erstiHelferException;
 
 /**
  * @author Amayda Dominguez
+ * @author Malte Evers
  * 
  *         Diese Stateless Session Bean stellt die ErstiHelfer-Operationen als
  *         Webservice bereit.
@@ -192,6 +193,7 @@ public class ErstiHelferOnlineIntegration {
 		dao.createAppointment(app);
 		logger.info("Termin " + app.getTitel() + " wurde erstellt.");
 		//TODO: Beziehung zwischen Appointment und User
+		
 	}
 	
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {

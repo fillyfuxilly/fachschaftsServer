@@ -11,19 +11,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-
 /**
  * @author Amayda Dominguez
  * @author Malte Evers
  * 
- *         Termine der O-Woche. 
- *         Erstsemester sollen erfahren, wann und wo sie als nächstes hinlaufen müssen
+ *         Termine der O-Woche. Erstsemester sollen erfahren, wann und wo sie
+ *         als nächstes hinlaufen müssen
  */
 @Entity
 public class Appointment implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	@Id @GeneratedValue//(strategy=GenerationType.IDENTITY)Auto_increment
+	@Id
+	@GeneratedValue // (strategy=GenerationType.IDENTITY)Auto_increment
 	private int id;
 	private String title;
 	// Wo findet der Termin statt?
@@ -35,9 +35,9 @@ public class Appointment implements Serializable {
 	// timestamp für Erstellung des Termins
 	private Date createdAt;
 
-  @ManyToMany(mappedBy="appointments")
-    Set<User> users=new HashSet<User>();
-    
+	@ManyToMany(mappedBy = "appointments")
+	Set<User> users = new HashSet<User>();
+
 	public Appointment() {
 	}
 
@@ -47,6 +47,14 @@ public class Appointment implements Serializable {
 		this.startTime = startTime;
 		this.description = description;
 		this.createdAt = new Date(); // now
+	}
+
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
 	}
 
 	public String getTitel() {
@@ -85,11 +93,10 @@ public class Appointment implements Serializable {
 		return serialVersionUID;
 	}
 
-	
 	public void setCreateAt(Date createdAt) {
-		this.createdAt=createdAt;
+		this.createdAt = createdAt;
 	}
-	
+
 	public Date getCreateAt() {
 		return createdAt;
 	}
