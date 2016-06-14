@@ -11,7 +11,10 @@ import de.erstihelfer.entities.User;
 
 /**
  * 
- * @author Amayda Dominguez Interface für das Persistenzmanagement, hier sind
+ * @author Amayda Dominguez 
+ * @author Malte Evers
+ * 
+ * Interface für das Persistenzmanagement, hier sind
  *         die abstrakte Methoden, die die Session Bean implementiert, bei
  *         Technologiewechsel muss nur die DAO-Implementierung ausgetauscht
  *         werden

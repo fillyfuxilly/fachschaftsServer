@@ -97,13 +97,14 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		em.persist(app);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
-		List<Appointment> results;
-		String query = "SELECT * FROM appointment a INNER JOIN a.users WHERE";
-		String cond1 = " a.starttime >= GETDATE() ";
-		String cond2 = " AND a.";
-		Query q = em.createQuery(query);
-		results = q.getResultList();
+//		List<Appointment> results;
+//		String query = "SELECT * FROM appointment a INNER JOIN a.users WHERE";
+//		String cond1 = " a.starttime >= GETDATE() ";
+//		String cond2 = " AND a.";
+//		Query q = em.createQuery(query);
+//		results = q.getResultList();
 		//TODO:
 		return null;
 	}
