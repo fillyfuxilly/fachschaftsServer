@@ -1,8 +1,11 @@
 
 package de.erstihelfer.erstihelfer;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -18,11 +21,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="beschreibung" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="createAt" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
+ *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="ort" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="location" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="starttime" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
  *         &lt;element name="titel" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="zeitpunkt" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
+ *         &lt;element name="users" type="{http://erstihelfer.erstihelfer.de/}user" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -33,43 +38,73 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "appointment", propOrder = {
-    "beschreibung",
+    "createAt",
+    "description",
     "id",
-    "ort",
+    "location",
+    "starttime",
     "titel",
-    "zeitpunkt"
+    "users"
 })
 public class Appointment {
 
-    protected String beschreibung;
-    protected int id;
-    protected String ort;
-    protected String titel;
     @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar zeitpunkt;
+    protected XMLGregorianCalendar createAt;
+    protected String description;
+    protected int id;
+    protected String location;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar starttime;
+    protected String titel;
+    @XmlElement(nillable = true)
+    protected List<User> users;
 
     /**
-     * Ruft den Wert der beschreibung-Eigenschaft ab.
+     * Ruft den Wert der createAt-Eigenschaft ab.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getCreateAt() {
+        return createAt;
+    }
+
+    /**
+     * Legt den Wert der createAt-Eigenschaft fest.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setCreateAt(XMLGregorianCalendar value) {
+        this.createAt = value;
+    }
+
+    /**
+     * Ruft den Wert der description-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getBeschreibung() {
-        return beschreibung;
+    public String getDescription() {
+        return description;
     }
 
     /**
-     * Legt den Wert der beschreibung-Eigenschaft fest.
+     * Legt den Wert der description-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setBeschreibung(String value) {
-        this.beschreibung = value;
+    public void setDescription(String value) {
+        this.description = value;
     }
 
     /**
@@ -89,27 +124,51 @@ public class Appointment {
     }
 
     /**
-     * Ruft den Wert der ort-Eigenschaft ab.
+     * Ruft den Wert der location-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getOrt() {
-        return ort;
+    public String getLocation() {
+        return location;
     }
 
     /**
-     * Legt den Wert der ort-Eigenschaft fest.
+     * Legt den Wert der location-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setOrt(String value) {
-        this.ort = value;
+    public void setLocation(String value) {
+        this.location = value;
+    }
+
+    /**
+     * Ruft den Wert der starttime-Eigenschaft ab.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getStarttime() {
+        return starttime;
+    }
+
+    /**
+     * Legt den Wert der starttime-Eigenschaft fest.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setStarttime(XMLGregorianCalendar value) {
+        this.starttime = value;
     }
 
     /**
@@ -137,27 +196,32 @@ public class Appointment {
     }
 
     /**
-     * Ruft den Wert der zeitpunkt-Eigenschaft ab.
+     * Gets the value of the users property.
      * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getZeitpunkt() {
-        return zeitpunkt;
-    }
-
-    /**
-     * Legt den Wert der zeitpunkt-Eigenschaft fest.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the users property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getUsers().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link User }
+     * 
+     * 
      */
-    public void setZeitpunkt(XMLGregorianCalendar value) {
-        this.zeitpunkt = value;
+    public List<User> getUsers() {
+        if (users == null) {
+            users = new ArrayList<User>();
+        }
+        return this.users;
     }
 
 }

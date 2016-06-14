@@ -14,13 +14,13 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="userTO"&gt;
  *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *     &lt;extension base="{http://erstihelfer.erstihelfer.de/}dataTransferObject"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="groupNr" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
+ *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -33,7 +33,9 @@ import javax.xml.bind.annotation.XmlType;
     "id",
     "username"
 })
-public class UserTO {
+public class UserTO
+    extends DataTransferObject
+{
 
     protected int groupNr;
     protected int id;

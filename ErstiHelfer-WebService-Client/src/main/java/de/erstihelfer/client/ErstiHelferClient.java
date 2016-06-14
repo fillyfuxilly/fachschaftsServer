@@ -1,6 +1,11 @@
 package de.erstihelfer.client;
 
+import java.util.GregorianCalendar;
 import java.util.List;
+
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 import de.erstihelfer.erstihelfer.ErstiHelferOnlineIntegration;
 import de.erstihelfer.erstihelfer.ErstiHelferOnlineIntegrationService;
@@ -30,8 +35,9 @@ public class ErstiHelferClient {
 			System.out.println(e);
 			e.printStackTrace();
 		}
-		test_LoginRegister();
-
+		// test_LoginRegister();
+		test_CreateAndGetAppointments();
+		
 	}
 
 	/**
@@ -43,19 +49,27 @@ public class ErstiHelferClient {
 		int groupNr = 1;
 		System.out.println("============================================================");
 		UserLoginResponse registerResponse = remoteSystem.registerNewUser(username, groupNr);
-		//ReturnCodeResponse CODE_OK
+		// ReturnCodeResponse CODE_OK
 		if (registerResponse.getReturnCode() == 0) {
 			int sessionId = registerResponse.getSessionId();
 			System.out.println("Registrierung von " + username + " in der Gruppe " + groupNr + " erfolgreich.");
-			
+
 			remoteSystem.logout(sessionId);
 		} else {
 			System.out.println(registerResponse.getMessage());
 		}
 	}
-	
-	private static void test_CreateAndGetAppointments(){
 
+	private static void test_CreateAndGetAppointments() {
+		GregorianCalendar startTime = new GregorianCalendar(2016, 9, 1, 12, 0);
+		XMLGregorianCalendar xmlCal;
+		try {
+			xmlCal = DatatypeFactory.newInstance().newXMLGregorianCalendar(startTime);
+			remoteSystem.createAppointment("Schlacht um Helms Klamm", "Helms Klamm", xmlCal,
+					"Orks gegen Menschen. Seid pünktlich!(ErstiHelftClient.main)", 1);
+		} catch (DatatypeConfigurationException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

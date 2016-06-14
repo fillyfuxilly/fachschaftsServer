@@ -22,6 +22,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
  *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,7 +36,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "arg0",
     "arg1",
     "arg2",
-    "arg3"
+    "arg3",
+    "arg4"
 })
 public class CreateAppointment {
 
@@ -44,6 +46,7 @@ public class CreateAppointment {
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar arg2;
     protected String arg3;
+    protected int arg4;
 
     /**
      * Ruft den Wert der arg0-Eigenschaft ab.
@@ -139,6 +142,22 @@ public class CreateAppointment {
      */
     public void setArg3(String value) {
         this.arg3 = value;
+    }
+
+    /**
+     * Ruft den Wert der arg4-Eigenschaft ab.
+     * 
+     */
+    public int getArg4() {
+        return arg4;
+    }
+
+    /**
+     * Legt den Wert der arg4-Eigenschaft fest.
+     * 
+     */
+    public void setArg4(int value) {
+        this.arg4 = value;
     }
 
 }
