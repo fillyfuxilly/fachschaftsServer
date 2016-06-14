@@ -26,8 +26,7 @@ public interface ErstiHelferDAOLocal {
 
 	public String getServerStatus();
 
-	// public List<Appointment> getAppointment(Date timestamp, int count, int
-	// groupNr);
+	public void addGroupToAppointment(int groupNr, int appointmentID);
 	public void createAppointment(Appointment appointment);
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr);
 	public User createUser(String username, int group);

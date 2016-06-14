@@ -104,19 +104,19 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 * @param groupNr
 	 * @param appointmentID
 	 */
+	@SuppressWarnings("unchecked")
 	public void addGroupToAppointment(int groupNr, int appointmentID) {
 		// Hole Users
-		String userQuery = "SELECT * FROM User u WHERE u.groupNr = " + groupNr;
-		@SuppressWarnings("unchecked")
-		List<User> users = em.createQuery(userQuery).getResultList();
+		String userQuery = "FROM User u WHERE u.groupNr = :groupNr";
+		Query query = em.createQuery(userQuery).setParameter("groupNr", groupNr);
+		List<User> users = query.getResultList();
 		// Hole Appointment
 		Appointment app = em.find(Appointment.class, appointmentID);
 
-		em.getTransaction().begin();
+		//Füge für allen Usern den Termin hinzu
 		for (User user : users) {
 			user.addAppointment(app);
 		}
-		em.getTransaction().commit();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -126,8 +126,8 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 				+ "Appointment a INNER JOIN GROUP_APPOINTMENT g ON a.id = g.APPOINTMENT_ID WHERE";
 		String cond1 = " a.startTime >= GETDATE() ";
 		String cond2 = " AND a.";
-		Query q = em.createQuery(query);
-		results = q.getResultList();
+//		Query q = em.createQuery(query);
+//		results = q.getResultList();
 		// TODO:
 		return null;
 	}

@@ -56,10 +56,10 @@ public class UserTest {
 		String title = "Ring zerstören";
 		String location = "Mordor";
 		String description = "Schmeiß den Ring ins Feuer!";
+		int groupNr = 1;
 		GregorianCalendar startTime = new GregorianCalendar(2016, 9, 1, 15, 0);
-		XMLGregorianCalendar XMLcal = DatatypeFactory.newInstance().newXMLGregorianCalendar(startTime);
-		remoteSystem.createAppointment(title, location, XMLcal, description);
-
+		XMLGregorianCalendar xmlCal = DatatypeFactory.newInstance().newXMLGregorianCalendar(startTime);
+		remoteSystem.createAppointment(title, location, xmlCal, description, 1);
 	}
 
 }

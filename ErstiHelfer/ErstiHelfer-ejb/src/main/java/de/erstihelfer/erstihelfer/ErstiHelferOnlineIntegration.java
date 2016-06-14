@@ -188,12 +188,13 @@ public class ErstiHelferOnlineIntegration {
 		return response;
 	}
 
-	public void createAppointment(String title, String location, Date startTime, String description, int GroupNr) {
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public void createAppointment(String title, String location, Date startTime, String description, int groupNr) {
 		Appointment app = new Appointment(title, location, startTime, description);
 		dao.createAppointment(app);
 		logger.info("Termin " + app.getTitel() + " wurde erstellt.");
-		//TODO: Beziehung zwischen Appointment und User
-		
+		dao.addGroupToAppointment(groupNr, app.getId());
+		logger.info("Termin " + app.getTitel() + " wurde die Gruppe " + groupNr + " hinzugefügt");
 	}
 	
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
