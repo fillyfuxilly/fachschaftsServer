@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 /**
@@ -35,7 +37,10 @@ public class Appointment implements Serializable {
 	// timestamp für Erstellung des Termins
 	private Date createdAt;
 
-	@ManyToMany(mappedBy = "appointments")
+	@ManyToMany//TODO
+	@JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {
+			@JoinColumn(name = "APPOINTMENT_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
+					@JoinColumn(name = "GROUPNR", referencedColumnName = "GROUPNR") })
 	Set<User> users = new HashSet<User>();
 
 	public Appointment() {

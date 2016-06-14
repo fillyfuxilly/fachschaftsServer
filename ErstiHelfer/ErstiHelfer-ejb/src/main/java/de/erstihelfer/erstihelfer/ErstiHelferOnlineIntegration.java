@@ -196,14 +196,15 @@ public class ErstiHelferOnlineIntegration {
 		dao.addGroupToAppointment(groupNr, app.getId());
 		logger.info("Termin " + app.getTitel() + " wurde die Gruppe " + groupNr + " hinzugefügt");
 	}
-	
+
+	//@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
-		//Es werden die Termine ab dem Zeitpunkt Now()-1Hour zurückgegeben
+		//Es werden die Termine ab dem Zeitpunkt timestamp-1Hour zurückgegeben
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(timestamp);
 		cal.add(Calendar.HOUR, -1);
 		Date oneHourBack = cal.getTime();
-		
+		logger.info("ES WIRD GESUCHT AB: " + oneHourBack.toString());
 		return dao.getAppointments(oneHourBack, count, groupNr);
 	}
 }

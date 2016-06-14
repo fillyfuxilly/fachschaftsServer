@@ -17,7 +17,10 @@ import de.erstihelfer.dao.ErstiHelferDAOLocal;
 
 /**
  * 
- * @author Amayda Dominguez DAO-Session Bean für das Persistenzmanagement
+ * @author Amayda Dominguez 
+ * @author Malte Evers
+ * 
+ * DAO-Session Bean für das Persistenzmanagement
  *         Session Bean Implementation
  * 
  **/
@@ -97,9 +100,9 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		em.persist(app);
 	}
 
-	
 	/**
-	 * Diese Methode setzt Beziehungen zwischen Appointments und Usern(bzw. deren Gruppen)
+	 * Diese Methode setzt Beziehungen zwischen Appointments und Usern(bzw.
+	 * deren Gruppen)
 	 * 
 	 * @param groupNr
 	 * @param appointmentID
@@ -113,7 +116,7 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		// Hole Appointment
 		Appointment app = em.find(Appointment.class, appointmentID);
 
-		//Füge für allen Usern den Termin hinzu
+		// Füge für allen Usern den Termin hinzu
 		for (User user : users) {
 			user.addAppointment(app);
 		}
@@ -121,15 +124,24 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 
 	@SuppressWarnings("unchecked")
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
-		List<Appointment> results;
-		String query = "SELECT * FROM "
-				+ "Appointment a INNER JOIN GROUP_APPOINTMENT g ON a.id = g.APPOINTMENT_ID WHERE";
-		String cond1 = " a.startTime >= GETDATE() ";
-		String cond2 = " AND a.";
-//		Query q = em.createQuery(query);
-//		results = q.getResultList();
-		// TODO:
-		return null;
+		// Query-String
+		StringBuilder qString = new StringBuilder();
+		qString.append("SELECT a FROM User u JOIN u.appointments a WHERE ");
+		// alle Termine die mit der Gruppe 'groupNr' verknüpft sind
+		qString.append("u.groupNr = :groupNr");
+		// und die nach 'timestamp' stattfinden
+		qString.append(" AND a.startTime >= :timestamp");
+		// und die nach 'timestamp' stattfinden
+		// sortiert nach der Startzeit
+		qString.append(" ORDER BY a.startTime");
+		// Erstelle Query aus String
+		Query q = em.createQuery(qString.toString(), Appointment.class );
+		// maximal 'count' Termine
+		q.setMaxResults(count);
+		q.setParameter("timestamp", timestamp);
+		q.setParameter("groupNr", groupNr);
+
+		return q.getResultList();
 	}
 
 	/*

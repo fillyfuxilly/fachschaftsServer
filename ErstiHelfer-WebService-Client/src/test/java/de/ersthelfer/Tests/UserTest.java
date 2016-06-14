@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
@@ -15,6 +16,11 @@ import org.junit.Test;
 
 import de.erstihelfer.erstihelfer.*;
 
+/**
+ * 
+ * @author Malte Evers
+ * 
+ **/
 public class UserTest {
 
 	private static ErstiHelferOnlineIntegration remoteSystem;
@@ -37,7 +43,7 @@ public class UserTest {
 		UserLoginResponse registerResponse = remoteSystem.registerNewUser(username, groupNr);
 		// ReturnCodeResponse CODE_OK:0
 		if (registerResponse.getReturnCode() == 30) {
-			//Username existiert bereits => login
+			// Username existiert bereits => login
 			UserLoginResponse loginResponse = remoteSystem.login1(username, groupNr);
 			assertEquals("Returncode: " + loginResponse.getReturnCode() + " Message: " + loginResponse.getMessage(), 0,
 					loginResponse.getReturnCode());
@@ -59,7 +65,19 @@ public class UserTest {
 		int groupNr = 1;
 		GregorianCalendar startTime = new GregorianCalendar(2016, 9, 1, 15, 0);
 		XMLGregorianCalendar xmlCal = DatatypeFactory.newInstance().newXMLGregorianCalendar(startTime);
-		remoteSystem.createAppointment(title, location, xmlCal, description, 1);
+		remoteSystem.createAppointment(title, location, xmlCal, description, groupNr);
+
+		// Hole Termine
+		int count = 5;
+		List<Appointment> apps = remoteSystem.getAppointments(xmlCal, count, groupNr);
+		//result größer als 0 und kleiner als count
+		assertTrue("Es dürfen nicht mehr Termine als count zurückgegeben werden.", 0 < apps.size() && apps.size()<=count);
+		//überprüft ob der kreierte Termin gefunden wurde
+		boolean foundApp = false;
+		for (Appointment appointment : apps) {
+			if(appointment.getTitel().equals(title) && appointment.getLocation().equals(location)) foundApp = true;
+		}
+		assertTrue("Der hinzugefügte Termin wurde nicht gefunden.", foundApp);
 	}
 
 }

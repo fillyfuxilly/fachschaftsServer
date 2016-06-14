@@ -36,16 +36,21 @@ public class ErstiHelferClient {
 			e.printStackTrace();
 		}
 		// test_LoginRegister();
-		test_CreateAndGetAppointments();
-		
+		try {
+			test_CreateAndGetAppointments();
+		} catch (DatatypeConfigurationException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	/**
 	 * Test-Szenario: Es wird registriert und eingeloggt
 	 */
+	@SuppressWarnings("unused")
 	private static void test_LoginRegister() {
 		String username = "Malte";
-		String password = "12345";
+		// String password = "12345";
 		int groupNr = 1;
 		System.out.println("============================================================");
 		UserLoginResponse registerResponse = remoteSystem.registerNewUser(username, groupNr);
@@ -60,16 +65,23 @@ public class ErstiHelferClient {
 		}
 	}
 
-	private static void test_CreateAndGetAppointments() {
-		GregorianCalendar startTime = new GregorianCalendar(2016, 9, 1, 12, 0);
+	private static void test_CreateAndGetAppointments() throws DatatypeConfigurationException {
+		// erzeuge Datum als XMLGregorianCalendar
+		GregorianCalendar startTime = new GregorianCalendar(2015, 9, 1, 12, 0);
 		XMLGregorianCalendar xmlCal;
-		try {
-			xmlCal = DatatypeFactory.newInstance().newXMLGregorianCalendar(startTime);
-			remoteSystem.createAppointment("Schlacht um Helms Klamm", "Helms Klamm", xmlCal,
-					"Orks gegen Menschen. Seid pünktlich!(ErstiHelftClient.main)", 1);
-		} catch (DatatypeConfigurationException e) {
-			e.printStackTrace();
+		xmlCal = DatatypeFactory.newInstance().newXMLGregorianCalendar(startTime);
+		// Erstelle Test-Termin
+		remoteSystem.createAppointment("Schlacht um Helms Klamm", "Helms Klamm", xmlCal,
+				"Orks gegen Menschen. Seid pünktlich!(ErstiHelftClient.main)", 1);
+		// Hole Termine
+		List<Appointment> apps = remoteSystem.getAppointments(xmlCal, 5, 1);
+		// print Ergebnis
+		System.out.println("size: " + apps.size());
+		String listString = "Folgende Termine passen zu Gruppe 1\n";
+		for (Appointment s : apps) {
+			listString += s.getTitel() + "\n";
 		}
+		System.out.println(listString);
 	}
 
 }
