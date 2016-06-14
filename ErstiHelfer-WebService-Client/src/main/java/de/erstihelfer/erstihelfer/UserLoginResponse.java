@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;extension base="{http://erstihelfer.erstihelfer.de/}returnCodeResponse"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="sessionId" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="text" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="user" type="{http://erstihelfer.erstihelfer.de/}userTO" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
@@ -29,6 +30,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "userLoginResponse", propOrder = {
     "sessionId",
+    "text",
     "user"
 })
 public class UserLoginResponse
@@ -36,6 +38,7 @@ public class UserLoginResponse
 {
 
     protected int sessionId;
+    protected String text;
     protected UserTO user;
 
     /**
@@ -52,6 +55,30 @@ public class UserLoginResponse
      */
     public void setSessionId(int value) {
         this.sessionId = value;
+    }
+
+    /**
+     * Ruft den Wert der text-Eigenschaft ab.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getText() {
+        return text;
+    }
+
+    /**
+     * Legt den Wert der text-Eigenschaft fest.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setText(String value) {
+        this.text = value;
     }
 
     /**

@@ -7,17 +7,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für login complex type.
+ * <p>Java-Klasse für changeGroup complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="login"&gt;
+ * &lt;complexType name="changeGroup"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -27,14 +27,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "login", propOrder = {
+@XmlType(name = "changeGroup", propOrder = {
     "arg0",
     "arg1"
 })
-public class Login {
+public class ChangeGroup {
 
     protected String arg0;
-    protected String arg1;
+    protected int arg1;
 
     /**
      * Ruft den Wert der arg0-Eigenschaft ab.
@@ -63,24 +63,16 @@ public class Login {
     /**
      * Ruft den Wert der arg1-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getArg1() {
+    public int getArg1() {
         return arg1;
     }
 
     /**
      * Legt den Wert der arg1-Eigenschaft fest.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setArg1(String value) {
+    public void setArg1(int value) {
         this.arg1 = value;
     }
 

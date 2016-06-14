@@ -24,7 +24,15 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _ChangeGroup_QNAME = new QName("http://erstihelfer.erstihelfer.de/", "changeGroup");
+    private final static QName _ChangeGroupResponse_QNAME = new QName("http://erstihelfer.erstihelfer.de/", "changeGroupResponse");
+    private final static QName _CreateAppointment_QNAME = new QName("http://erstihelfer.erstihelfer.de/", "createAppointment");
+    private final static QName _CreateAppointmentResponse_QNAME = new QName("http://erstihelfer.erstihelfer.de/", "createAppointmentResponse");
+    private final static QName _GetAppointments_QNAME = new QName("http://erstihelfer.erstihelfer.de/", "getAppointments");
+    private final static QName _GetAppointmentsResponse_QNAME = new QName("http://erstihelfer.erstihelfer.de/", "getAppointmentsResponse");
     private final static QName _Login_QNAME = new QName("http://erstihelfer.erstihelfer.de/", "login");
+    private final static QName _Login1_QNAME = new QName("http://erstihelfer.erstihelfer.de/", "login1");
+    private final static QName _Login1Response_QNAME = new QName("http://erstihelfer.erstihelfer.de/", "login1Response");
     private final static QName _LoginResponse_QNAME = new QName("http://erstihelfer.erstihelfer.de/", "loginResponse");
     private final static QName _Logout_QNAME = new QName("http://erstihelfer.erstihelfer.de/", "logout");
     private final static QName _LogoutResponse_QNAME = new QName("http://erstihelfer.erstihelfer.de/", "logoutResponse");
@@ -39,11 +47,75 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ChangeGroup }
+     * 
+     */
+    public ChangeGroup createChangeGroup() {
+        return new ChangeGroup();
+    }
+
+    /**
+     * Create an instance of {@link ChangeGroupResponse }
+     * 
+     */
+    public ChangeGroupResponse createChangeGroupResponse() {
+        return new ChangeGroupResponse();
+    }
+
+    /**
+     * Create an instance of {@link CreateAppointment }
+     * 
+     */
+    public CreateAppointment createCreateAppointment() {
+        return new CreateAppointment();
+    }
+
+    /**
+     * Create an instance of {@link CreateAppointmentResponse }
+     * 
+     */
+    public CreateAppointmentResponse createCreateAppointmentResponse() {
+        return new CreateAppointmentResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAppointments }
+     * 
+     */
+    public GetAppointments createGetAppointments() {
+        return new GetAppointments();
+    }
+
+    /**
+     * Create an instance of {@link GetAppointmentsResponse }
+     * 
+     */
+    public GetAppointmentsResponse createGetAppointmentsResponse() {
+        return new GetAppointmentsResponse();
+    }
+
+    /**
      * Create an instance of {@link Login }
      * 
      */
     public Login createLogin() {
         return new Login();
+    }
+
+    /**
+     * Create an instance of {@link Login1 }
+     * 
+     */
+    public Login1 createLogin1() {
+        return new Login1();
+    }
+
+    /**
+     * Create an instance of {@link Login1Response }
+     * 
+     */
+    public Login1Response createLogin1Response() {
+        return new Login1Response();
     }
 
     /**
@@ -111,12 +183,92 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Appointment }
+     * 
+     */
+    public Appointment createAppointment() {
+        return new Appointment();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ChangeGroup }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erstihelfer.erstihelfer.de/", name = "changeGroup")
+    public JAXBElement<ChangeGroup> createChangeGroup(ChangeGroup value) {
+        return new JAXBElement<ChangeGroup>(_ChangeGroup_QNAME, ChangeGroup.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ChangeGroupResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erstihelfer.erstihelfer.de/", name = "changeGroupResponse")
+    public JAXBElement<ChangeGroupResponse> createChangeGroupResponse(ChangeGroupResponse value) {
+        return new JAXBElement<ChangeGroupResponse>(_ChangeGroupResponse_QNAME, ChangeGroupResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateAppointment }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erstihelfer.erstihelfer.de/", name = "createAppointment")
+    public JAXBElement<CreateAppointment> createCreateAppointment(CreateAppointment value) {
+        return new JAXBElement<CreateAppointment>(_CreateAppointment_QNAME, CreateAppointment.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateAppointmentResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erstihelfer.erstihelfer.de/", name = "createAppointmentResponse")
+    public JAXBElement<CreateAppointmentResponse> createCreateAppointmentResponse(CreateAppointmentResponse value) {
+        return new JAXBElement<CreateAppointmentResponse>(_CreateAppointmentResponse_QNAME, CreateAppointmentResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAppointments }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erstihelfer.erstihelfer.de/", name = "getAppointments")
+    public JAXBElement<GetAppointments> createGetAppointments(GetAppointments value) {
+        return new JAXBElement<GetAppointments>(_GetAppointments_QNAME, GetAppointments.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAppointmentsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erstihelfer.erstihelfer.de/", name = "getAppointmentsResponse")
+    public JAXBElement<GetAppointmentsResponse> createGetAppointmentsResponse(GetAppointmentsResponse value) {
+        return new JAXBElement<GetAppointmentsResponse>(_GetAppointmentsResponse_QNAME, GetAppointmentsResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Login }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://erstihelfer.erstihelfer.de/", name = "login")
     public JAXBElement<Login> createLogin(Login value) {
         return new JAXBElement<Login>(_Login_QNAME, Login.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Login1 }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erstihelfer.erstihelfer.de/", name = "login1")
+    public JAXBElement<Login1> createLogin1(Login1 value) {
+        return new JAXBElement<Login1>(_Login1_QNAME, Login1 .class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Login1Response }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erstihelfer.erstihelfer.de/", name = "login1Response")
+    public JAXBElement<Login1Response> createLogin1Response(Login1Response value) {
+        return new JAXBElement<Login1Response>(_Login1Response_QNAME, Login1Response.class, null, value);
     }
 
     /**

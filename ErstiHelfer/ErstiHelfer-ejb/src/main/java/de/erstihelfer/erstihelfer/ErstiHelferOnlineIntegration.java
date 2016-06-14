@@ -1,6 +1,8 @@
 package de.erstihelfer.erstihelfer;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -181,10 +183,20 @@ public class ErstiHelferOnlineIntegration {
 		return response;
 	}
 
-	public void createAppointment(String title, String location, Date startTime, String description) {
+	public void createAppointment(String title, String location, Date startTime, String description, int GroupNr) {
 		Appointment app = new Appointment(title, location, startTime, description);
 		dao.createAppointment(app);
 		logger.info("Termin " + app.getTitel() + " wurde erstellt.");
+		//TODO: Beziehung zwischen Appointment und User
 	}
 	
+	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
+		//Es werden die Termine ab dem Zeitpunkt Now()-1Hour zurückgegeben
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(timestamp);
+		cal.add(Calendar.HOUR, -1);
+		Date oneHourBack = cal.getTime();
+		
+		return dao.getAppointments(oneHourBack, count, groupNr);
+	}
 }
