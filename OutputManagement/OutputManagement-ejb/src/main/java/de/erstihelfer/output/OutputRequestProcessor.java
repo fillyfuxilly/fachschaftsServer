@@ -10,10 +10,10 @@ package de.erstihelfer.output;
  */
 /*@MessageDriven(
 		activationConfig = { @ActivationConfigProperty(
-				propertyName = "destination", propertyValue = "java:/jms/queue/FachschaftOutput"), @ActivationConfigProperty(
+				propertyName = "destination", propertyValue = "java:/jms/queue/Queue1"), @ActivationConfigProperty(
 				propertyName = "destinationType", propertyValue = "javax.jms.Queue")
 		}, 
-		mappedName = "java:/jms/queue/FachschaftOutput")*/
+		mappedName = "java:/jms/queue/Queue1")*/
 //public class OutputRequestProcessor implements MessageListener {
 
     /**
