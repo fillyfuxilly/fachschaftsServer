@@ -1,27 +1,28 @@
 package de.erstihelfer.output;
 
-//import javax.ejb.ActivationConfigProperty;
-//import javax.ejb.MessageDriven;
+import javax.ejb.ActivationConfigProperty;
+import javax.ejb.MessageDriven;
 //import javax.jms.Message;
 //import javax.jms.MessageListener;
 
 /**
  * Message-Driven Bean implementation class for: OutputRequestProcessor
  */
-/*@MessageDriven(
+@MessageDriven(
 		activationConfig = { @ActivationConfigProperty(
-				propertyName = "destination", propertyValue = "java:/jms/queue/Queue1"), @ActivationConfigProperty(
+				propertyName = "destination", propertyValue = "java:/jms/queue/Queue1"), 
+				@ActivationConfigProperty(
 				propertyName = "destinationType", propertyValue = "javax.jms.Queue")
 		}, 
-		mappedName = "java:/jms/queue/Queue1")*/
-//public class OutputRequestProcessor implements MessageListener {
+		mappedName = "java:/jms/queue/Queue1")
+public class OutputRequestProcessor { //implements MessageListener {
 
     /**
      * Default constructor. 
      */
-   /* public OutputRequestProcessor() {
+    public OutputRequestProcessor() {
         // TODO Auto-generated constructor stub
-    }*/
+    }
 	
 	/**
      * @see MessageListener#onMessage(Message)
@@ -31,4 +32,4 @@ package de.erstihelfer.output;
         
     }*/
 
-//}
+}
