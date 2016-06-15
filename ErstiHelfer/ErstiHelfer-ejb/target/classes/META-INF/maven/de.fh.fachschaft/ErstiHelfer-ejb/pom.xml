@@ -109,7 +109,7 @@
 				<version>5.2.1</version>
 				<configuration>
                                     
-					<projectFile>src/test/soapui/ErstiHelfer.xml</projectFile>
+					<projectFile>src/test/soapui/ErstiHelfer-soapui-project.xml</projectFile>
 				</configuration>
 			</plugin>
                 
