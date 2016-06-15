@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: de.erstihelfer.erstihelfer.RegisterNewUserTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 6.06 sec <<< FAILURE!
-de.erstihelfer.erstihelfer.RegisterNewUserTest  Time elapsed: 6.058 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 6.234 sec <<< FAILURE!
+de.erstihelfer.erstihelfer.RegisterNewUserTest  Time elapsed: 6.23 sec  <<< ERROR!
 org.jboss.arquillian.container.spi.client.container.DeploymentException: Cannot deploy: test.war
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:83)
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:64)
@@ -101,7 +101,14 @@ org.jboss.arquillian.container.spi.client.container.DeploymentException: Cannot 
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.lang.Exception: {"WFLYCTL0180: Services with missing/unavailable dependencies" => ["jboss.naming.context.java.module.test.test.env.\"de.erstihelfer.erstihelfer.OutputRequesterBean\".outputQueue is missing [jboss.naming.context.java.jms.queue.Queue1]"]}
+Caused by: java.lang.Exception: {
+    "WFLYCTL0080: Failed services" => {"jboss.deployment.unit.\"test.war\".INSTALL" => "org.jboss.msc.service.StartException in service jboss.deployment.unit.\"test.war\".INSTALL: WFLYSRV0153: Failed to process phase INSTALL of deployment \"test.war\"
+    Caused by: org.jboss.msc.service.DuplicateServiceException: Service jboss.ws.endpoint.context=erstihelfer.ErstiHelferOnlineIntegration is already registered"},
+    "WFLYCTL0180: Services with missing/unavailable dependencies" => [
+        "jboss.deployment.unit.\"test.war\".batch.environment is missing [jboss.deployment.unit.\"test.war\".beanmanager]",
+        "jboss.deployment.unit.\"test.war\".weld.weldClassIntrospector is missing [jboss.deployment.unit.\"test.war\".beanmanager]"
+    ]
+}
 	at org.jboss.as.controller.client.helpers.standalone.impl.ServerDeploymentPlanResultFuture.getActionResult(ServerDeploymentPlanResultFuture.java:134)
 	at org.jboss.as.controller.client.helpers.standalone.impl.ServerDeploymentPlanResultFuture.getResultFromNode(ServerDeploymentPlanResultFuture.java:123)
 	at org.jboss.as.controller.client.helpers.standalone.impl.ServerDeploymentPlanResultFuture.get(ServerDeploymentPlanResultFuture.java:85)

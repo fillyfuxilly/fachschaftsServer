@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="de.erstihelfer.erstihelfer.RegisterNewUserTest" time="6.058" errors="1" skipped="0">
+<testsuite tests="1" failures="0" name="de.erstihelfer.erstihelfer.RegisterNewUserTest" time="6.23" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -25,7 +25,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Linux"/>
-    <property name="classworlds.conf" value="/home/user/workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf3028448974825946988.tmp"/>
+    <property name="classworlds.conf" value="/home/user/workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf4914535408188948469.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -59,7 +59,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="de.erstihelfer.erstihelfer.RegisterNewUserTest" name="de.erstihelfer.erstihelfer.RegisterNewUserTest" time="6.058">
+  <testcase classname="de.erstihelfer.erstihelfer.RegisterNewUserTest" name="de.erstihelfer.erstihelfer.RegisterNewUserTest" time="6.23">
     <error message="Cannot deploy: test.war" type="org.jboss.arquillian.container.spi.client.container.DeploymentException">org.jboss.arquillian.container.spi.client.container.DeploymentException: Cannot deploy: test.war
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:83)
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:64)
@@ -158,7 +158,14 @@
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.lang.Exception: {&quot;WFLYCTL0180: Services with missing/unavailable dependencies&quot; =&gt; [&quot;jboss.naming.context.java.module.test.test.env.\&quot;de.erstihelfer.erstihelfer.OutputRequesterBean\&quot;.outputQueue is missing [jboss.naming.context.java.jms.queue.Queue1]&quot;]}
+Caused by: java.lang.Exception: {
+    &quot;WFLYCTL0080: Failed services&quot; =&gt; {&quot;jboss.deployment.unit.\&quot;test.war\&quot;.INSTALL&quot; =&gt; &quot;org.jboss.msc.service.StartException in service jboss.deployment.unit.\&quot;test.war\&quot;.INSTALL: WFLYSRV0153: Failed to process phase INSTALL of deployment \&quot;test.war\&quot;
+    Caused by: org.jboss.msc.service.DuplicateServiceException: Service jboss.ws.endpoint.context=erstihelfer.ErstiHelferOnlineIntegration is already registered&quot;},
+    &quot;WFLYCTL0180: Services with missing/unavailable dependencies&quot; =&gt; [
+        &quot;jboss.deployment.unit.\&quot;test.war\&quot;.batch.environment is missing [jboss.deployment.unit.\&quot;test.war\&quot;.beanmanager]&quot;,
+        &quot;jboss.deployment.unit.\&quot;test.war\&quot;.weld.weldClassIntrospector is missing [jboss.deployment.unit.\&quot;test.war\&quot;.beanmanager]&quot;
+    ]
+}
 	at org.jboss.as.controller.client.helpers.standalone.impl.ServerDeploymentPlanResultFuture.getActionResult(ServerDeploymentPlanResultFuture.java:134)
 	at org.jboss.as.controller.client.helpers.standalone.impl.ServerDeploymentPlanResultFuture.getResultFromNode(ServerDeploymentPlanResultFuture.java:123)
 	at org.jboss.as.controller.client.helpers.standalone.impl.ServerDeploymentPlanResultFuture.get(ServerDeploymentPlanResultFuture.java:85)
@@ -167,13 +174,13 @@ Caused by: java.lang.Exception: {&quot;WFLYCTL0180: Services with missing/unavai
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:77)
 	... 96 more
 </error>
-    <system-err>Jun 15, 2016 7:25:46 PM org.xnio.Xnio &lt;clinit&gt;
+    <system-err>Jun 15, 2016 8:14:15 PM org.xnio.Xnio &lt;clinit&gt;
 INFO: XNIO version 3.2.0.Beta4
-Jun 15, 2016 7:25:46 PM org.xnio.nio.NioXnio &lt;clinit&gt;
+Jun 15, 2016 8:14:15 PM org.xnio.nio.NioXnio &lt;clinit&gt;
 INFO: XNIO NIO Implementation Version 3.2.0.Beta4
-Jun 15, 2016 7:25:46 PM org.jboss.remoting3.EndpointImpl &lt;clinit&gt;
+Jun 15, 2016 8:14:15 PM org.jboss.remoting3.EndpointImpl &lt;clinit&gt;
 INFO: JBoss Remoting version (unknown)
-Jun 15, 2016 7:25:50 PM org.jboss.as.arquillian.container.ArchiveDeployer undeploy
+Jun 15, 2016 8:14:19 PM org.jboss.as.arquillian.container.ArchiveDeployer undeploy
 WARN: Cannot undeploy: test.war
 org.jboss.as.controller.client.helpers.standalone.ServerDeploymentHelper$ServerDeploymentException: java.lang.Exception: &quot;WFLYCTL0216: Management resource &apos;[(\&quot;deployment\&quot; =&gt; \&quot;test.war\&quot;)]&apos; not found&quot;
 	at org.jboss.as.controller.client.helpers.standalone.ServerDeploymentHelper.undeploy(ServerDeploymentHelper.java:114)

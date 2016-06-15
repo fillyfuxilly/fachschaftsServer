@@ -31,7 +31,7 @@ public class RegisterNewUserTest {
 	 * Prueft, ob ein neuer Kunde erfolgreich registriert werden kann.
 	 */
 	public void testRegistration() throws Exception {
-	    UserLoginResponse loginResponse = bean.registerNewUser("Wendy", 2);
+	    UserLoginResponse loginResponse = bean.registerNewUser("Pepe", 4);
 	    assertEquals(loginResponse.getReturnCode(), 0);
 	 	int sessionId = loginResponse.getSessionId();
 		bean.logout(sessionId);
