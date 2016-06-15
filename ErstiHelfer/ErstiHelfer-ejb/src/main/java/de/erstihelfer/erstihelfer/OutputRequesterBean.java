@@ -25,7 +25,7 @@ public class OutputRequesterBean {
 	  @Resource(mappedName="java:/jms/queue/Queue1")
 	  private Queue outputQueue;
 	  /**
-	   * Sendet der Admin eine Nachricht
+	   * Sendet den Admin eine Nachricht
 	   * @param letter
 	   */
 	  public void adminNotification(String letter) {
