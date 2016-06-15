@@ -153,6 +153,10 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 * 
 	 */
 
+	/**
+	 * Aktualisiert ein User in der Datenbank
+	 */
+	
 	public User update(User user) {
 
 		return em.merge(user);
