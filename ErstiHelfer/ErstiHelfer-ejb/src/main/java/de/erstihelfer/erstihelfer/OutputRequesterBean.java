@@ -24,8 +24,11 @@ public class OutputRequesterBean {
 	  
 	  @Resource(mappedName="java:/jms/queue/Queue1")
 	  private Queue outputQueue;
-	  
-	  public void printLetter(String letter) {
+	  /**
+	   * Sendet der Admin eine Nachricht
+	   * @param letter
+	   */
+	  public void adminNotification(String letter) {
 			try (JMSContext context = jmsFactory.createContext(JMSContext.AUTO_ACKNOWLEDGE)){
 				TextMessage message = context.createTextMessage();
 				message.setStringProperty("DocType", "Letter");
