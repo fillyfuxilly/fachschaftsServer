@@ -1,4 +1,4 @@
-package de.erstihelfer.erstihelfer;
+/*package de.erstihelfer.erstihelfer;
 
 
 import javax.ejb.EJB;
@@ -15,11 +15,11 @@ import de.erstihelfer.entities.User;
 import de.erstihelfer.dao.*;
 
 
-/**
+*//**
  * 
  * @author Amayda Dominguez
  *
- */
+ *//*
 
 @RunWith(Arquillian.class)
 public class DAOTest {
@@ -37,7 +37,7 @@ public class DAOTest {
 	}
 	
 	
-	/*
+	
 	*//**
 	 * Testet ob ein User sich einloggt hat
 	 *//*
@@ -59,6 +59,6 @@ public class DAOTest {
 		int session2 = dao.createSession(joe);
 		assert session1 != session2 : "Session-IDs nicht unterschiedlich!";
 	}
-*/
 
-}
+
+}*/
