@@ -28,7 +28,7 @@ public class RegisterNewUserTest {
 	
 	@Test
 	/**
-	 * Prueft, ob ein neuer Kunde erfolgreich registriert werden kann.
+	 * Prueft, ob ein neuer User erfolgreich registriert werden kann.
 	 */
 	public void testRegistration() throws Exception {
 	    UserLoginResponse loginResponse = bean.registerNewUser("Pepe", 4);

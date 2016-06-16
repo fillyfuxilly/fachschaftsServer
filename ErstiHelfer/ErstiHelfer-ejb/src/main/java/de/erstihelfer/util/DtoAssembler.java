@@ -18,6 +18,12 @@ import de.erstihelfer.entities.User;
  */
 @Stateless
 public class DtoAssembler {
+	
+	/**
+	 * 
+	 * @param user
+	 * @return UserTo
+	 */
 
 	public UserTO makeDTO(User user){
 		UserTO dto= new UserTO();
@@ -25,6 +31,12 @@ public class DtoAssembler {
 		dto.setGroupNr(user.getGroupNr());
 		return dto;
 	}
+	
+	/**
+	 * 
+	 * @param appointment
+	 * @return AppointmentTo
+	 */
     
 	public AppointmentTO makeDTO(Appointment appointment){
 	     AppointmentTO dto = new AppointmentTO();

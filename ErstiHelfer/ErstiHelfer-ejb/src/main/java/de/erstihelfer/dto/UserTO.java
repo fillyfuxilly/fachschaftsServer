@@ -14,7 +14,12 @@ public class UserTO extends DataTransferObject{
 
 	public UserTO() {
 	}
-
+/**
+ * 
+ * @param id
+ * @param username
+ * @param groupNr
+ */
 	public UserTO(int id, String username, int groupNr) {
         super();
         this.id=id;

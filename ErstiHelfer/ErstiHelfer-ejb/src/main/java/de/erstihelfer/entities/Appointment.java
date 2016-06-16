@@ -37,7 +37,7 @@ public class Appointment implements Serializable {
 	// timestamp für Erstellung des Termins
 	private Date createdAt;
 
-	@ManyToMany//TODO
+	@ManyToMany // TODO
 	@JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {
 			@JoinColumn(name = "APPOINTMENT_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
 					@JoinColumn(name = "GROUPNR", referencedColumnName = "GROUPNR") })

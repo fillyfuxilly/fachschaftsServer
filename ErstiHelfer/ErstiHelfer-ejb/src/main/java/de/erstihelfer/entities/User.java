@@ -26,9 +26,16 @@ public class User implements Serializable {
 	@GeneratedValue
 	private int id;
 
+	/**
+	 * Eindeutige Username mit dem man sich anmelden kann
+	 */
 	@Column(unique = true, nullable = false)
 	private String username;
 
+	/**
+	 * Zu welcher Gruppe man gehört. Man kann sich mit dem username und
+	 * Gruppennummer anmelden
+	 */
 	private int groupNr;
 
 	@ManyToMany
@@ -40,6 +47,11 @@ public class User implements Serializable {
 	public User() {
 	}
 
+	/**
+	 * 
+	 * @param username
+	 * @param groupNr
+	 */
 	public User(String username, int groupNr) {
 
 		this.username = username;
@@ -47,6 +59,10 @@ public class User implements Serializable {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public List<Appointment> getAppointments() {
 		return appointments;
 	}

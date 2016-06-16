@@ -38,7 +38,6 @@ import de.erstihelfer.erstihelfer.erstiHelferException;
 @WebService
 @WebContext(contextRoot = "/erstihelfer")
 
-
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class ErstiHelferOnlineIntegration {
 
@@ -69,7 +68,7 @@ public class ErstiHelferOnlineIntegration {
 
 	/**
 	 * 
-	 * Der user wird eine Exception bekommen, wenn er icht nicht eingeloggt
+	 * Der user wird eine Exception bekommen, wenn er sicht nicht eingeloggt
 	 * hat(session gleich null)
 	 * 
 	 * 
@@ -82,6 +81,13 @@ public class ErstiHelferOnlineIntegration {
 			return session;
 	}
 
+	/**
+	 * Ermöglicht den Admin sich in dem System zu anmelden
+	 * 
+	 * @param username
+	 * @param password
+	 * @return
+	 */
 	public UserLoginResponse login(String username, String password) {
 		UserLoginResponse response = new UserLoginResponse();
 		try {
@@ -103,7 +109,16 @@ public class ErstiHelferOnlineIntegration {
 		return response;
 	}
 
-	public UserLoginResponse login1(String username, int GroupNr) {
+	/**
+	 * Ermöglicht ein User sich in dem System zu anmelden
+	 * 
+	 * @return response
+	 * @param username,
+	 *            groupNr
+	 * 
+	 */
+
+	public UserLoginResponse login1(String username, int groupNr) {
 		UserLoginResponse response = new UserLoginResponse();
 		try {
 			User user = this.dao.findUserByName(username);
@@ -134,6 +149,12 @@ public class ErstiHelferOnlineIntegration {
 	public void changeGroup(String username, int groupNr) {
 
 		try {
+			/**
+			 * Sucht ein User anhand sein username, wenn diese username
+			 * existiert, dann wird die Gruppennummer geändert
+			 * 
+			 * @see ErstihelferDAOLocal#findUserByName
+			 */
 			User user = this.dao.findUserByName(username);
 
 			if (user != null) {
@@ -151,6 +172,12 @@ public class ErstiHelferOnlineIntegration {
 		}
 	}
 
+	/**
+	 * Ermöglicht den User abzumelden
+	 * 
+	 * @param sessionId
+	 * @return
+	 */
 	public ReturnCodeResponse logout(int sessionId) {
 		dao.closeSession(sessionId);
 		ReturnCodeResponse response = new ReturnCodeResponse();
@@ -158,7 +185,7 @@ public class ErstiHelferOnlineIntegration {
 		return response;
 	}
 
-	// @TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public UserLoginResponse registerNewUser(String userName, int groupNr) {
 		UserLoginResponse response = new UserLoginResponse();
 		try {
@@ -197,9 +224,9 @@ public class ErstiHelferOnlineIntegration {
 		logger.info("Termin " + app.getTitel() + " wurde die Gruppe " + groupNr + " hinzugefügt");
 	}
 
-	//@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	// @TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
-		//Es werden die Termine ab dem Zeitpunkt timestamp-1Hour zurückgegeben
+		// Es werden die Termine ab dem Zeitpunkt timestamp-1Hour zurückgegeben
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(timestamp);
 		cal.add(Calendar.HOUR, -1);
