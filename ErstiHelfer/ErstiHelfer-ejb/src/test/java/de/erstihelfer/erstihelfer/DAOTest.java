@@ -14,6 +14,13 @@ import org.junit.runner.RunWith;
 import de.erstihelfer.entities.User;
 import de.erstihelfer.dao.*;
 
+
+/**
+ * 
+ * @author Amayda Dominguez
+ *
+ */
+
 @RunWith(Arquillian.class)
 public class DAOTest {
 	

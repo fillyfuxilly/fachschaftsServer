@@ -12,6 +12,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import de.erstihelfer.dto.UserLoginResponse;
+
+
+/**
+ * 
+ * @author Amayda Dominguez
+ *
+ */
 @RunWith(Arquillian.class)
 public class RegisterNewUserTest {
 
