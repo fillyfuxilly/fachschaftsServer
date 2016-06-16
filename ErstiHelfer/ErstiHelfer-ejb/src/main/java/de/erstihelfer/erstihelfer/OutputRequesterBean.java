@@ -1,14 +1,11 @@
 package de.erstihelfer.erstihelfer;
 
+import javax.jms.*;
 import javax.annotation.Resource;
 import javax.ejb.EJBException;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.jms.ConnectionFactory;
-import javax.jms.JMSContext;
-import javax.jms.JMSException;
-import javax.jms.Queue;
-import javax.jms.TextMessage;
+
 
 /**
  * Session Bean implementation class OutputRequesterBean
