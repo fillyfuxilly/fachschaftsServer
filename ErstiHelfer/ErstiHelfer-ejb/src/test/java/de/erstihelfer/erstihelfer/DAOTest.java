@@ -37,10 +37,10 @@ public class DAOTest {
 	}
 	
 	
-	
-	/**
+	/*
+	*//**
 	 * Testet ob ein User sich einloggt hat
-	 */
+	 *//*
 	
 	@Test
 	public void testFindByName() throws Exception {
@@ -49,9 +49,9 @@ public class DAOTest {
 		assert joe.getGroupNr()==1 : "GroupNr ist falsch.";
 	}
 	
-	/**
+	*//**
 	 * Testet, ob Sessions unterschiedliche IDs bekommen.
-	 */
+	 *//*
 	@Test
 	public void testSession() throws Exception {
 		User joe = dao.findUserByName("joe");
@@ -59,6 +59,6 @@ public class DAOTest {
 		int session2 = dao.createSession(joe);
 		assert session1 != session2 : "Session-IDs nicht unterschiedlich!";
 	}
-
+*/
 
 }
