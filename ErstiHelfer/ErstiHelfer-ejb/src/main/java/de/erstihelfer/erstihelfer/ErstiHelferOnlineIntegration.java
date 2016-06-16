@@ -225,10 +225,10 @@ public class ErstiHelferOnlineIntegration {
 	}
 
 	// @TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
+	public List<Appointment> getAppointments(int count, int groupNr) {
 		// Es werden die Termine ab dem Zeitpunkt timestamp-1Hour zurückgegeben
 		Calendar cal = Calendar.getInstance();
-		cal.setTime(timestamp);
+		cal.getTime();
 		cal.add(Calendar.HOUR, -1);
 		Date oneHourBack = cal.getTime();
 		logger.info("ES WIRD GESUCHT AB: " + oneHourBack.toString());
