@@ -22,7 +22,7 @@ import de.erstihelfer.util.DtoAssembler;
 import de.erstihelfer.dto.ReturnCodeResponse;
 import de.erstihelfer.dto.UserLoginResponse;
 import de.erstihelfer.entities.User;
-import de.erstihelfer.erstihelfer.erstiHelferException;
+import de.erstihelfer.erstihelfer.ErstiHelferException;
 
 /**
  * @author Amayda Dominguez
@@ -101,7 +101,7 @@ public class ErstiHelferOnlineIntegration {
 				logger.info("Login fehlgeschlagen, da Username unbekannt. username=" + username);
 				throw new InvalidLoginException("Login fehlgeschlagen, da User unbekannt. username=" + username);
 			}
-		} catch (erstiHelferException e) {
+		} catch (ErstiHelferException e) {
 
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
@@ -131,7 +131,7 @@ public class ErstiHelferOnlineIntegration {
 				logger.info("Login fehlgeschlagen, da Username unbekannt. username=" + username);
 				throw new InvalidLoginException("Login fehlgeschlagen, da User unbekannt. username=" + username);
 			}
-		} catch (erstiHelferException e) {
+		} catch (ErstiHelferException e) {
 
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
@@ -167,7 +167,7 @@ public class ErstiHelferOnlineIntegration {
 						"Änderung der Gruppennummer fehlgeschlagen, da User" + username + "unbekannt ist");
 			}
 
-		} catch (erstiHelferException e) {
+		} catch (ErstiHelferException e) {
 			logger.error(e);
 		}
 	}
@@ -202,12 +202,12 @@ public class ErstiHelferOnlineIntegration {
 			} else {
 				logger.info(
 						"Registrieren fehlgeschlagen, da der Username bereits existiert." + " username=" + userName);
-				throw new erstiHelferException(30,
+				throw new ErstiHelferException(30,
 						"Registrieren fehlgeschlagen, da der Username " + "bereits existiert. username=" + userName);
 			}
 		}
 
-		catch (erstiHelferException e) {
+		catch (ErstiHelferException e) {
 			response.setText("User bereits vergeben");
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());

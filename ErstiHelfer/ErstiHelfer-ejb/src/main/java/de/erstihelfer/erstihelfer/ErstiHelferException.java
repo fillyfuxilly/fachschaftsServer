@@ -4,12 +4,12 @@ package de.erstihelfer.erstihelfer;
  * @author Amayda Dominguez
  *
  */
-public class erstiHelferException extends Exception{
+public class ErstiHelferException extends Exception{
 	private static final long serialVersionUID = -1658425297634781761L;
 
 	private int errorCode;
 	
-	public erstiHelferException(int errorCode, String message) {
+	public ErstiHelferException(int errorCode, String message) {
 		super(message);
 		this.errorCode = errorCode;
 	}
