@@ -1,1 +1,424 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3515ac89-4ce7-454b-ad80-b1cb8e0ce757" activeEnvironment="Default" name="ErstiHelfer" resourceRoot="" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="0b835177-1a71-4c08-8ed0-83a33f06ce6e" wsaVersion="NONE" name="ErstiHelferOnlineIntegrationServiceSoapBinding" type="wsdl" bindingName="{http://erstihelfer.erstihelfer.de/}ErstiHelferOnlineIntegrationServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration?wsdl"><con:part><con:url>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ErstiHelferOnlineIntegrationService" targetNamespace="http://erstihelfer.erstihelfer.de/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://erstihelfer.erstihelfer.de/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://erstihelfer.erstihelfer.de/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="changeGroup" type="tns:changeGroup"/>
+      <xs:element name="changeGroupResponse" type="tns:changeGroupResponse"/>
+      <xs:element name="createAppointment" type="tns:createAppointment"/>
+      <xs:element name="createAppointmentResponse" type="tns:createAppointmentResponse"/>
+      <xs:element name="getAppointments" type="tns:getAppointments"/>
+      <xs:element name="getAppointmentsResponse" type="tns:getAppointmentsResponse"/>
+      <xs:element name="login" type="tns:login"/>
+      <xs:element name="login1" type="tns:login1"/>
+      <xs:element name="login1Response" type="tns:login1Response"/>
+      <xs:element name="loginResponse" type="tns:loginResponse"/>
+      <xs:element name="logout" type="tns:logout"/>
+      <xs:element name="logoutResponse" type="tns:logoutResponse"/>
+      <xs:element name="registerNewUser" type="tns:registerNewUser"/>
+      <xs:element name="registerNewUserResponse" type="tns:registerNewUserResponse"/>
+      <xs:complexType name="createAppointment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+          <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+          <xs:element minOccurs="0" name="arg2" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="arg3" type="xs:string"/>
+          <xs:element name="arg4" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createAppointmentResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="changeGroup">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+          <xs:element name="arg1" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeGroupResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="registerNewUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+          <xs:element name="arg1" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="registerNewUserResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:userLoginResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="userLoginResponse">
+        <xs:complexContent>
+          <xs:extension base="tns:returnCodeResponse">
+            <xs:sequence>
+              <xs:element name="sessionId" type="xs:int"/>
+              <xs:element minOccurs="0" name="text" type="xs:string"/>
+              <xs:element minOccurs="0" name="user" type="tns:userTO"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="returnCodeResponse">
+        <xs:complexContent>
+          <xs:extension base="tns:dataTransferObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="message" type="xs:string"/>
+              <xs:element name="returnCode" type="xs:int"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="dataTransferObject">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="userTO">
+        <xs:complexContent>
+          <xs:extension base="tns:dataTransferObject">
+            <xs:sequence>
+              <xs:element name="groupNr" type="xs:int"/>
+              <xs:element name="id" type="xs:int"/>
+              <xs:element minOccurs="0" name="username" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="getAppointments">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:int"/>
+          <xs:element name="arg1" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAppointmentsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:appointment"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="appointment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createAt" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element minOccurs="0" name="location" type="xs:string"/>
+          <xs:element minOccurs="0" name="starttime" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="titel" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="users" nillable="true" type="tns:user"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="user">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="logout">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="logoutResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:returnCodeResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="login">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+          <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loginResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:userLoginResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="login1">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+          <xs:element name="arg1" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="login1Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:userLoginResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="createAppointment">
+    <wsdl:part element="tns:createAppointment" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createAppointmentResponse">
+    <wsdl:part element="tns:createAppointmentResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAppointmentsResponse">
+    <wsdl:part element="tns:getAppointmentsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logout">
+    <wsdl:part element="tns:logout" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="login1">
+    <wsdl:part element="tns:login1" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="changeGroupResponse">
+    <wsdl:part element="tns:changeGroupResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="changeGroup">
+    <wsdl:part element="tns:changeGroup" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerNewUser">
+    <wsdl:part element="tns:registerNewUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logoutResponse">
+    <wsdl:part element="tns:logoutResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginResponse">
+    <wsdl:part element="tns:loginResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAppointments">
+    <wsdl:part element="tns:getAppointments" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="login">
+    <wsdl:part element="tns:login" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="login1Response">
+    <wsdl:part element="tns:login1Response" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerNewUserResponse">
+    <wsdl:part element="tns:registerNewUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ErstiHelferOnlineIntegration">
+    <wsdl:operation name="createAppointment">
+      <wsdl:input message="tns:createAppointment" name="createAppointment"></wsdl:input>
+      <wsdl:output message="tns:createAppointmentResponse" name="createAppointmentResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeGroup">
+      <wsdl:input message="tns:changeGroup" name="changeGroup"></wsdl:input>
+      <wsdl:output message="tns:changeGroupResponse" name="changeGroupResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerNewUser">
+      <wsdl:input message="tns:registerNewUser" name="registerNewUser"></wsdl:input>
+      <wsdl:output message="tns:registerNewUserResponse" name="registerNewUserResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAppointments">
+      <wsdl:input message="tns:getAppointments" name="getAppointments"></wsdl:input>
+      <wsdl:output message="tns:getAppointmentsResponse" name="getAppointmentsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <wsdl:input message="tns:logout" name="logout"></wsdl:input>
+      <wsdl:output message="tns:logoutResponse" name="logoutResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input message="tns:login" name="login"></wsdl:input>
+      <wsdl:output message="tns:loginResponse" name="loginResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login1">
+      <wsdl:input message="tns:login1" name="login1"></wsdl:input>
+      <wsdl:output message="tns:login1Response" name="login1Response"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ErstiHelferOnlineIntegrationServiceSoapBinding" type="tns:ErstiHelferOnlineIntegration">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createAppointment">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createAppointment">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createAppointmentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeGroup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="changeGroup">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="changeGroupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerNewUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="registerNewUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registerNewUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAppointments">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAppointments">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAppointmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="logout">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="logoutResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="login">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="loginResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login1">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="login1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="login1Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ErstiHelferOnlineIntegrationService">
+    <wsdl:port binding="tns:ErstiHelferOnlineIntegrationServiceSoapBinding" name="ErstiHelferOnlineIntegrationPort">
+      <soap:address location="http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint></con:endpoints><con:operation id="94c96890-80e4-4ec9-86bc-0518cbde2a1e" isOneWay="false" action="" name="changeGroup" bindingOperationName="changeGroup" type="Request-Response" outputName="changeGroupResponse" inputName="changeGroup" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0792e44a-f6fa-4981-850c-d06acf127ef5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:changeGroup>
+         <!--Optional:-->
+         <arg0>?</arg0>
+         <arg1>?</arg1>
+      </ers:changeGroup>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/changeGroup"/></con:call></con:operation><con:operation id="e6848964-7616-46f7-b3ec-2179ffa16f11" isOneWay="false" action="" name="createAppointment" bindingOperationName="createAppointment" type="Request-Response" outputName="createAppointmentResponse" inputName="createAppointment" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="04bbd30e-de30-413d-a4af-0fbf48093698" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:createAppointment>
+         <!--Optional:-->
+         <arg0>?</arg0>
+         <!--Optional:-->
+         <arg1>?</arg1>
+         <!--Optional:-->
+         <arg2>?</arg2>
+         <!--Optional:-->
+         <arg3>?</arg3>
+         <arg4>?</arg4>
+      </ers:createAppointment>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/createAppointment"/></con:call></con:operation><con:operation id="e4367a28-212a-4ab4-9010-abdd0e626b9d" isOneWay="false" action="" name="getAppointments" bindingOperationName="getAppointments" type="Request-Response" outputName="getAppointmentsResponse" inputName="getAppointments" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4171d02e-7fe3-426c-9f44-deb6023f3977" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:getAppointments>
+         <arg0>?</arg0>
+         <arg1>?</arg1>
+      </ers:getAppointments>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/getAppointments"/></con:call></con:operation><con:operation id="e085789b-94d2-4865-8cac-ba5ae8951dbe" isOneWay="false" action="" name="login" bindingOperationName="login" type="Request-Response" outputName="loginResponse" inputName="login" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="70254bf3-319d-4e13-9805-26178689918f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:login>
+         <!--Optional:-->
+         <arg0>?</arg0>
+         <!--Optional:-->
+         <arg1>?</arg1>
+      </ers:login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/login"/></con:call></con:operation><con:operation id="d42cbbb3-30e9-4a06-95b4-54d6ca8f7340" isOneWay="false" action="" name="login1" bindingOperationName="login1" type="Request-Response" outputName="login1Response" inputName="login1" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="54b52d0d-5889-4d1e-a07e-130bfac6572c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:login1>
+         <!--Optional:-->
+         <arg0>?</arg0>
+         <arg1>?</arg1>
+      </ers:login1>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/login1"/></con:call></con:operation><con:operation id="7cda0d86-0e8b-47b3-9cd7-735921c94054" isOneWay="false" action="" name="logout" bindingOperationName="logout" type="Request-Response" outputName="logoutResponse" inputName="logout" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="62f2160d-afbe-43d2-8c4d-4b0d93b55e20" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:logout>
+         <arg0>?</arg0>
+      </ers:logout>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/logout"/></con:call></con:operation><con:operation id="7ae6e429-735d-4e92-ab52-8adf32193f1d" isOneWay="false" action="" name="registerNewUser" bindingOperationName="registerNewUser" type="Request-Response" outputName="registerNewUserResponse" inputName="registerNewUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="55a8fb0b-40a2-4bf8-a4c0-d9035b0c2b6a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:registerNewUser>
+         <!--Optional:-->
+         <arg0>?</arg0>
+         <arg1>?</arg1>
+      </ers:registerNewUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/registerNewUser"/></con:call></con:operation></con:interface><con:testSuite id="db04444f-0da6-4661-915b-150fa5fa582d" name="ErstiHelferOnlineIntegrationServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="60a1907c-9d58-4635-a1bf-e89d75a085ae" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="changeGroup TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="0bb82b42-8178-47be-9b0e-9599e096c140" name="changeGroup"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ErstiHelferOnlineIntegrationServiceSoapBinding</con:interface><con:operation>changeGroup</con:operation><con:request name="changeGroup" id="9c54e071-3c21-47e8-b642-ff8ad8682e0e"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:changeGroup>
+         <!--Optional:-->
+         <arg0>?</arg0>
+         <arg1>?</arg1>
+      </ers:changeGroup>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/changeGroup"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="c2a8b68f-3a2c-4187-8f53-daedb7534579" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="createAppointment TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="f8cba325-7ae5-467c-a180-08e080d00486" name="createAppointment"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ErstiHelferOnlineIntegrationServiceSoapBinding</con:interface><con:operation>createAppointment</con:operation><con:request name="createAppointment" id="39bbd68f-9d58-4f43-8562-d9cf46566604"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:createAppointment>
+         <!--Optional:-->
+         <arg0>?</arg0>
+         <!--Optional:-->
+         <arg1>?</arg1>
+         <!--Optional:-->
+         <arg2>?</arg2>
+         <!--Optional:-->
+         <arg3>?</arg3>
+         <arg4>?</arg4>
+      </ers:createAppointment>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/createAppointment"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d63e77ed-5342-4bce-8575-c26cbe991a5c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getAppointments TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="95ac54fa-7596-4efb-90b7-a0bb46333c39" name="getAppointments"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ErstiHelferOnlineIntegrationServiceSoapBinding</con:interface><con:operation>getAppointments</con:operation><con:request name="getAppointments" id="c499bf66-17bb-43d1-90fe-489b823079ec"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:getAppointments>
+         <arg0>?</arg0>
+         <arg1>?</arg1>
+      </ers:getAppointments>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/getAppointments"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="e35537c2-11f9-4759-8448-c8cb1fd7b3d3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="login TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="25487e73-dd8d-43b2-9234-f6770816855f" name="login"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ErstiHelferOnlineIntegrationServiceSoapBinding</con:interface><con:operation>login</con:operation><con:request name="login" id="686a4d8c-5c7d-4af8-8845-a2218e5f8a6e"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:login>
+         <!--Optional:-->
+         <arg0>?</arg0>
+         <!--Optional:-->
+         <arg1>?</arg1>
+      </ers:login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/login"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="9a6ef941-ae64-471d-a3d5-8d9bea94ba7e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="login1 TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="9aff4780-f22e-427e-b557-d678af37e15f" name="login1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ErstiHelferOnlineIntegrationServiceSoapBinding</con:interface><con:operation>login1</con:operation><con:request name="login1" id="69504ddf-4261-408b-b2d6-256766f66b14"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:login1>
+         <!--Optional:-->
+         <arg0>?</arg0>
+         <arg1>?</arg1>
+      </ers:login1>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/login1"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="efff2932-86d2-471c-b948-1720b2f0ea9f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="logout TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="54e2aa70-aa83-4997-b8df-c165053a7409" name="logout"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ErstiHelferOnlineIntegrationServiceSoapBinding</con:interface><con:operation>logout</con:operation><con:request name="logout" id="0082b2d1-9939-4136-9d40-d8b82677815c"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:logout>
+         <arg0>?</arg0>
+      </ers:logout>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/logout"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="832b5367-4190-47d8-a6c4-8701e501e991" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="registerNewUser TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="bcb01d1b-bd0f-4de7-96f5-cfb6fb726148" name="registerNewUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ErstiHelferOnlineIntegrationServiceSoapBinding</con:interface><con:operation>registerNewUser</con:operation><con:request name="registerNewUser" id="48734b8c-1b67-4a63-ad05-17799168fe13"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ers:registerNewUser>
+         <!--Optional:-->
+         <arg0>?</arg0>
+         <arg1>?</arg1>
+      </ers:registerNewUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/registerNewUser"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
