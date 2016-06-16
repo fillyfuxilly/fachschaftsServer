@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import de.erstihelfer.dto.UserLoginResponse;
+import de.erstihelfer.erstihelfer.*;
 
 
 /**
@@ -25,6 +26,8 @@ public class RegisterNewUserTest {
 	
 	@EJB
 	ErstiHelferOnlineIntegration bean;
+	
+	
 	@Deployment
     public static WebArchive createDeployment() {
     	return ShrinkWrap.create(WebArchive.class, "test.war")
@@ -32,16 +35,25 @@ public class RegisterNewUserTest {
                .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")               
                .addAsWebInfResource("META-INF/ejb-jar.xml", "ejb-jar.xml");
 	}
-	
-	@Test
-	/**
-	 * Prueft, ob ein neuer User erfolgreich registriert werden kann.
-	 */
-	public void testRegistration() throws Exception {
-	    UserLoginResponse loginResponse = bean.registerNewUser("Pepe", 4);
-	    assertEquals(loginResponse.getReturnCode(), 0);
-	 	int sessionId = loginResponse.getSessionId();
-		bean.logout(sessionId);
-	}
 
-}
+
+
+		/*
+		@Test
+		*//**
+		 * Prueft, ob ein neuer User erfolgreich registriert werden kann.
+		 *//*
+		public void testRegistration() throws Exception {
+		    UserLoginResponse loginResponse = bean.registerNewUser("Pepe", 4);
+		    assertEquals(loginResponse.getReturnCode(), 0);
+		 	int sessionId = loginResponse.getSessionId();
+			bean.logout(sessionId);
+		}
+	*/
+	
+	}
+	
+	
+	
+
+
