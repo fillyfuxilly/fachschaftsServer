@@ -1,4 +1,4 @@
-/*package de.erstihelfer.erstihelfer;
+package de.erstihelfer.erstihelfer;
 
 
 import javax.ejb.EJB;
@@ -15,11 +15,11 @@ import de.erstihelfer.entities.User;
 import de.erstihelfer.dao.*;
 
 
-*//**
+/**
  * 
  * @author Amayda Dominguez
  *
- *//*
+ */
 
 @RunWith(Arquillian.class)
 public class DAOTest {
@@ -38,9 +38,9 @@ public class DAOTest {
 	
 	
 	
-	*//**
+	/**
 	 * Testet ob ein User sich einloggt hat
-	 *//*
+	 */
 	
 	@Test
 	public void testFindByName() throws Exception {
@@ -49,9 +49,9 @@ public class DAOTest {
 		assert joe.getGroupNr()==1 : "GroupNr ist falsch.";
 	}
 	
-	*//**
+	/**
 	 * Testet, ob Sessions unterschiedliche IDs bekommen.
-	 *//*
+	 */
 	@Test
 	public void testSession() throws Exception {
 		User joe = dao.findUserByName("joe");
@@ -61,4 +61,4 @@ public class DAOTest {
 	}
 
 
-}*/
+}

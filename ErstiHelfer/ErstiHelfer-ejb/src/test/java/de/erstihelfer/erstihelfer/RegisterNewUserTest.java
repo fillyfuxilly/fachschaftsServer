@@ -1,4 +1,4 @@
-/*package de.erstihelfer.erstihelfer;
+package de.erstihelfer.erstihelfer;
 
 import static org.junit.Assert.*;
 
@@ -15,11 +15,11 @@ import de.erstihelfer.dto.UserLoginResponse;
 import de.erstihelfer.erstihelfer.*;
 
 
-*//**
+/**
  * 
  * @author Amayda Dominguez
  *
- *//*
+ */
 @RunWith(Arquillian.class)
 public class RegisterNewUserTest {
 
@@ -40,9 +40,9 @@ public class RegisterNewUserTest {
 
 		
 		@Test
-		*//**
+		/**
 		 * Prueft, ob ein neuer User erfolgreich registriert werden kann.
-		 *//*
+		 */
 		public void testRegistration() throws Exception {
 		    UserLoginResponse loginResponse = bean.registerNewUser("Pepe", 4);
 		    assertEquals(loginResponse.getReturnCode(), 0);
@@ -53,7 +53,7 @@ public class RegisterNewUserTest {
 	
 	}
 	
-	*/
+	
 	
 
 
