@@ -18,6 +18,22 @@
         <env-entry-type>java.lang.Integer</env-entry-type>
         <env-entry-value>1</env-entry-value>
       </env-entry>
+      
+      <env-entry>
+        <env-entry-name>de.erstihelfer.dao.DataBuilder/title1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Test-Title</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.erstihelfer.dao.DataBuilder/description1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Dieser Termin ist zum Testen da</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.erstihelfer.dao.DataBuilder/location1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Testumgebung</env-entry-value>
+      </env-entry>
       </session>
   </enterprise-beans>
 </ejb-jar>

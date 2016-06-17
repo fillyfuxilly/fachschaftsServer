@@ -1,5 +1,7 @@
 package de.erstihelfer.dao;
 
+import java.util.Date;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -10,6 +12,7 @@ import javax.persistence.PersistenceContext;
 
 import org.jboss.logging.Logger;
 
+import de.erstihelfer.entities.Appointment;
 import de.erstihelfer.entities.User;
 
 /**
@@ -31,10 +34,16 @@ public class DataBuilder {
 	private String username1;
 	@Resource
 	private Integer groupNr1;
+	@Resource
+	private String title1;
+	@Resource
+	private String description1;
+	@Resource
+	private String location1;
 
 	
 	/**
-	 * //erzeugt ein paar Beispieldaten zu User, falls sie noch nicht in der DB vorhanden sind.
+	 * erzeugt ein paar Beispieldaten, falls sie noch nicht in der DB vorhanden sind.
 	 */
 	 @PostConstruct
 	private void createTestData() {
@@ -44,6 +53,14 @@ public class DataBuilder {
 			user1 = new User(username1, groupNr1);
 			em.persist(user1);
 			logger.info("Neu angelegt:" + user1);
+		}
+		
+		Appointment app = dao.findAppointmentByTitle(title1);
+		if(app == null) {
+			app = new Appointment(title1,location1,new Date(),location1);
+			app.getUsers().add(user1);
+			em.persist(app);
+			logger.info("Neu angelegt:" + app);
 		}
 	}
 
