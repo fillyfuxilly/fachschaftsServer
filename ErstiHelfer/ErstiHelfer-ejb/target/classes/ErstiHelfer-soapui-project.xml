@@ -287,74 +287,74 @@
       <soap:address location="http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint></con:endpoints><con:operation id="ae3ef799-8a48-4869-a7e0-f0b6d61a6421" isOneWay="false" action="" name="changeGroup" bindingOperationName="changeGroup" type="Request-Response" outputName="changeGroupResponse" inputName="changeGroup" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="eb96a391-9d3f-4358-847b-efdd9c5c5811" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint></con:endpoints><con:operation id="ae3ef799-8a48-4869-a7e0-f0b6d61a6421" isOneWay="false" action="" name="changeGroup" bindingOperationName="changeGroup" type="Request-Response" outputName="changeGroupResponse" inputName="changeGroup" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="eb96a391-9d3f-4358-847b-efdd9c5c5811" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
    <soapenv:Header/>
    <soapenv:Body>
       <ers:changeGroup>
          <!--Optional:-->
-         <arg0>?</arg0>
-         <arg1>?</arg1>
+         <arg0>joe2</arg0>
+         <arg1>2</arg1>
       </ers:changeGroup>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/changeGroup"/></con:call></con:operation><con:operation id="3546f655-c555-41f8-b092-8d460f907b90" isOneWay="false" action="" name="createAppointment" bindingOperationName="createAppointment" type="Request-Response" outputName="createAppointmentResponse" inputName="createAppointment" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="71e8f4f9-caee-43b0-b729-6cbba67050e7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/changeGroup"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3546f655-c555-41f8-b092-8d460f907b90" isOneWay="false" action="" name="createAppointment" bindingOperationName="createAppointment" type="Request-Response" outputName="createAppointmentResponse" inputName="createAppointment" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="71e8f4f9-caee-43b0-b729-6cbba67050e7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
    <soapenv:Header/>
    <soapenv:Body>
       <ers:createAppointment>
          <!--Optional:-->
-         <arg0>?</arg0>
+         <arg0>title</arg0>
          <!--Optional:-->
-         <arg1>?</arg1>
+         <arg1>location</arg1>
          <!--Optional:-->
-         <arg2>?</arg2>
+         <arg2>1000</arg2>
          <!--Optional:-->
-         <arg3>?</arg3>
-         <arg4>?</arg4>
+         <arg3>description</arg3>
+         <arg4>3</arg4>
       </ers:createAppointment>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/createAppointment"/></con:call></con:operation><con:operation id="746ff5d3-3a48-419b-8e32-c64ccdc9a765" isOneWay="false" action="" name="getAppointments" bindingOperationName="getAppointments" type="Request-Response" outputName="getAppointmentsResponse" inputName="getAppointments" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e6bbf8a2-95e2-44b5-9c4f-226e571efee6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/createAppointment"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="746ff5d3-3a48-419b-8e32-c64ccdc9a765" isOneWay="false" action="" name="getAppointments" bindingOperationName="getAppointments" type="Request-Response" outputName="getAppointmentsResponse" inputName="getAppointments" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e6bbf8a2-95e2-44b5-9c4f-226e571efee6" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
    <soapenv:Header/>
    <soapenv:Body>
       <ers:getAppointments>
-         <arg0>?</arg0>
-         <arg1>?</arg1>
+         <arg0>5</arg0>
+         <arg1>4</arg1>
       </ers:getAppointments>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/getAppointments"/></con:call></con:operation><con:operation id="7fde0209-021c-492a-a13d-2629c8c60057" isOneWay="false" action="" name="login" bindingOperationName="login" type="Request-Response" outputName="loginResponse" inputName="login" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="477cb8ad-60e7-4858-adb9-304b02ce9848" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/getAppointments"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="7fde0209-021c-492a-a13d-2629c8c60057" isOneWay="false" action="" name="login" bindingOperationName="login" type="Request-Response" outputName="loginResponse" inputName="login" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="477cb8ad-60e7-4858-adb9-304b02ce9848" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
    <soapenv:Header/>
    <soapenv:Body>
       <ers:login>
          <!--Optional:-->
-         <arg0>?</arg0>
+         <arg0>joe</arg0>
          <!--Optional:-->
-         <arg1>?</arg1>
+         <arg1>joe1</arg1>
       </ers:login>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/login"/></con:call></con:operation><con:operation id="e4b69c24-8f30-4cf6-8c25-f8ae5ee78e64" isOneWay="false" action="" name="login1" bindingOperationName="login1" type="Request-Response" outputName="login1Response" inputName="login1" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2992c35b-29a9-4716-9bd5-d132e63fb5fc" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/login"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e4b69c24-8f30-4cf6-8c25-f8ae5ee78e64" isOneWay="false" action="" name="login1" bindingOperationName="login1" type="Request-Response" outputName="login1Response" inputName="login1" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2992c35b-29a9-4716-9bd5-d132e63fb5fc" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
    <soapenv:Header/>
    <soapenv:Body>
       <ers:login1>
          <!--Optional:-->
-         <arg0>?</arg0>
-         <arg1>?</arg1>
+         <arg0>joe1</arg0>
+         <arg1>2</arg1>
       </ers:login1>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/login1"/></con:call></con:operation><con:operation id="59c6a8ee-943c-4458-99e3-397908d2e808" isOneWay="false" action="" name="logout" bindingOperationName="logout" type="Request-Response" outputName="logoutResponse" inputName="logout" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="94d9ec1d-6b52-4f05-9d96-7b79f2d2542f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/login1"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="59c6a8ee-943c-4458-99e3-397908d2e808" isOneWay="false" action="" name="logout" bindingOperationName="logout" type="Request-Response" outputName="logoutResponse" inputName="logout" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="94d9ec1d-6b52-4f05-9d96-7b79f2d2542f" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
    <soapenv:Header/>
    <soapenv:Body>
       <ers:logout>
-         <arg0>?</arg0>
+         <arg0>1</arg0>
       </ers:logout>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/logout"/></con:call></con:operation><con:operation id="0b8183e2-3226-47f0-937f-ed07a59c8e67" isOneWay="false" action="" name="registerNewUser" bindingOperationName="registerNewUser" type="Request-Response" outputName="registerNewUserResponse" inputName="registerNewUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a9552e53-e7f4-4f71-818b-1184c6f32104" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/logout"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="0b8183e2-3226-47f0-937f-ed07a59c8e67" isOneWay="false" action="" name="registerNewUser" bindingOperationName="registerNewUser" type="Request-Response" outputName="registerNewUserResponse" inputName="registerNewUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a9552e53-e7f4-4f71-818b-1184c6f32104" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
    <soapenv:Header/>
    <soapenv:Body>
       <ers:registerNewUser>
          <!--Optional:-->
-         <arg0>?</arg0>
-         <arg1>?</arg1>
+         <arg0>joe1</arg0>
+         <arg1>2</arg1>
       </ers:registerNewUser>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/registerNewUser"/></con:call></con:operation></con:interface><con:testSuite id="86255daa-30f1-4ed9-bdb9-f1d6d52df024" name="ErstiHelferOnlineIntegrationServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="0ccb5bf2-2a8e-4207-9350-3d6ad11a1d4c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="changeGroup TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="e610afeb-99fd-4a95-bb42-4d7e6024c3e8" name="changeGroup"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ErstiHelferOnlineIntegrationServiceSoapBinding</con:interface><con:operation>changeGroup</con:operation><con:request name="changeGroup" id="f1f4e2e0-b858-40fd-89f6-2b1a8d2a31d3"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://erstihelfer.erstihelfer.de/ErstiHelferOnlineIntegration/registerNewUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="86255daa-30f1-4ed9-bdb9-f1d6d52df024" name="ErstiHelferOnlineIntegrationServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="0ccb5bf2-2a8e-4207-9350-3d6ad11a1d4c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="changeGroup TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="e610afeb-99fd-4a95-bb42-4d7e6024c3e8" name="changeGroup"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ErstiHelferOnlineIntegrationServiceSoapBinding</con:interface><con:operation>changeGroup</con:operation><con:request name="changeGroup" id="f1f4e2e0-b858-40fd-89f6-2b1a8d2a31d3"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/erstihelfer/ErstiHelferOnlineIntegration</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ers="http://erstihelfer.erstihelfer.de/">
    <soapenv:Header/>
    <soapenv:Body>
       <ers:changeGroup>
