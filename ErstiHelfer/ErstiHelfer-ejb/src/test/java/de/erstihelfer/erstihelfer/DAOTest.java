@@ -60,5 +60,14 @@ public class DAOTest {
 		assert session1 != session2 : "Session-IDs nicht unterschiedlich!";
 	}
 
-
+	@Test
+	public void testUpdate() throws Exception {
+		User joe = dao.findUserByName("joe");
+		User joe2=dao.createUser("joe2", 2);
+		joe=dao.update(joe2);
+	    assert joe.getUsername()=="joe2" : "Username nicht unterschiedlich!";
+	    assert joe.getGroupNr() ==2 : "GroupNr nicht unterschiedlich!";
+	
+		
+	}
 }
