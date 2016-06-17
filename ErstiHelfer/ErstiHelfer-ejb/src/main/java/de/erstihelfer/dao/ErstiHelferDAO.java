@@ -145,11 +145,11 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	}
 
 	/**
-	 * Gibt den ersten Termin mit entsprechendem Titel zurück
+	 * Gibt den aktuellsten Termin mit entsprechendem Titel zurück
 	 */
 	@SuppressWarnings("unchecked")
 	public Appointment findAppointmentByTitle(String title) {
-		List<Appointment> results = em.createQuery("SELECT a FROM Appointment a WHERE a.title LIKE :title")
+		List<Appointment> results = em.createQuery("SELECT a FROM Appointment a WHERE a.title LIKE :title ORDER BY a.startTime")
 				.setParameter("title", title).setMaxResults(1).getResultList();
 		if (results.size() == 1) {
 			return (Appointment) results.get(0);
