@@ -29,6 +29,7 @@ public interface ErstiHelferDAOLocal {
 	public void addGroupToAppointment(int groupNr, int appointmentID);
 	public void createAppointment(Appointment appointment);
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr);
+	public Appointment findAppointmentByTitle(String title);
 	public User createUser(String username, int group);
 	public ErstiHelferSession findSessionById(int id);
      

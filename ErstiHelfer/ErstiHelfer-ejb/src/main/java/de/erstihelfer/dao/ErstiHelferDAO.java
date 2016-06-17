@@ -144,14 +144,19 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		return q.getResultList();
 	}
 
-	/*
-	 * public List<Appointment> getAppointment(Date timestamp, int count, int
-	 * groupNr) { // TODO: SELECT-Query List results = em.createQuery(
-	 * "SELECT * FROM appointment a WHERE a.starttime >= GETDATE()  LIKE :appoint"
-	 * ) .setParameter("appoint", timestamp).getResultList(); if (results.size()
-	 * == 1) { return (List<Appointment>) results; } else { return null; } }
-	 * 
+	/**
+	 * Gibt den ersten Termin mit entsprechendem Titel zurück
 	 */
+	@SuppressWarnings("unchecked")
+	public Appointment findAppointmentByTitle(String title) {
+		List<Appointment> results = em.createQuery("SELECT a FROM Appointment a WHERE a.title LIKE :title")
+				.setParameter("title", title).setMaxResults(1).getResultList();
+		if (results.size() == 1) {
+			return (Appointment) results.get(0);
+		} else {
+			return null;
+		}
+	}
 
 	/**
 	 * Aktualisiert ein User in der Datenbank
