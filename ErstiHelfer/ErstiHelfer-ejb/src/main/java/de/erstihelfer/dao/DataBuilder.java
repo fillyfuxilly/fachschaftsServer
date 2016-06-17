@@ -58,6 +58,7 @@ public class DataBuilder {
 		Appointment app = dao.findAppointmentByTitle(title1);
 		if(app == null) {
 			app = new Appointment(title1,location1,new Date(),location1);
+			app.getUsers().add(user1);
 			em.persist(app);
 			logger.info("Neu angelegt:" + app);
 		}
