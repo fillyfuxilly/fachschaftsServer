@@ -129,14 +129,10 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 
 	@SuppressWarnings("unchecked")
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
-		
-		Query s = em.createQuery("SELECT count(a) FROM Appointment a");
-		Number result = (Number) s.getSingleResult ();
-		System.out.println("TERMINE GESAMT: "+ result.toString());
-		
 		// Query-String
 		StringBuilder qString = new StringBuilder();
-		qString.append("SELECT a FROM User u JOIN u.appointments a WHERE ");
+		qString.append("SELECT a FROM Appointment a WHERE ");
+		//qString.append("SELECT a FROM User u JOIN u.appointments a WHERE ");
 		// alle Termine die mit der Gruppe 'groupNr' verknüpft sind
 		// TODO: Gruppennummer-mapping vorübergehend ausgeschaltet
 		// qString.append("u.groupNr = :groupNr AND");
