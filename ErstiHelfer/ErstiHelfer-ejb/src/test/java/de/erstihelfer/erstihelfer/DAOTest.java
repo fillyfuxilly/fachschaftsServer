@@ -1,5 +1,4 @@
 package de.erstihelfer.erstihelfer;
-
 import javax.ejb.EJB;
 
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -11,7 +10,6 @@ import org.junit.runner.RunWith;
 
 import de.erstihelfer.entities.User;
 import de.erstihelfer.dao.*;
-
 /**
  * 
  * @author Amayda Dominguez
@@ -32,18 +30,16 @@ public class DAOTest {
 				.addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
 				.addAsWebInfResource("META-INF/ejb-jar.xml", "ejb-jar.xml");
 	}
-
+	
 	/**
 	 * Testet ob ein User sich einloggt hat
 	 */
-
 	@Test
 	public void testFindByName() throws Exception {
 		User joe = dao.findUserByName("joe");
 		assert joe != null : "Joe nicht gefunden.";
 		assert joe.getGroupNr() == 1 : "GroupNr ist falsch.";
 	}
-
 	/**
 	 * Testet, ob Sessions unterschiedliche IDs bekommen.
 	 */
@@ -62,6 +58,5 @@ public class DAOTest {
 		joe = dao.update(joe2);
 		assert joe.getUsername() == "joe2" : "Username nicht unterschiedlich!";
 		assert joe.getGroupNr() == 2 : "GroupNr nicht unterschiedlich!";
-
 	}
 }

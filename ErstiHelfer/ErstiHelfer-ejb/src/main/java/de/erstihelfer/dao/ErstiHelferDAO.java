@@ -34,7 +34,7 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	private EntityManager em;
 
 	/**
-	 * Die Methode findet gibt die Termine zurück nach dem Namen
+	 * Die Methode findet eine Session nach dem ID
 	 *
 	 * @see ErstihelferDAOLocal#findSessionById(int)
 	 */
@@ -42,14 +42,9 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		return em.find(ErstiHelferSession.class, id);
 	}
 
+	
 	/**
-	 * Die Methode findet gibt die Termine zurück nach dem Namen
-	 *
-	 * @see ErstihelferDAOLocal#createSession(int)
-	 */
-
-	/**
-	 * Die Methode findet gibt die Termine zurück nach dem Namen
+	 * Die Methode schließt eine Session
 	 *
 	 * @see ErstihelferDAOLocal#closeSession(int)
 	 */
@@ -62,7 +57,7 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	}
 
 	/**
-	 * Die Methode findet gibt die Termine zurück nach dem Namen
+	 * Die Methode findet findet einen user  nach dem username
 	 *
 	 * @see ErstihelferDAOLocal#findUserByName(int)
 	 */
@@ -77,13 +72,23 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		}
 	}
 
+	/**
+	 * @param userName
+     * @param User
+	 * Die Methode erzeugt eine neue Session 
+	 */
 	public int createSession(User user) {
 		ErstiHelferSession newSession = new ErstiHelferSession(user);
 		em.persist(newSession);
 		return newSession.getId();
 	}
 
-	// @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+	/**
+	 * Die Methode erzeugt einen neuen User in der Datenbank
+	 *  @param username
+     * @param groupNr
+	 */
+	
 	public User createUser(String username, int groupNr) {
 		if (findUserByName(username) == null) {
 			User user = new User(username, groupNr);
@@ -163,7 +168,6 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	/**
 	 * Aktualisiert ein User in der Datenbank
 	 */
-
 	public User update(User user) {
 		return em.merge(user);
 	}
