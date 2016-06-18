@@ -1,8 +1,10 @@
 package de.erstihelfer.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -38,10 +40,13 @@ public class Appointment implements Serializable {
 	private Date createdAt;
 
 	@ManyToMany // TODO
+//	@JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {
+//			@JoinColumn(name = "APPOINTMENT_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
+//					@JoinColumn(name = "GROUPNR", referencedColumnName = "GROUPNR") })
 	@JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {
-			@JoinColumn(name = "APPOINTMENT_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
-					@JoinColumn(name = "GROUPNR", referencedColumnName = "GROUPNR") })
-	Set<User> users = new HashSet<User>();
+			@JoinColumn(name = "APPOINTMENT_ID") }, inverseJoinColumns = {
+					@JoinColumn(name = "GROUPNR") })
+	List<User> users = new ArrayList<User>();
 
 	public Appointment() {
 	}
@@ -54,11 +59,11 @@ public class Appointment implements Serializable {
 		this.createdAt = new Date(); // now
 	}
 
-	public Set<User> getUsers() {
+	public List<User> getUsers() {
 		return users;
 	}
 
-	public void setUsers(Set<User> users) {
+	public void setUsers(List<User> users) {
 		this.users = users;
 	}
 
