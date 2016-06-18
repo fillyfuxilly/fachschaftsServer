@@ -70,7 +70,8 @@ public class AppointmentTest {
 	 * Prueft, ob ein Termin gefunden werden kann.
 	 */
 	public void testGetAppointments() throws Exception {
-		dao.createAppointment(new Appointment(title1, location1, new Date(), description1));
+		Appointment testApp = new Appointment(title1, location1, new Date(), description1);
+		dao.createAppointment(testApp);
 		List<Appointment> apps = bean.getAppointments(50, groupNr1);
 		if (apps.size() > 0) {
 			boolean found = false;
@@ -79,7 +80,7 @@ public class AppointmentTest {
 				if (appointment.getTitel().equals(title1) && appointment.getLocation().equals(description1))
 					found = true;
 			}
-			assert found : "Der Testtermin konnte mit getAppointments nicht gefunden werden.";
+			assert found : "Es wurden " + apps.size() + " Termine gefunden, allerdings nicht der Testtermin.";
 		} else {
 			fail("Kein Termin vorhanden");
 		}
