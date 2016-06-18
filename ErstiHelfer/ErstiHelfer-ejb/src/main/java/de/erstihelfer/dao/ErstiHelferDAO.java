@@ -89,7 +89,6 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 *  @param username
      * @param groupNr
 	 */
-	
 	public User createUser(String username, int groupNr) {
 		if (findUserByName(username) == null) {
 			User user = new User(username, groupNr);
@@ -126,18 +125,25 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 			user.addAppointment(app);
 		}
 	}
-
+	
+	/**
+	 * Gibt die Termine ab einem bestimmten Zeitpunkt zurück.
+	 * 
+	 * @param	timestamp	Es werden nur Termine zurückgegeben, die nach diesem Zeitpunkt stattfinden
+	 * @param	count		Begrenzt die Anzahl der Termine
+	 * @param	groupNr		Gibt die Termine für eine Gruppennummer zurück
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
 		// Query-String
 		StringBuilder qString = new StringBuilder();
-		qString.append("SELECT a FROM Appointment a");
+		qString.append("SELECT a FROM Appointment a WHERE");
 		//qString.append("SELECT a FROM User u JOIN u.appointments a WHERE ");
 		// alle Termine die mit der Gruppe 'groupNr' verknüpft sind
 		// TODO: Gruppennummer-mapping vorübergehend ausgeschaltet
 		// qString.append("u.groupNr = :groupNr AND");
 		// und die nach 'timestamp' stattfinden
-		//qString.append(" a.startTime >= :timestamp");
+		qString.append(" a.startTime >= :timestamp");
 		// und die nach 'timestamp' stattfinden
 		// sortiert nach der Startzeit
 		qString.append(" ORDER BY a.startTime");
@@ -145,7 +151,7 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		Query q = em.createQuery(qString.toString(), Appointment.class);
 		// maximal 'count' Termine
 		q.setMaxResults(count);
-		//q.setParameter("timestamp", timestamp);
+		q.setParameter("timestamp", timestamp);
 		// TODO: q.setParameter("groupNr", groupNr);
 
 		return q.getResultList();

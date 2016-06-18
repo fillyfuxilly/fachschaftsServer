@@ -38,10 +38,10 @@ public class User implements Serializable {
 	 */
 	private int groupNr;
 
-	@ManyToMany(mappedBy="users")
-//	@JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {
-//			@JoinColumn(name = "GROUPNR", referencedColumnName = "GROUPNR") }, inverseJoinColumns = {
-//					@JoinColumn(name = "APPOINTMENT_ID", referencedColumnName = "ID") })
+	@ManyToMany
+	 @JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {
+		@JoinColumn(name = "GROUPNR") }, inverseJoinColumns = {
+					@JoinColumn(name = "APPOINTMENT_ID") })
 	List<Appointment> appointments = new ArrayList<Appointment>();
 
 	public User() {
@@ -56,7 +56,6 @@ public class User implements Serializable {
 
 		this.username = username;
 		this.groupNr = groupNr;
-
 	}
 
 	/**
