@@ -38,7 +38,7 @@ public class User implements Serializable {
 	 */
 	private int groupNr;
 
-	@ManyToMany(mappedBy="users")
+	@ManyToMany
 	 @JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {
 		@JoinColumn(name = "GROUPNR", referencedColumnName = "GROUPNR") }, inverseJoinColumns = {
 					@JoinColumn(name = "APPOINTMENT_ID", referencedColumnName = "ID") })
