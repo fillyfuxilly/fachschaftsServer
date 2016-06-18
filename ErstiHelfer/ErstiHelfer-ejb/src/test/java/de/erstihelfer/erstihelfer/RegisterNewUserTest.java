@@ -58,4 +58,14 @@ public class RegisterNewUserTest {
 		UserLoginResponse loginResponse2 = bean.registerNewUser("Hans", 5);
 		assertEquals("Returncode sollte 30 sein, wenn username bereits vorhanden", loginResponse2.getReturnCode(), 30);
 	}
+	
+	@Test
+	/**
+	 * Prueft, ob zwei User mit gleicher Gruppennummer registriert werden können
+	 */
+	public void testGroupNrCollision() throws Exception {
+		bean.registerNewUser("Hans", 4);
+		UserLoginResponse loginResponse2 = bean.registerNewUser("Peter", 4);
+		assertEquals("Zwei User mit derselben Gruppenummer konnten sich nicht registrieren", loginResponse2.getReturnCode(), 0);
+	}
 }
