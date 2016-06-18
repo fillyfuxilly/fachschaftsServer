@@ -75,6 +75,7 @@ public class AppointmentTest {
 		if (apps.size() > 0) {
 			boolean found = false;
 			for (Appointment appointment : apps) {
+				if (appointment.getTitel() != null && appointment.getLocation() != null)
 				if (appointment.getTitel().equals(title1) && appointment.getLocation().equals(description1))
 					found = true;
 			}
