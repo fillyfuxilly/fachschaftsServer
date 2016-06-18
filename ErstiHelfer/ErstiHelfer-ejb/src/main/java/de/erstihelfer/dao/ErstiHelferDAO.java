@@ -131,13 +131,13 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
 		// Query-String
 		StringBuilder qString = new StringBuilder();
-		qString.append("SELECT a FROM Appointment a WHERE ");
+		qString.append("SELECT a FROM Appointment a");
 		//qString.append("SELECT a FROM User u JOIN u.appointments a WHERE ");
 		// alle Termine die mit der Gruppe 'groupNr' verknüpft sind
 		// TODO: Gruppennummer-mapping vorübergehend ausgeschaltet
 		// qString.append("u.groupNr = :groupNr AND");
 		// und die nach 'timestamp' stattfinden
-		qString.append(" a.startTime >= :timestamp");
+		//qString.append(" a.startTime >= :timestamp");
 		// und die nach 'timestamp' stattfinden
 		// sortiert nach der Startzeit
 		qString.append(" ORDER BY a.startTime");
