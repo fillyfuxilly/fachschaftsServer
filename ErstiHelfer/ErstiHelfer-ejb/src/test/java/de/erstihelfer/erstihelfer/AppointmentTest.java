@@ -72,11 +72,11 @@ public class AppointmentTest {
 	public void testGetAppointments() throws Exception {
 		dao.createAppointment(new Appointment(title1, location1, new Date(), description1));
 		List<Appointment> apps = bean.getAppointments(50, groupNr1);
-		if (apps.size() < 1) {
+		if (apps.size() > 0) {
 			boolean found = false;
 			for (Appointment appointment : apps) {
 				if (appointment.getTitel().equals(title1) && appointment.getLocation().equals(description1))
-				found = true;
+					found = true;
 			}
 			assert found : "Der Testtermin konnte mit getAppointments nicht gefunden werden.";
 		} else {
