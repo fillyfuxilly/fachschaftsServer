@@ -88,7 +88,7 @@ public class ErstiHelferOnlineIntegration {
 	 * @param password
 	 * @return
 	 */
-	public UserLoginResponse login(String username, String password) {
+	/*public UserLoginResponse login1(String username, String password) {
 		UserLoginResponse response = new UserLoginResponse();
 		try {
 			User user = this.dao.findUserByName(username);
@@ -107,7 +107,7 @@ public class ErstiHelferOnlineIntegration {
 			response.setMessage(e.getMessage());
 		}
 		return response;
-	}
+	}*/
 
 	/**
 	 * Ermöglicht ein User sich in dem System zu anmelden
@@ -118,7 +118,7 @@ public class ErstiHelferOnlineIntegration {
 	 * 
 	 */
 
-	public UserLoginResponse login1(String username, int groupNr) {
+	public UserLoginResponse login(String username, int groupNr) {
 		UserLoginResponse response = new UserLoginResponse();
 		try {
 			User user = this.dao.findUserByName(username);
