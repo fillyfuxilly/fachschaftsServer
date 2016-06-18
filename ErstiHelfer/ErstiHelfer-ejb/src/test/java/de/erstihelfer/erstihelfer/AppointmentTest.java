@@ -69,7 +69,7 @@ public class AppointmentTest {
 	/**
 	 * Prueft, ob ein Termin gefunden werden kann.
 	 */
-	public void testGetAppointments() throws Exception {
+	/*public void testGetAppointments() throws Exception {
 		dao.createAppointment(new Appointment(title1, location1, new Date(), description1));
 		List<Appointment> apps = bean.getAppointments(50, groupNr1);
 		if (apps.size() > 0) {
@@ -83,7 +83,7 @@ public class AppointmentTest {
 		} else {
 			fail("Kein Termin vorhanden");
 		}
-	}
+	}*/
 
 	@Test
 	/**
