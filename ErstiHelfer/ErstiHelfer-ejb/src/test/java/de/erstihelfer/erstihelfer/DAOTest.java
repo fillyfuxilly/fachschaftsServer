@@ -1,6 +1,5 @@
 package de.erstihelfer.erstihelfer;
 
-
 import javax.ejb.EJB;
 
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -10,10 +9,8 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-
 import de.erstihelfer.entities.User;
 import de.erstihelfer.dao.*;
-
 
 /**
  * 
@@ -23,32 +20,30 @@ import de.erstihelfer.dao.*;
 
 @RunWith(Arquillian.class)
 public class DAOTest {
-	
+
 	@EJB
 	ErstiHelferOnlineIntegration bean;
 	@EJB
 	ErstiHelferDAOLocal dao;
+
 	@Deployment
-    public static WebArchive createDeployment() {
-    	return ShrinkWrap.create(WebArchive.class, "test.war")
-               .addPackages(true,"de/erstihelfer")
-               .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")               
-               .addAsWebInfResource("META-INF/ejb-jar.xml", "ejb-jar.xml");
+	public static WebArchive createDeployment() {
+		return ShrinkWrap.create(WebArchive.class, "test.war").addPackages(true, "de/erstihelfer")
+				.addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
+				.addAsWebInfResource("META-INF/ejb-jar.xml", "ejb-jar.xml");
 	}
-	
-	
-	
+
 	/**
 	 * Testet ob ein User sich einloggt hat
 	 */
-	
+
 	@Test
 	public void testFindByName() throws Exception {
 		User joe = dao.findUserByName("joe");
-		assert joe!=null : "Joe nicht gefunden.";
-		assert joe.getGroupNr()==1 : "GroupNr ist falsch.";
+		assert joe != null : "Joe nicht gefunden.";
+		assert joe.getGroupNr() == 1 : "GroupNr ist falsch.";
 	}
-	
+
 	/**
 	 * Testet, ob Sessions unterschiedliche IDs bekommen.
 	 */
@@ -60,5 +55,13 @@ public class DAOTest {
 		assert session1 != session2 : "Session-IDs nicht unterschiedlich!";
 	}
 
+	@Test
+	public void testUpdate() throws Exception {
+		User joe = dao.findUserByName("joe");
+		User joe2 = dao.createUser("joe2", 2);
+		joe = dao.update(joe2);
+		assert joe.getUsername() == "joe2" : "Username nicht unterschiedlich!";
+		assert joe.getGroupNr() == 2 : "GroupNr nicht unterschiedlich!";
 
+	}
 }
