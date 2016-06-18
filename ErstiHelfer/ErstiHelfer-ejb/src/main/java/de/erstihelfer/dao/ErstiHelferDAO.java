@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+
 import de.erstihelfer.entities.Appointment;
 import de.erstihelfer.entities.ErstiHelferSession;
 import de.erstihelfer.entities.User;
@@ -128,6 +129,11 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 
 	@SuppressWarnings("unchecked")
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
+		
+		Query s = em.createQuery("SELECT count(a) FROM Appointment a");
+		Number result = (Number) s.getSingleResult ();
+		System.out.println("TERMINE GESAMT: "+ result.toString());
+		
 		// Query-String
 		StringBuilder qString = new StringBuilder();
 		qString.append("SELECT a FROM User u JOIN u.appointments a WHERE ");

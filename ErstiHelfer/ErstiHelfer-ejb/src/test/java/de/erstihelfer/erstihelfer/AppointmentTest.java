@@ -1,12 +1,10 @@
 package de.erstihelfer.erstihelfer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.Resource;
 import javax.ejb.EJB;
 
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -43,7 +41,7 @@ public class AppointmentTest {
 	private Integer groupNr1;
 	private String title1;
 	private String description1;
-	//private String location1;
+	private String location1;
 
 	private Integer groupNr2;
 	private String title2;
@@ -60,7 +58,7 @@ public class AppointmentTest {
 		this.groupNr1 = 1;
 		this.title1 = "Test-Title";
 		this.description1 = "Dieser Termin ist zum Testen da";
-		//this.location1 = "Testumgebung";
+		this.location1 = "Testumgebung";
 		// für testCreateAppointments()
 		this.groupNr2 = 8;
 		this.title2 = "Test-Title2";
@@ -74,13 +72,17 @@ public class AppointmentTest {
 	 * Prueft, ob ein Termin gefunden werden kann.
 	 */
 	public void testGetAppointments() throws Exception {
+		dao.createAppointment(new Appointment(title1, location1, new Date(), description1));
 		List<Appointment> apps = bean.getAppointments(50, groupNr1);
+		if(apps.size() < 1) {
 		boolean found = false;
 		for (Appointment appointment : apps) {
 			if(appointment.getTitel().equals(title1) && appointment.getLocation().equals(description1));
 				found = true;
 		}
 		assert found : "Der Testtermin konnte mit getAppointments nicht gefunden werden.";
+		}else { fail("Kein Termin vorhanden");}
+		
 	}
 
 	@Test
