@@ -17,11 +17,11 @@ import de.erstihelfer.dao.ErstiHelferDAOLocal;
 
 /**
  * 
- * @author Amayda Dominguez 
+ * @author Amayda Dominguez
  * @author Malte Evers
  * 
- * DAO-Session Bean für das Persistenzmanagement
- *         Session Bean Implementation
+ *         DAO-Session Bean für das Persistenzmanagement Session Bean
+ *         Implementation
  * 
  **/
 @Stateless
@@ -88,7 +88,6 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		if (findUserByName(username) == null) {
 			User user = new User(username, groupNr);
 			em.persist(user);
-
 			return user;
 		} else {
 			// Return null, if username already exists.
@@ -128,18 +127,19 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		StringBuilder qString = new StringBuilder();
 		qString.append("SELECT a FROM User u JOIN u.appointments a WHERE ");
 		// alle Termine die mit der Gruppe 'groupNr' verknüpft sind
-		qString.append("u.groupNr = :groupNr");
+		// TODO: Gruppennummer-mapping vorübergehend ausgeschaltet
+		// qString.append("u.groupNr = :groupNr AND");
 		// und die nach 'timestamp' stattfinden
-		qString.append(" AND a.startTime >= :timestamp");
+		qString.append(" a.startTime >= :timestamp");
 		// und die nach 'timestamp' stattfinden
 		// sortiert nach der Startzeit
 		qString.append(" ORDER BY a.startTime");
 		// Erstelle Query aus String
-		Query q = em.createQuery(qString.toString(), Appointment.class );
+		Query q = em.createQuery(qString.toString(), Appointment.class);
 		// maximal 'count' Termine
 		q.setMaxResults(count);
 		q.setParameter("timestamp", timestamp);
-		q.setParameter("groupNr", groupNr);
+		// TODO: q.setParameter("groupNr", groupNr);
 
 		return q.getResultList();
 	}
@@ -149,7 +149,9 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 */
 	@SuppressWarnings("unchecked")
 	public Appointment findAppointmentByTitle(String title) {
-		List<Appointment> results = em.createQuery("SELECT a FROM Appointment a WHERE a.title LIKE :title ORDER BY a.startTime")
+		//Sortiere nach startTime und nehme den ersten Titel.
+		List<Appointment> results = em
+				.createQuery("SELECT a FROM Appointment a WHERE a.title LIKE :title ORDER BY a.startTime")
 				.setParameter("title", title).setMaxResults(1).getResultList();
 		if (results.size() == 1) {
 			return (Appointment) results.get(0);
@@ -161,11 +163,9 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	/**
 	 * Aktualisiert ein User in der Datenbank
 	 */
-	
+
 	public User update(User user) {
-
 		return em.merge(user);
-
 	}
 
 	@Override

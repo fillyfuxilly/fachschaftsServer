@@ -37,5 +37,4 @@ public interface ErstiHelferDAOLocal {
 	public int createSession(User user);
 	public void closeSession(int id);
 	public User update(User user);
-
 }
