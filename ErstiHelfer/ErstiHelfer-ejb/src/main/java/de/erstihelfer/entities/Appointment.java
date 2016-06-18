@@ -43,9 +43,9 @@ public class Appointment implements Serializable {
 //	@JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {
 //			@JoinColumn(name = "APPOINTMENT_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
 //					@JoinColumn(name = "GROUPNR", referencedColumnName = "GROUPNR") })
-	@JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {
+	/*@JoinTable(name = "GROUP_APPOINTMENT", joinColumns = {
 			@JoinColumn(name = "APPOINTMENT_ID") }, inverseJoinColumns = {
-					@JoinColumn(name = "GROUPNR") })
+					@JoinColumn(name = "GROUPNR") })*/
 	List<User> users = new ArrayList<User>();
 
 	public Appointment() {
