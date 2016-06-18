@@ -96,7 +96,8 @@ public class AppointmentTest {
 		assertEquals("Der Titel wurde nicht richtig erstellt", app.getTitel(), title2);
 		assertEquals("Der Ort wurde nicht richtig erstellt", app.getLocation(), location2);
 		assertEquals("Die Beschreibung wurde nicht richtig erstellt", app.getDescription(), description2);
-		assertTrue("Der Zeitpunkt wurde nicht richtig erstellt",
-				app.getCreateAt().getTime() - startTermin.getTime() < 5);
+		Date DBDate = app.getCreateAt();
+		assertTrue("Der Zeitpunkt wurde nicht richtig erstellt. expected: " + startTermin + " but was " + DBDate,
+				DBDate.getTime() - startTermin.getTime() < 100);
 	}
 }
