@@ -56,7 +56,6 @@ public class User implements Serializable {
 
 		this.username = username;
 		this.groupNr = groupNr;
-
 	}
 
 	/**
