@@ -229,7 +229,7 @@ public class ErstiHelferOnlineIntegration {
 		cal.getTime();
 		cal.add(Calendar.HOUR, -1);
 		Date oneHourBack = cal.getTime();
-		logger.info(count + " Termine ab: " + oneHourBack.toString() + " werden gesucht.");
+		logger.info("Termine ab: " + oneHourBack.toString() + " werden gesucht.");
 		return dao.getAppointments(oneHourBack, count, groupNr);
 	}
 }
