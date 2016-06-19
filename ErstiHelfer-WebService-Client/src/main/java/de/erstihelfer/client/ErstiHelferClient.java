@@ -22,7 +22,6 @@ public class ErstiHelferClient {
 	/**
 	 * In dieser Main-Methode werden Requests an den Server abgeschickt.
 	 * 
-	 * @param args
 	 */
 	public static void main(String[] args) {
 		try {

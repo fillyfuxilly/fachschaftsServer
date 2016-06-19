@@ -74,7 +74,6 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	}
 
 	/**
-	 * @param userName
      * @param User
 	 * Die Methode erzeugt eine neue Session 
 	 */
@@ -86,8 +85,8 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 
 	/**
 	 * Die Methode erzeugt einen neuen User in der Datenbank
-	 *  @param username
-     * @param groupNr
+	 *  @param username	Name des Users
+     * @param groupNr	Gruppennummer
 	 */
 	public User createUser(String username, int groupNr) {
 		if (findUserByName(username) == null) {
@@ -108,8 +107,8 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 * Diese Methode setzt Beziehungen zwischen Appointments und Usern(bzw.
 	 * deren Gruppen)
 	 * 
-	 * @param groupNr
-	 * @param appointmentID
+	 * @param groupNr	Gruppennummer
+	 * @param appointmentID	ID des Termins
 	 */
 	@SuppressWarnings("unchecked")
 	public void addGroupToAppointment(int groupNr, int appointmentID) {
@@ -182,7 +181,7 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 
 	@Override
 	public String getServerStatus() {
-		// TODO Auto-generated method stub
+		// TODO
 		return null;
 	}
 
