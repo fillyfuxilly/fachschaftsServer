@@ -12,7 +12,8 @@ import org.jboss.logging.Logger;
 
 import de.erstihelfer.output.OutputRequestProcessor;
 
-/**
+/** @author Amayda Dominguez
+ * 
  * Message-Driven Bean implementation class for: OutputRequestProcessor
  */
 @MessageDriven(
