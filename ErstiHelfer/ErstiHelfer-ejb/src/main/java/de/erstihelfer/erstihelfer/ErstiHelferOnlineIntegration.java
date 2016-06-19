@@ -112,8 +112,8 @@ public class ErstiHelferOnlineIntegration {
 	 * Ermöglicht ein User sich in dem System zu anmelden
 	 * 
 	 * @return response	ResponseCode ist 0 wenn erfolgreich
-	 * @param username,
-	 *            groupNr
+	 * @param username
+	 * @param groupNr
 	 * 
 	 */
 
@@ -175,7 +175,7 @@ public class ErstiHelferOnlineIntegration {
 	 * Ermöglicht den User abzumelden
 	 * 
 	 * @param sessionId
-	 * @return
+	 * @return response
 	 */
 	public ReturnCodeResponse logout(int sessionId) {
 		dao.closeSession(sessionId);
