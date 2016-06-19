@@ -3,7 +3,11 @@ package de.erstihelfer.dao;
 import javax.ejb.ApplicationException;
 
 import de.erstihelfer.erstihelfer.ErstiHelferException;
-
+/**
+ * 
+ * @author Amayda Dominguez
+ *
+ */
 @ApplicationException(rollback=false) 
 public class SomeProblemOccuredException extends ErstiHelferException{
 	private static final long serialVersionUID = 1L;
