@@ -14,7 +14,12 @@ import org.jboss.logging.Logger;
 
 import de.erstihelfer.entities.Appointment;
 import de.erstihelfer.entities.User;
-
+/**
+ * 
+ * @author Amayda Dominguez
+ *
+ */
+ 
 /**
  * Session Bean implementation class DataBuilder
  */
