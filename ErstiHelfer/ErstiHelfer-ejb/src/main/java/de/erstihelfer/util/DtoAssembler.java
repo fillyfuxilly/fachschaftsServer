@@ -9,9 +9,9 @@ import de.erstihelfer.entities.User;
 /**
  * 
  * @author Amayda Dominguez
- * Klasse DTO Assembler für die Übersetzung zwischen DTOs und Entities
- * Der Assembler ist dafür zuständig, DTOs aus Modellobjekten  zu  erstellen  bzw.  bestehende  Modellobjekte anhand der DTO-Daten zu verändern
  * 
+ * Klasse DTO Assembler für die Übersetzung zwischen DTOs und Entities
+ * Der Assembler ist dafür zuständig, DTOs aus Modellobjekten  zu  erstellen  bzw.  bestehende  Modellobjekte anhand der DTO-Daten zu verändern.
  * Diese stateless session bean stellt Operationen für Generierung der data transfer objects 
  * 
  *

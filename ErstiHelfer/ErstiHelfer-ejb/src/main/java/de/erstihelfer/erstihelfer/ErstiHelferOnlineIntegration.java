@@ -30,7 +30,6 @@ import de.erstihelfer.erstihelfer.ErstiHelferException;
  * 
  *         Diese Stateless Session Bean stellt die ErstiHelfer-Operationen als
  *         Webservice bereit.
- * 
  *         Session Beans als Web Service veröffentlicht(Annotation @WebService)
  */
 
@@ -112,7 +111,7 @@ public class ErstiHelferOnlineIntegration {
 	/**
 	 * Ermöglicht ein User sich in dem System zu anmelden
 	 * 
-	 * @return response
+	 * @return response	ResponseCode ist 0 wenn erfolgreich
 	 * @param username,
 	 *            groupNr
 	 * 
