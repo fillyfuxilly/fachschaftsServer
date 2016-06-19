@@ -53,7 +53,6 @@ public class AppointmentTO extends DataTransferObject {
 		this.id = id;
 
 	}
-
 	/**
 	 * 
 	 * @return title
