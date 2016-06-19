@@ -64,6 +64,9 @@ public class ErstiHelferClient {
 		}
 	}
 
+	/**
+	 * Test-Szenario: Es wird ein Termin erstellt und gesucht
+	 */
 	private static void test_CreateAndGetAppointments() throws DatatypeConfigurationException {
 		// erzeuge Datum als XMLGregorianCalendar
 		GregorianCalendar startTime = new GregorianCalendar(2015, 9, 1, 12, 0);

@@ -10,7 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-
 import de.erstihelfer.entities.Appointment;
 import de.erstihelfer.entities.ErstiHelferSession;
 import de.erstihelfer.entities.User;
@@ -43,7 +42,6 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 		return em.find(ErstiHelferSession.class, id);
 	}
 
-	
 	/**
 	 * Die Methode schließt eine Session
 	 *
@@ -58,7 +56,7 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	}
 
 	/**
-	 * Die Methode findet findet einen user  nach dem username
+	 * Die Methode findet findet einen user nach dem username
 	 *
 	 * @see ErstihelferDAOLocal#findUserByName(int)
 	 */
@@ -74,8 +72,10 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	}
 
 	/**
-     * @param User
-	 * Die Methode erzeugt eine neue Session 
+	 * @param user
+	 *            User, für den die Session erzeugt wird
+	 * 
+	 *            Die Methode erzeugt eine neue Session
 	 */
 	public int createSession(User user) {
 		ErstiHelferSession newSession = new ErstiHelferSession(user);
@@ -85,8 +85,11 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 
 	/**
 	 * Die Methode erzeugt einen neuen User in der Datenbank
-	 *  @param username	Name des Users
-     * @param groupNr	Gruppennummer
+	 * 
+	 * @param username
+	 *            Name des Users
+	 * @param groupNr
+	 *            Gruppennummer
 	 */
 	public User createUser(String username, int groupNr) {
 		if (findUserByName(username) == null) {
@@ -107,8 +110,10 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	 * Diese Methode setzt Beziehungen zwischen Appointments und Usern(bzw.
 	 * deren Gruppen)
 	 * 
-	 * @param groupNr	Gruppennummer
-	 * @param appointmentID	ID des Termins
+	 * @param groupNr
+	 *            Gruppennummer
+	 * @param appointmentID
+	 *            ID des Termins
 	 */
 	@SuppressWarnings("unchecked")
 	public void addGroupToAppointment(int groupNr, int appointmentID) {
@@ -124,20 +129,24 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 			user.addAppointment(app);
 		}
 	}
-	
+
 	/**
 	 * Gibt die Termine ab einem bestimmten Zeitpunkt zurück.
 	 * 
-	 * @param	timestamp	Es werden nur Termine zurückgegeben, die nach diesem Zeitpunkt stattfinden
-	 * @param	count		Begrenzt die Anzahl der Termine
-	 * @param	groupNr		Gibt die Termine für eine Gruppennummer zurück
+	 * @param timestamp
+	 *            Es werden nur Termine zurückgegeben, die nach diesem Zeitpunkt
+	 *            stattfinden
+	 * @param count
+	 *            Begrenzt die Anzahl der Termine
+	 * @param groupNr
+	 *            Gibt die Termine für eine Gruppennummer zurück
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Appointment> getAppointments(Date timestamp, int count, int groupNr) {
 		// Query-String
 		StringBuilder qString = new StringBuilder();
 		qString.append("SELECT a FROM Appointment a WHERE");
-		//qString.append("SELECT a FROM User u JOIN u.appointments a WHERE ");
+		// qString.append("SELECT a FROM User u JOIN u.appointments a WHERE ");
 		// alle Termine die mit der Gruppe 'groupNr' verknüpft sind
 		// TODO: Gruppennummer-mapping vorübergehend ausgeschaltet
 		// qString.append("u.groupNr = :groupNr AND");
@@ -158,10 +167,13 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 
 	/**
 	 * Gibt den aktuellsten Termin mit entsprechendem Titel zurück
+	 * 
+	 * @param title
+	 *            Titel des Termins
 	 */
 	@SuppressWarnings("unchecked")
 	public Appointment findAppointmentByTitle(String title) {
-		//Sortiere nach startTime und nehme den ersten Titel.
+		// Sortiere nach startTime und nehme den ersten Titel.
 		List<Appointment> results = em
 				.createQuery("SELECT a FROM Appointment a WHERE a.title LIKE :title ORDER BY a.startTime")
 				.setParameter("title", title).setMaxResults(1).getResultList();
@@ -173,7 +185,7 @@ public class ErstiHelferDAO implements ErstiHelferDAOLocal {
 	}
 
 	/**
-	 * Aktualisiert ein User in der Datenbank
+	 * Aktualisiert einen User in der Datenbank
 	 */
 	public User update(User user) {
 		return em.merge(user);

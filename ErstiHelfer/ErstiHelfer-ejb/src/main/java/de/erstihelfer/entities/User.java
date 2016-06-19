@@ -60,7 +60,7 @@ public class User implements Serializable {
 
 	/**
 	 * 
-	 * @return
+	 * @return Liste aller Termine für den User
 	 */
 	public List<Appointment> getAppointments() {
 		return appointments;

@@ -4,10 +4,11 @@ import java.util.Date;
 
 /**
  * 
- * @author Amayda Dominguez AppointmentTo ermöglicht es uns, den Client
- *         unabhängig vom POJO-Modell zu halten. Zwar könnten wir auch die
- *         Modellklassen direkt an den Client weitergeben, da sie normale
- *         Java-Klassen sind.
+ * @author Amayda Dominguez
+ * 
+ *         AppointmentTo ermöglicht es uns, den Client unabhängig vom
+ *         POJO-Modell zu halten. Zwar könnten wir auch die Modellklassen direkt
+ *         an den Client weitergeben, da sie normale Java-Klassen sind.
  */
 
 public class AppointmentTO extends DataTransferObject {

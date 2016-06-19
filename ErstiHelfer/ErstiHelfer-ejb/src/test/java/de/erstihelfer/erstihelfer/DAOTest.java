@@ -40,6 +40,7 @@ public class DAOTest {
 		assert joe != null : "Joe nicht gefunden.";
 		assert joe.getGroupNr() == 1 : "GroupNr ist falsch.";
 	}
+	
 	/**
 	 * Testet, ob Sessions unterschiedliche IDs bekommen.
 	 */
@@ -51,6 +52,9 @@ public class DAOTest {
 		assert session1 != session2 : "Session-IDs nicht unterschiedlich!";
 	}
 
+	/**
+	 * Testet, ob man die Gruppe eine Users bearbeiten kann
+	 */
 	@Test
 	public void testUpdate() throws Exception {
 		User joe = dao.findUserByName("joe");
